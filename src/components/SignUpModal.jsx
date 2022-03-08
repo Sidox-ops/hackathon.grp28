@@ -14,38 +14,25 @@ import {
   ModalOverlay,
   useDisclosure,
 } from "@chakra-ui/react";
-import React, { useContext, useRef } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../context/userContext";
 import { useNavigate } from "react-router-dom";
 
 export default function SignUpModal() {
+  const navigate = useNavigate();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { signUp } = useContext(UserContext);
-  const [showPassword, setShowPassword] = React.useState(false);
-  const navigate = useNavigate();
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
 
   const handleClick = () => setShowPassword(!showPassword);
-
-  const inputs = useRef([]);
-  const formRef = useRef();
-  const addInputs = (el) => {
-    if (el && !inputs.current.includes(el)) {
-      inputs.current.push(el);
-    }
-  };
 
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      const credentials = await signUp(
-        inputs.current[0].value,
-        inputs.current[1].value
-      );
-      console.log(
-        "%cSignUpModal.jsx line:44 credentials",
-        "color: #007acc;",
-        credentials
-      );
+      await signUp(email, password);
       navigate("/private/private-home");
       onClose();
     } catch (error) {
@@ -70,17 +57,21 @@ export default function SignUpModal() {
           <ModalHeader>Sign up</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <FormControl ref={formRef}>
+            <FormControl>
               <FormLabel htmlFor="email">Email address</FormLabel>
-              <Input id="email" type="email" ref={addInputs} />
+              <Input
+                id="email"
+                type="email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
               <FormHelperText>We'll never share your email.</FormHelperText>
 
               <Box marginTop="10px" position="relative">
                 <Input
                   id="password"
-                  ref={addInputs}
                   type={showPassword ? "text" : "password"}
                   placeholder="Enter password"
+                  onChange={(e) => setPassword(e.target.value)}
                 />
                 <Button
                   zIndex="1"

@@ -14,31 +14,25 @@ import {
   ModalOverlay,
   useDisclosure,
 } from "@chakra-ui/react";
-import React, { useContext, useRef } from "react";
+import React, { useContext, useState } from "react";
 import { UserContext } from "../context/userContext";
 import { useNavigate } from "react-router-dom";
 
 export default function SignUpModal() {
+  const navigate = useNavigate();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { signIn } = useContext(UserContext);
-  const [showPassword, setShowPassword] = React.useState(false);
-  const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
 
   const handleClick = () => setShowPassword(!showPassword);
-
-  const inputs = useRef([]);
-  const formRef = useRef();
-  const addInputs = (el) => {
-    if (el && !inputs.current.includes(el)) {
-      inputs.current.push(el);
-    }
-  };
 
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      // await signIn(inputs.current[0].value, inputs.current[1].value);
-      // navigate("/private/private-home");
+      await signIn(email, password);
+      navigate("/private/private-home");
       onClose();
     } catch {
       alert("email or password invalid");
@@ -57,16 +51,20 @@ export default function SignUpModal() {
           <ModalHeader>Sign in</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <FormControl ref={formRef}>
+            <FormControl>
               <FormLabel htmlFor="email">Email address</FormLabel>
-              <Input id="emailSignIn" type="email" ref={addInputs} />
+              <Input
+                id="emailSignIn"
+                type="email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
 
               <Box marginTop="10px" position="relative">
                 <Input
                   id="passwordSignIn"
-                  ref={addInputs}
                   type={showPassword ? "text" : "password"}
                   placeholder="Enter password"
+                  onChange={(e) => setPassword(e.target.value)}
                 />
                 <Button
                   zIndex="1"
