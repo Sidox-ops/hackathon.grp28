@@ -31,7 +31,7 @@ export default function SignUpModal() {
     e.preventDefault();
     try {
       await signIn(email, password);
-      navigate("/private/private-home");
+      navigate("/admin/admin-home");
       onClose();
     } catch {
       alert("email or password invalid");

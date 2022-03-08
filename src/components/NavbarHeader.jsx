@@ -3,24 +3,15 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import SignUpModal from "./SignUpModal";
 import SignInModal from "./SignInModal";
-import { signOut, getAuth } from "firebase/auth";
+import { signOut } from "firebase/auth";
 import { auth } from "../firebase.config";
 
-export default function Navbar() {
+export default function NavbarHeader() {
   const navigate = useNavigate();
   const logout = async () => {
     try {
-      // await signOut(auth);
-      // navigate("/");
-      const auth2 = getAuth();
-      signOut(auth2)
-        .then(() => {
-          // Sign-out successful.
-          navigate("/");
-        })
-        .catch((error) => {
-          // An error happened.
-        });
+      await signOut(auth);
+      navigate("/");
     } catch (error) {
       alert("we cant sign out");
     }

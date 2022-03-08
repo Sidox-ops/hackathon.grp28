@@ -1,17 +1,17 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Navbar from "./components/Navbar";
-import Private from "./pages/Private/Private";
-import PrivateHome from "./pages/Private/PrivateHome/PrivateHome";
+import NavbarHeader from "./components/NavbarHeader";
+import Admin from "./pages/Admin/Admin";
+import AdminHome from "./pages/Admin/AdminHome/AdminHome";
 
 function App() {
   return (
     <>
-      <Navbar />
+      <NavbarHeader />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/private" element={<Private />}>
-          <Route path="/private/private-home" element={<PrivateHome />} />
+        <Route path="/admin" element={<Admin />}>
+          <Route path="/admin/admin-home" element={<AdminHome />} />
         </Route>
       </Routes>
     </>
