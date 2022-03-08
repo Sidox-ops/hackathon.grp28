@@ -29,7 +29,7 @@ export function UserContextProvider(props) {
   }, []);
 
   return (
-    <UserContext.Provider value={{ signUp, signIn }}>
+    <UserContext.Provider value={{ signUp, signIn, currentUser }}>
       {!loadingData && props.children}
     </UserContext.Provider>
   );
