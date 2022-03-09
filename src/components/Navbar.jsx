@@ -2,9 +2,12 @@ import { Box, Text } from "@chakra-ui/react";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
+import { useTranslation } from "react-i18next";
+import { Select } from "@chakra-ui/react";
 
 export default function Navbar(props) {
   const navigate = useNavigate();
+  const [t, i18n] = useTranslation("common");
   // const [displayed, setDisplayed] = useState("none");
   // const logout = async () => {
   //   try {
@@ -53,14 +56,21 @@ export default function Navbar(props) {
           <Box flex="auto">
             <Box display="flex" justifyContent="space-between" color="white">
               <Box margin="auto">
-                <Link to="/">Become a panelist</Link>
+                <Link to="/">{t("become_a_panelist")}</Link>
               </Box>
               <Box margin="auto">
-                <Link to="/">Contact us</Link>
+                <Link to="/">{t("contact_us")}</Link>
               </Box>
               <Box margin="auto">
-                <Link to="/">Sign in</Link>
+                <Link to="/">{t("sign_in")}</Link>
               </Box>
+              <Select
+                width="70px"
+                onChange={(e) => i18n.changeLanguage(e.target.value)}
+              >
+                <option value="en">EN</option>
+                <option value="fr">FR</option>
+              </Select>
             </Box>
           </Box>
         </Box>
