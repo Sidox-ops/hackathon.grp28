@@ -1,15 +1,19 @@
 import { Box, Text } from "@chakra-ui/react";
-import React, { useContext, useState } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { signOut } from "firebase/auth";
-import { auth } from "../firebase.config";
-import { UserContext } from "../context/userContext";
 import logo from "../assets/logo.png";
 
 export default function Navbar(props) {
   const navigate = useNavigate();
   // const [displayed, setDisplayed] = useState("none");
-
+  // const logout = async () => {
+  //   try {
+  //     await signOut(auth);
+  //     navigate("/");
+  //   } catch (error) {
+  //     alert("we cant sign out");
+  //   }
+  // };
   return (
     <>
       <Box width="100vw" height="4vh" backgroundColor="#1C2834"></Box>
