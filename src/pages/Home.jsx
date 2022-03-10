@@ -6,6 +6,10 @@ import { Box, Link } from "@chakra-ui/react";
 import Navbar from "../components/Navbar";
 import Wave from "../components/Wave";
 
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
+// const { t } = useTranslation();
+
 const products = [
   {
     key: 1,
@@ -40,6 +44,9 @@ const products = [
 ];
 
 export default function Home() {
+
+  const { t } = useTranslation();
+  
   return (
     <>
       <Navbar
@@ -84,7 +91,7 @@ export default function Home() {
               textButton="Learn more"
             />
             {products.map((i, index) => (
-              <ProductHomeBloc title={i.title} text={i.text} />
+              <ProductHomeBloc title={i.title} text={i.text} key={index}/>
             ))}
           </Box>
         </Box>

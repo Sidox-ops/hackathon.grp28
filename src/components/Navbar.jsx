@@ -1,23 +1,90 @@
-import { Box, Text } from "@chakra-ui/react";
-import React from "react";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  Button,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  IconButton,
+  Box,
+  Text,
+  Select,
+} from "@chakra-ui/react";
+import {
+  ArrowRightIcon,
+  AddIcon,
+  HamburgerIcon,
+  ChevronDownIcon,
+} from "@chakra-ui/icons";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import SignUpModal from "./SignUpModal";
+import SignInModal from "./SignInModal";
+import { signOut, getAuth } from "firebase/auth";
+import { auth } from "../firebase.config";
+import { UserContext } from "../context/userContext";
 import logo from "../assets/logo.png";
+
+// import 'flag-icon-css/css/flag-icon.css'
+
 import { useTranslation } from "react-i18next";
 import { Select } from "@chakra-ui/react";
 import SignInModal from "./SignInModal";
+import i18next from "i18next";
+// import cookies from 'js-cookie';
+
+const valueHeightNavBar = "5rem";
+
+const languages = [
+  {
+    code: "en",
+    name: "English",
+    county_code: "gb",
+  },
+  {
+    code: "fr",
+    name: "Français",
+    county_code: "fr",
+  },
+  {
+    code: "cn",
+    name: "中国人",
+    county_code: "cn",
+  },
+];
 
 export default function Navbar(props) {
   const navigate = useNavigate();
-  const [t, i18n] = useTranslation("common");
-  // const [displayed, setDisplayed] = useState("none");
-  // const logout = async () => {
-  //   try {
-  //     await signOut(auth);
-  //     navigate("/");
-  //   } catch (error) {
-  //     alert("we cant sign out");
-  //   }
-  // };
+  const { currentUser } = useContext(UserContext);
+  const [displayed, setDisplayed] = useState("none");
+
+  // const currentLanguageCode = cookies.get('i18next') || 'en';
+  // const currentLanugage = languages.find(l => l.currentLanguageCode)
+  const { t } = useTranslation();
+
+  const logout = async () => {
+    try {
+      // await signOut(auth);
+      // navigate("/");
+      const auth2 = getAuth();
+      signOut(auth2)
+        .then(() => {
+          // Sign-out successful.
+          navigate("/");
+        })
+        .catch((error) => {
+          alert(error);
+        });
+    } catch (error) {
+      alert("we cant sign out");
+    }
+  };
+
+  useEffect(() => {
+    document.title = t("title");
+  }, [t]);
+
   return (
     <>
       <Box width="100vw" height="4vh" backgroundColor="#1C2834"></Box>
@@ -30,9 +97,14 @@ export default function Navbar(props) {
         <Box display="flex">
           <Box
             cursor="pointer"
-            height="7rem"
-            width="7rem"
-            // onClick={()=>{displayed === 'block' ? setDisplayed('none') : setDisplayed('block')}}
+            height={valueHeightNavBar}
+            width={valueHeightNavBar}
+            marginRight="2rem"
+            onClick={() => {
+              displayed === "block"
+                ? setDisplayed("none")
+                : setDisplayed("block");
+            }}
           >
             <Box width="100%" height="20%" backgroundColor="#fff"></Box>
             <Box width="100%" height="20%"></Box>
@@ -44,7 +116,7 @@ export default function Navbar(props) {
           <Box textColor="#fff">
             <Text textAlign="center">
               <Link to="/">
-                <img src={logo} style={{ height: "7rem" }} />
+                <img src={logo} style={{ height: valueHeightNavBar }} />
               </Link>
             </Text>
           </Box>
@@ -57,18 +129,32 @@ export default function Navbar(props) {
           <Box flex="auto">
             <Box display="flex" justifyContent="space-between" color="white">
               <Box margin="auto">
-                <Link to="/">{t("become_a_panelist")}</Link>
+                <Link to="/">{t("navbarBecome")}</Link>
               </Box>
               <Box margin="auto">
-                <Link to="/">{t("contact_us")}</Link>
+                <Link to="/">{t("navbarContact")}</Link>
               </Box>
-              <SignInModal />
+              <Box margin="auto">
+                {currentUser ? (
+                  <Box onClick={() => logout()} cursor="pointer">
+                    {" "}
+                    {t("navbarSignOut")}{" "}
+                  </Box>
+                ) : (
+                  <SignInModal />
+                )}
+              </Box>
               <Select
-                width="70px"
-                onChange={(e) => i18n.changeLanguage(e.target.value)}
+                width="auto"
+                marginLeft="1rem"
+                onChange={(e) => i18next.changeLanguage(e.target.value)}
               >
-                <option value="en">EN</option>
-                <option value="fr">FR</option>
+                {languages.map(({ code, name, country_code }, index) => (
+                  <option key={index} style={{ color: "#18222E" }} value={code}>
+                    {/* <Box className={`flag-icon flag-icoon-${country_code}`}></Box> */}
+                    {name}
+                  </option>
+                ))}
               </Select>
             </Box>
           </Box>
@@ -77,7 +163,7 @@ export default function Navbar(props) {
       {/* display of the Menu McBurger */}
       <Box>
         <Box display="flex" margin="0 3rem 4rem 3rem" textColor="white">
-          <Box flex="2">
+          <Box flex="2" display={displayed}>
             <Box width="100%">
               <Box textColor="white" fontFamily="Poppins" fontSize="2xl">
                 <Box

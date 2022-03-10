@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 import "./assets/index.css";
 import App from "./App";
@@ -8,32 +8,45 @@ import { UserContextProvider } from "./context/userContext";
 import { I18nextProvider } from "react-i18next";
 import common_fr from "./translations/fr/common.json";
 import common_en from "./translations/en/common.json";
-import i18next from "i18next";
 
-i18next.init({
-  interpolation: { escapeValue: false },
-  lng: "en",
-  resources: {
-    en: {
-      common: common_en,
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+import LanguageDetector from "i18next-browser-languagedetector";
+import HttpApi from "i18next-http-backend";
+
+
+i18n
+  .use(initReactI18next) // passes i18n down to react-i18next
+  .use(LanguageDetector)
+  .use(HttpApi)
+  .init({
+    supportedLngs: ["en", "fr", "cn"],
+    fallbackLng: "en",
+    detection: {
+      order: ["path", "cookie", "htmlTag", "localStorage", "subdomain"],
+      caches: ["cookie"],
     },
-    fr: {
-      common: common_fr,
+    backend: {
+      loadPath: "/locales/{{lng}}/translation.json",
     },
-  },
-});
+    interpolation: {
+      escapeValue: false,
+    },
+  });
+
+export default i18n;
 
 ReactDOM.render(
+  // <Suspense>
   <React.StrictMode>
     <BrowserRouter>
       <ChakraProvider>
         <UserContextProvider>
-          <I18nextProvider i18n={i18next}>
-            <App />
-          </I18nextProvider>
+          <App />
         </UserContextProvider>
       </ChakraProvider>
     </BrowserRouter>
   </React.StrictMode>,
+  // </Suspense> ,
   document.getElementById("root")
 );
