@@ -5,11 +5,14 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 import { UserContextProvider } from "./context/userContext";
+import { I18nextProvider } from "react-i18next";
+import common_fr from "./translations/fr/common.json";
+import common_en from "./translations/en/common.json";
 
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import LanguageDetector from 'i18next-browser-languagedetector';
-import HttpApi from 'i18next-http-backend';
+import LanguageDetector from "i18next-browser-languagedetector";
+import HttpApi from "i18next-http-backend";
 
 
 i18n
@@ -17,34 +20,33 @@ i18n
   .use(LanguageDetector)
   .use(HttpApi)
   .init({
-    supportedLngs: ['en', 'fr', 'cn'],
+    supportedLngs: ["en", "fr", "cn"],
     fallbackLng: "en",
     detection: {
-      order: [ 'path', 'cookie', 'htmlTag', 'localStorage', 'subdomain'],
-      caches: ['cookie']
+      order: ["path", "cookie", "htmlTag", "localStorage", "subdomain"],
+      caches: ["cookie"],
     },
-    backend:{
-      loadPath: '/locales/{{lng}}/translation.json',
+    backend: {
+      loadPath: "/locales/{{lng}}/translation.json",
     },
     interpolation: {
-      escapeValue: false
-    }
+      escapeValue: false,
+    },
   });
 
-
-  export default i18n;
+export default i18n;
 
 ReactDOM.render(
-  <Suspense> 
-    <React.StrictMode>
-      <BrowserRouter>
-        <ChakraProvider>
-          <UserContextProvider>
-            <App />
-          </UserContextProvider>
-        </ChakraProvider>
-      </BrowserRouter>
-    </React.StrictMode>
-  </Suspense> ,
+  // <Suspense>
+  <React.StrictMode>
+    <BrowserRouter>
+      <ChakraProvider>
+        <UserContextProvider>
+          <App />
+        </UserContextProvider>
+      </ChakraProvider>
+    </BrowserRouter>
+  </React.StrictMode>,
+  // </Suspense> ,
   document.getElementById("root")
 );

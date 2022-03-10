@@ -33,7 +33,7 @@ export default function SignUpModal() {
     e.preventDefault();
     try {
       await signUp(email, password);
-      navigate("/private/private-home");
+      navigate("/admin/admin-home");
       onClose();
     } catch (error) {
       if (error.code === "auth/invalid-email") {

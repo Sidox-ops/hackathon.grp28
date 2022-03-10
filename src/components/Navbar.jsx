@@ -1,6 +1,6 @@
-import { Breadcrumb, BreadcrumbItem, Button, Menu, MenuButton, MenuList, MenuItem, IconButton, Box, Image, Text } from "@chakra-ui/react";
+import { Breadcrumb, BreadcrumbItem, Button, Menu, MenuButton, MenuList, MenuItem, IconButton, Box, Text, Select } from "@chakra-ui/react";
 import { ArrowRightIcon, AddIcon, HamburgerIcon, ChevronDownIcon } from "@chakra-ui/icons";
-import React, { Suspense, useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import SignUpModal from "./SignUpModal";
 import SignInModal from "./SignInModal";
@@ -72,18 +72,21 @@ export default function Navbar(props) {
     <>
       <Box width="100vw" height="4vh" backgroundColor="#1C2834"></Box>
       <Box
-        padding="4rem 3rem 3rem 3rem" width='100vw' minHeight="11rem" fontFamily="poppins" 
+        padding="4rem 3rem 3rem 3rem"
+        width="100vw"
+        minHeight="11rem"
+        fontFamily="poppins"
       >
         <Box display="flex">
           <Box
             cursor="pointer" height={valueHeightNavBar} width={valueHeightNavBar} marginRight="2rem"
             onClick={()=>{displayed === 'block' ? setDisplayed('none') : setDisplayed('block')}}
           >
-                <Box width='100%' height="20%" backgroundColor="#fff"></Box>
-                <Box width='100%' height="20%"></Box>
-                <Box width='100%' height="20%" backgroundColor="#fff"></Box>
-                <Box width='100%' height="20%"></Box>
-                <Box width='100%' height="20%" backgroundColor="#fff"></Box>
+            <Box width="100%" height="20%" backgroundColor="#fff"></Box>
+            <Box width="100%" height="20%"></Box>
+            <Box width="100%" height="20%" backgroundColor="#fff"></Box>
+            <Box width="100%" height="20%"></Box>
+            <Box width="100%" height="20%" backgroundColor="#fff"></Box>
           </Box>
 
           <Box textColor="#fff">
@@ -100,44 +103,31 @@ export default function Navbar(props) {
             {/* <Image src='https://via.placeholder.com/850x100'/> */}
           </Box>
           <Box flex="auto">
-            <Box display="flex" justifyContent="space-between" color="white">
-              <Box margin="auto"><Link to="/">{t('navbarBecome')}</Link></Box>
-              <Box margin="auto"><Link to="/">{t('navbarContact')}</Link></Box>
+            <Box display="flex" justifyContent="space-between" color="white">              
+              <Box margin="auto">
+                <Link to="/">{t("navbarBecome")}</Link>
+              </Box>
+              <Box margin="auto">
+                <Link to="/">{t("navbarContact")}</Link>
+              </Box>
               <Box margin="auto">
                 {currentUser ? <Box onClick={() => logout()} cursor="pointer"> {t('navbarSignOut')} </Box> : <SignInModal/>}
               </Box>
-              <Box marginLeft="1rem">
-                {/* <Suspense> */}
-                  <Menu>
-                    <MenuButton
-                      px={4}
-                      py={2}
-                      transition='all 0.2s'
-                      borderRadius='md'
-                      borderWidth='1px'
-                      _hover={{ bg: 'gray.400' }}
-                      _expanded={{ bg: '400' }}
-                      _focus={{ boxShadow: 'outline' }}
-                    >
-                      {t('languages')}<ChevronDownIcon />
-                    </MenuButton>
-                    <MenuList>
-                      {languages.map(({ code, name, country_code }, index) => 
-                        <MenuItem 
+              <Select
+                width="auto"
+                marginLeft="1rem"
+                onChange={(e) => i18next.changeLanguage(e.target.value)}
+              >
+                {languages.map(({ code, name, country_code }, index) => 
+                        <option 
                           key={index} 
-                          color="#18222E" 
-                          onClick={() => i18next.changeLanguage(code)}
-                          // disabled={code === currentLanguageCode ? true : false}
-                        >
-                          <span className={`flag-icon flag-icoon-${country_code}`}></span>
+                          style={{color:"#18222E"}}
+                          value={code}>
+                          {/* <Box className={`flag-icon flag-icoon-${country_code}`}></Box> */}
                           {name}
-                        </MenuItem>
+                        </option>
                       )}
-                    </MenuList>
-                    </Menu>
-                  {/* </Suspense> */}
-              </Box>
-              
+              </Select>
             </Box>
           </Box>
         </Box>
@@ -149,21 +139,48 @@ export default function Navbar(props) {
               
             <Box width='100%'>
               <Box textColor="white" fontFamily="Poppins" fontSize="2xl">
-                <Box padding="1em 0" fontWeight={props.bold1} textDecoration={props.textDeco1}><Link to="/WhatWeDo">What we do</Link></Box>
-                <Box padding="1em 0" fontWeight={props.bold2} textDecoration={props.textDeco2}><Link to="/OurSolutions">Our solutions</Link></Box>
-                <Box padding="1em 0" fontWeight={props.bold3} textDecoration={props.textDeco3}><Link to="/WhoAreWe">Who are we</Link></Box>
-                <Box padding="1em 0" fontWeight={props.bold4} textDecoration={props.textDeco4}><Link to="/ScientistValidation">Scientist validation</Link></Box>
-                <Box padding="1em 0" fontWeight={props.bold5} textDecoration={props.textDeco5}><Link to="/StudiesServices">Studies and services</Link></Box>
+                <Box
+                  padding="1em 0"
+                  fontWeight={props.bold1}
+                  textDecoration={props.textDeco1}
+                >
+                  <Link to="/WhatWeDo">What we do</Link>
+                </Box>
+                <Box
+                  padding="1em 0"
+                  fontWeight={props.bold2}
+                  textDecoration={props.textDeco2}
+                >
+                  <Link to="/OurSolutions">Our solutions</Link>
+                </Box>
+                <Box
+                  padding="1em 0"
+                  fontWeight={props.bold3}
+                  textDecoration={props.textDeco3}
+                >
+                  <Link to="/WhoAreWe">Who are we</Link>
+                </Box>
+                <Box
+                  padding="1em 0"
+                  fontWeight={props.bold4}
+                  textDecoration={props.textDeco4}
+                >
+                  <Link to="/ScientistValidation">Scientist validation</Link>
+                </Box>
+                <Box
+                  padding="1em 0"
+                  fontWeight={props.bold5}
+                  textDecoration={props.textDeco5}
+                >
+                  <Link to="/StudiesServices">Studies and services</Link>
+                </Box>
               </Box>
             </Box>
-            
           </Box>
           {props.content1}
           {props.content2}
         </Box>
       </Box>
-      
-
     </>
   );
 }

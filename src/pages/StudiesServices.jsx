@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Box } from "@chakra-ui/react";
 import Navbar from '../components/Navbar';
 import Footer from "../components/Footer";
@@ -6,25 +6,24 @@ import TextContentLeft from '../components/TextContentLeft';
 import TextContentRight from '../components/TextContentRight';
 
 class StudiesServices extends React.Component {
-    render(){
-
+    render() {
         return (
             <>
                 <Navbar
                     content1={
                         <Box flex="3">
-                        <Box fontSize="5xl" fontFamily="Poppins" margin="0 0 1em 0">TITLE</Box>
-                        <Box fontSize="2xl" fontFamily="Poppins" fontWeight="light">
-                            <Box>+ Exemple</Box>
-                            <Box>+ Exemple</Box>
-                            <Box>+ Exemple</Box>
-                            <Box>+ Exemple</Box>
-                            <Box>+ Exemple</Box >
-                        </Box>
+                            <Box fontSize="5xl" fontFamily="Poppins" margin="0 0 1em 0">TITLE</Box>
+                            <Box fontSize="2xl" fontFamily="Poppins" fontWeight="light">
+                                <Box>+ Exemple</Box>
+                                <Box>+ Exemple</Box>
+                                <Box>+ Exemple</Box>
+                                <Box>+ Exemple</Box>
+                                <Box>+ Exemple</Box >
+                            </Box>
                         </Box>
                     }
                     content2={
-                    <Box flex="3"></Box>
+                        <Box flex="3"></Box>
                     }
                     bold5="bold"
                     textDeco5="underline"
@@ -54,15 +53,15 @@ class StudiesServices extends React.Component {
                                 - Saas and European data center
                             `}
                         />
-                        
+
                     </Box>
                 </Box>
 
-                <Footer/>
+                <Footer />
 
             </>
         )
     }
 }
 
-export default StudiesServices
+export default StudiesServices;
