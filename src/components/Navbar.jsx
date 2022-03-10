@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { useTranslation } from "react-i18next";
 import { Select } from "@chakra-ui/react";
+import SignInModal from "./SignInModal";
 
 export default function Navbar(props) {
   const navigate = useNavigate();
@@ -61,9 +62,7 @@ export default function Navbar(props) {
               <Box margin="auto">
                 <Link to="/">{t("contact_us")}</Link>
               </Box>
-              <Box margin="auto">
-                <Link to="/">{t("sign_in")}</Link>
-              </Box>
+              <SignInModal />
               <Select
                 width="70px"
                 onChange={(e) => i18n.changeLanguage(e.target.value)}
