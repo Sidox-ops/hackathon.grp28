@@ -153,15 +153,6 @@ export default function GraphSKC1() {
         }
     })
 
-    /*Result.map((resultDetail, index) => {
-        let average = 0;
-        //console.log(index)
-        if (resultDetail.user_id == list_users[index]) {
-            average += parseFloat(resultDetail.mesure.replace(',', '.')) / 100
-            list_averages.push(average)
-        }
-    })*/
-
     list_users.forEach(user => {
         let average = 0;
         Result.map((resultDetail, index) => {
@@ -172,7 +163,6 @@ export default function GraphSKC1() {
         list_averages.push(average)
     })
 
-    console.log("list", list_averages)
     return (
         <div>
             <div style={{ width: "650px", height: "550px", display: "inline-flex", margin: "40px" }}>
