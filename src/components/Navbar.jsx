@@ -30,7 +30,6 @@ import logo from "../assets/logo.png";
 
 import { useTranslation } from "react-i18next";
 import { Select } from "@chakra-ui/react";
-import SignInModal from "./SignInModal";
 import i18next from "i18next";
 // import cookies from 'js-cookie';
 
