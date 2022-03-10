@@ -31,11 +31,12 @@ i18n
     }
   });
 
+  
 
   export default i18n;
 
 ReactDOM.render(
-  <Suspense> 
+  // <Suspense> 
     <React.StrictMode>
       <BrowserRouter>
         <ChakraProvider>
@@ -44,7 +45,7 @@ ReactDOM.render(
           </UserContextProvider>
         </ChakraProvider>
       </BrowserRouter>
-    </React.StrictMode>
-  </Suspense> ,
+    </React.StrictMode>,
+  // </Suspense> ,
   document.getElementById("root")
 );

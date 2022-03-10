@@ -42,8 +42,6 @@ export default function Navbar(props) {
   const { currentUser } = useContext(UserContext);
   const [displayed, setDisplayed] = useState('none');
   
-  // const currentLanguageCode = cookies.get('i18next') || 'en';
-  // const currentLanugage = languages.find(l => l.currentLanguageCode)
   const { t } = useTranslation();
 
   const logout = async () => {
