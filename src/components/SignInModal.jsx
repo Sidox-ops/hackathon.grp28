@@ -17,21 +17,20 @@ import {
 import React, { useContext, useState } from "react";
 import { UserContext } from "../context/userContext";
 import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import SignUpModal from "./SignUpModal";
 
 export default function SignInModal() {
   const navigate = useNavigate();
-  const [t] = useTranslation("common");
+  const toast = useToast();
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { signIn } = useContext(UserContext);
+
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
 
   const handleClick = () => setShowPassword(!showPassword);
-  const toast = useToast();
-
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -52,13 +51,13 @@ export default function SignInModal() {
   return (
     <>
       <Box onClick={onOpen} margin="auto" cursor="pointer">
-        {t("sign_in")}
+        sign in
       </Box>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>{t("sign_in")}</ModalHeader>
+          <ModalHeader>sign in</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <FormControl>

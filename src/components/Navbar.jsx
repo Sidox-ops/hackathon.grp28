@@ -29,7 +29,6 @@ import logo from "../assets/logo.png";
 // import 'flag-icon-css/css/flag-icon.css'
 
 import { useTranslation } from "react-i18next";
-import { Select } from "@chakra-ui/react";
 import i18next from "i18next";
 // import cookies from 'js-cookie';
 
@@ -136,8 +135,7 @@ export default function Navbar(props) {
               <Box margin="auto">
                 {currentUser ? (
                   <Box onClick={() => logout()} cursor="pointer">
-                    {" "}
-                    {t("navbarSignOut")}{" "}
+                    {t("navbarSignOut")}
                   </Box>
                 ) : (
                   <SignInModal />
