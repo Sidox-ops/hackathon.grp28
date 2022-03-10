@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import ProductHomeBloc from "../components/ProductHomeBloc";
+import ProductHomeBloc from "../components/Home/ProductHomeBloc";
 import Footer from "../components/Footer";
 // import { UserContext } from "../context/userContext";
 import { Box, Link } from "@chakra-ui/react";
 import Navbar from "../components/Navbar";
-import Wave from "../components/Wave";
+import Wave from "../components/Footer/Wave";
 
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
@@ -12,41 +12,34 @@ import i18next from "i18next";
 
 const products = [
   {
-    key: 1,
     title: "BeautyTech X Skincare",
     text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, . ",
   },
   {
-    key: 2,
     title: "Nomadic labgrade IOT device & smart app",
     text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, . ",
   },
   {
-    key: 3,
     title: "Our insanely fast algorithm",
     text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, . ",
   },
   {
-    key: 4,
     title: "Our partners",
     text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, . ",
   },
   {
-    key: 5,
     title: "The science behinds",
     text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, . ",
   },
   {
-    key: 6,
     title: "Recruitments",
     text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, . ",
   },
 ];
 
 export default function Home() {
-
   const { t } = useTranslation();
-  
+
   return (
     <>
       <Navbar
@@ -80,18 +73,8 @@ export default function Home() {
             More about us
           </Box>
           <Box display="flex" justifyContent="space-around" flexWrap="wrap">
-            <ProductHomeBloc
-              title="BeautyTech X Skincare"
-              text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, . "
-              textButton="Learn more"
-            />
-            <ProductHomeBloc
-              title="Nomadic labgrade IOT device & smart app"
-              text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, . "
-              textButton="Learn more"
-            />
             {products.map((i, index) => (
-              <ProductHomeBloc title={i.title} text={i.text} key={index}/>
+              <ProductHomeBloc title={i.title} text={i.text} key={index} />
             ))}
           </Box>
         </Box>

@@ -40,7 +40,7 @@ export default function Navbar(props) {
 
   const navigate = useNavigate();
   const { currentUser } = useContext(UserContext);
-  const [displayed, setDisplayed] = useState('none');
+  const [displayed, setDisplayed] = useState('block');
   
   // const currentLanguageCode = cookies.get('i18next') || 'en';
   // const currentLanugage = languages.find(l => l.currentLanguageCode)

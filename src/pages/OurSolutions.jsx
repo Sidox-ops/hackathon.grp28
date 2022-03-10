@@ -1,9 +1,16 @@
 import React from "react";
-import { Box } from "@chakra-ui/react";
+import { Box, Image } from "@chakra-ui/react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import TextContentLeft from "../components/TextContentLeft";
 import TextContentRight from "../components/TextContentRight";
+import TextContentMiddle from "../components/TextContentMiddle";
+import BlocContent from "../components/BlocContent";
+import parse from "html-react-parser";
+
+import img from "../assets/404.png"
+
+// var parse = require('html-react-parser');
 
 class OurSolutions extends React.Component {
   render() {
@@ -28,8 +35,6 @@ class OurSolutions extends React.Component {
           textDeco2="underline"
         />
 
-        <TextContentLeft title={"Data science serving skincare"} text={""} />
-
         <Box>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
             <path
@@ -42,22 +47,56 @@ class OurSolutions extends React.Component {
 
         <Box backgroundColor="#fff" color="white">
           <Box width="100vw" padding="0 10vw 10vh 10vw">
-            <TextContentLeft
-              title={"We research skincare"}
-              text={
-                "WIRED BEAUTY is a new datadriven market research company dedicated to cosmetic laboratories. We help our clients evaluate and develop skincare formulae by comparing cosmetics on statistically viable samples of men & women (1000 people): the antioxydative and moisterizing effect of formulae (in vivo) the antioxydative and moisterizing effect of ingredients (in vitro)  (cf Reach) consumer feedback after product use environmental conditions (UV pollution) surronding the consumer’s lifestyle skincare performance after 1 day – 8 days – 15 days - X days."
-              }
+            <TextContentMiddle
+              title="Nomadic labgrade IOT device & smart app"
+              text="WIRED BEAUTY is a French beauty-tech market research company which invested 1,3M€ to develop a non invasive, portable lab connected device to deliver labgrade and real time measurements of skin markers to dermocosmetic lab as well as a smart app in order to also harvest consumer perception."
             />
 
-            <TextContentRight
-              title={"We rely on data & technology"}
-              text={`- Proprietary nomadic lab device & patented skin patches to decipher skin reactions and ingredient presence 
-                                - Easy multi-lingual smartphone app and customer feedback
-                                - Geolocalisation and exposome data (UV - pollution temperature)
-                                - Repeatability of protocols in real life conditions (ie bathrooms)
-                                - Large cohorts it needed 
-                                - Saas and European data center
-                            `}
+            <Box>
+              <Box
+                textAlign="center"
+                color="lightblue"
+                fontWeight="bold"
+                fontFamily="Poppins"
+                fontSize="3xl"
+              >
+                Wired Beauty is ...
+              </Box>
+              <Box display="flex" justifyContent="space-around">
+                <BlocContent
+                  title="New"
+                  text="Hybrid studies combining objective clinical results measurements & consumer perception."
+                />
+                <BlocContent
+                  title="Different"
+                  text="Proprietary IOT and Algorythm allowing decifering within minutes combined with a consumer app harvesting consumer opinions. "
+                />
+                <BlocContent
+                  title="Better"
+                  text="Real World Evidence (link with pollution, UV  and lifestyle) of skincare efficiency on large statistical basis (ex 1000 testers)."
+                />
+              </Box>
+            </Box>
+
+            <TextContentMiddle
+              title="Datas and skincare"
+              text={parse(`Our measurements range from:
+              <br>- targeted markers such as Ascorbic acid, Alpha Tocopherol and squalen/sebum to,
+              <br>- non targeted measurements of the barrier function or the antioxydative capacity of the skin.
+              <br>
+              <br>Our scientific partners (APHP and CRO : lien en page scientific ) have established that our measurement of TEWL is statistically orrelated to that of  chromatography which is the reference methodology as opposed to corneometry. Our technology is complementary to imagery.`)}
+            />
+
+            <TextContentMiddle
+              title="OUR INSANELY FAST ALGORITHM!"
+              text="Thanks to its IOT, its mobile consumer app and its standardized single-use patches, Wired Beauty can decifer within seconds skin antioxydative and mosterizing reactions. Artificial intelligence improves repeatability of process."
+            />
+
+            <Image
+              src={img} //a changer avec l'illustration
+              alt="productImage"
+              width="100%"
+              height="80px"
             />
           </Box>
         </Box>
