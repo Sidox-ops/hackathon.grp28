@@ -1,5 +1,22 @@
-import { Breadcrumb, BreadcrumbItem, Button, Menu, MenuButton, MenuList, MenuItem, IconButton, Box, Text, Select } from "@chakra-ui/react";
-import { ArrowRightIcon, AddIcon, HamburgerIcon, ChevronDownIcon } from "@chakra-ui/icons";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  Button,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  IconButton,
+  Box,
+  Text,
+  Select,
+} from "@chakra-ui/react";
+import {
+  ArrowRightIcon,
+  AddIcon,
+  HamburgerIcon,
+  ChevronDownIcon,
+} from "@chakra-ui/icons";
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import SignUpModal from "./SignUpModal";
@@ -19,25 +36,23 @@ const valueHeightNavBar = "5rem";
 
 const languages = [
   {
-    code: 'en',
-    name: 'English',
-    county_code: 'gb'
+    code: "en",
+    name: "English",
+    county_code: "gb",
   },
   {
-    code: 'fr',
-    name: 'Français',
-    county_code: 'fr'
+    code: "fr",
+    name: "Français",
+    county_code: "fr",
   },
   {
-    code: 'cn',
-    name: '中国人',
-    county_code: 'cn'
+    code: "cn",
+    name: "中国人",
+    county_code: "cn",
   },
-]
-
+];
 
 export default function Navbar(props) {
-
   const navigate = useNavigate();
   const { currentUser } = useContext(UserContext);
   const [displayed, setDisplayed] = useState('block');
@@ -57,7 +72,7 @@ export default function Navbar(props) {
           navigate("/");
         })
         .catch((error) => {
-          alert(error)
+          alert(error);
         });
     } catch (error) {
       alert("we cant sign out");
@@ -65,8 +80,8 @@ export default function Navbar(props) {
   };
 
   useEffect(() => {
-    document.title = t('title');
-  }, [ t ])
+    document.title = t("title");
+  }, [t]);
 
   return (
     <>
@@ -79,8 +94,15 @@ export default function Navbar(props) {
       >
         <Box display="flex">
           <Box
-            cursor="pointer" height={valueHeightNavBar} width={valueHeightNavBar} marginRight="2rem"
-            onClick={()=>{displayed === 'block' ? setDisplayed('none') : setDisplayed('block')}}
+            cursor="pointer"
+            height={valueHeightNavBar}
+            width={valueHeightNavBar}
+            marginRight="2rem"
+            onClick={() => {
+              displayed === "block"
+                ? setDisplayed("none")
+                : setDisplayed("block");
+            }}
           >
             <Box width="100%" height="20%" backgroundColor="#fff"></Box>
             <Box width="100%" height="20%"></Box>
@@ -92,7 +114,7 @@ export default function Navbar(props) {
           <Box textColor="#fff">
             <Text textAlign="center">
               <Link to="/">
-                <img src={logo} style={{height:valueHeightNavBar}}/>
+                <img src={logo} style={{ height: valueHeightNavBar }} />
               </Link>
             </Text>
           </Box>
@@ -103,7 +125,7 @@ export default function Navbar(props) {
             {/* <Image src='https://via.placeholder.com/850x100'/> */}
           </Box>
           <Box flex="auto">
-            <Box display="flex" justifyContent="space-between" color="white">              
+            <Box display="flex" justifyContent="space-between" color="white">
               <Box margin="auto">
                 <Link to="/">{t("navbarBecome")}</Link>
               </Box>
@@ -111,22 +133,25 @@ export default function Navbar(props) {
                 <Link to="/">{t("navbarContact")}</Link>
               </Box>
               <Box margin="auto">
-                {currentUser ? <Box onClick={() => logout()} cursor="pointer"> {t('navbarSignOut')} </Box> : <SignInModal/>}
+                {currentUser ? (
+                  <Box onClick={() => logout()} cursor="pointer">
+                    {t("navbarSignOut")}
+                  </Box>
+                ) : (
+                  <SignInModal />
+                )}
               </Box>
               <Select
                 width="auto"
                 marginLeft="1rem"
                 onChange={(e) => i18next.changeLanguage(e.target.value)}
               >
-                {languages.map(({ code, name, country_code }, index) => 
-                        <option 
-                          key={index} 
-                          style={{color:"#18222E"}}
-                          value={code}>
-                          {/* <Box className={`flag-icon flag-icoon-${country_code}`}></Box> */}
-                          {name}
-                        </option>
-                      )}
+                {languages.map(({ code, name, country_code }, index) => (
+                  <option key={index} style={{ color: "#18222E" }} value={code}>
+                    {/* <Box className={`flag-icon flag-icoon-${country_code}`}></Box> */}
+                    {name}
+                  </option>
+                ))}
               </Select>
             </Box>
           </Box>
@@ -136,8 +161,7 @@ export default function Navbar(props) {
       <Box>
         <Box display="flex" margin="0 3rem 4rem 3rem" textColor="white">
           <Box flex="2" display={displayed}>
-              
-            <Box width='100%'>
+            <Box width="100%">
               <Box textColor="white" fontFamily="Poppins" fontSize="2xl">
                 <Box
                   padding="1em 0"

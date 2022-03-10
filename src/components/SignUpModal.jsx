@@ -1,4 +1,6 @@
 import {
+  Alert,
+  AlertIcon,
   Box,
   Button,
   FormControl,
@@ -14,7 +16,7 @@ import {
   ModalOverlay,
   useDisclosure,
 } from "@chakra-ui/react";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { UserContext } from "../context/userContext";
 import { useNavigate } from "react-router-dom";
 
@@ -25,30 +27,46 @@ export default function SignUpModal() {
 
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [email, setEmail] = useState("");
-
+  const [validation, setValidation] = useState("");
   const handleClick = () => setShowPassword(!showPassword);
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    if (!email || !confirmPassword) {
+      setValidation("Please fill in all");
+      return;
+    } else if (!email.match("[^@ \t\r\n]+@[^@ \t\r\n]+.[^@ \t\r\n]+")) {
+      setValidation("Enter a valid email");
+      return;
+    } else if ((confirmPassword.length || password.length) < 6) {
+      setValidation("6 characters min");
+      return;
+    } else if (confirmPassword !== password) {
+      setValidation("Passwords do not match");
+      return;
+    }
     try {
       await signUp(email, password);
-      navigate("/admin/admin-home");
+      setValidation("");
       onClose();
+      //TODO: redirect in admin or customer
+      // navigate("/admin");
     } catch (error) {
       if (error.code === "auth/invalid-email") {
-        console.log("todo: alert invalid email");
+        setValidation("Email format invalid");
       }
-      if (error.code === "auth/email-already-in-use") {
-        console.log("todo: alert email also used");
+      if (error.code === "auth/invalid-email") {
+        setValidation("Email format invalid");
       }
     }
   };
 
   return (
     <>
-      <Button onClick={onOpen} colorScheme="teal" variant="outline">
-        Sign up
+      <Button onClick={onOpen} margin="auto" size="sm">
+        No account?
       </Button>
 
       <Modal isOpen={isOpen} onClose={onClose}>
@@ -85,6 +103,32 @@ export default function SignUpModal() {
                   {showPassword ? "Hide" : "Show"}
                 </Button>
               </Box>
+
+              <Box marginTop="10px" position="relative">
+                <Input
+                  id="confirmPassword"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Confirm password"
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                />
+                <Button
+                  zIndex="1"
+                  position="absolute"
+                  right="6px"
+                  top="6px"
+                  h="1.75rem"
+                  size="sm"
+                  onClick={handleClick}
+                >
+                  {showPassword ? "Hide" : "Show"}
+                </Button>
+              </Box>
+              {validation && (
+                <Alert status="error" marginTop="10px" borderRadius="5px">
+                  <AlertIcon />
+                  {validation}
+                </Alert>
+              )}
             </FormControl>
           </ModalBody>
 
