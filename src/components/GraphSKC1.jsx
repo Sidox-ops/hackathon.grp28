@@ -7,7 +7,6 @@ import { Line } from "react-chartjs-2"
 
 export default function GraphSKC1() {
     var sessions = [];
-    var averages = [];
 
     Result.map((resultDetail, index) => {
         if (!sessions.includes("T" + (resultDetail.session_id - 1)) && resultDetail.session_id != '') {
@@ -30,7 +29,7 @@ export default function GraphSKC1() {
         switch (resultDetail.product_code) {
             case 417432:
                 if (resultDetail.zone_code == 1) {
-                    if (resultDetail.score_skinbiosense == 1) {
+                    if (resultDetail.score_skinbiosense == 2) {
                         switch (resultDetail.session_id) {
                             case 1:
                                 product1_1[0] += parseFloat(resultDetail.mesure.replace(',', '.'))/100
