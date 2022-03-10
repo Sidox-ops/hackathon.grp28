@@ -13,7 +13,7 @@ function App() {
     <>
       <Navbar />
       <Routes>
-        <Route path="/" element={<><GraphSKC1 /><GraphSKC2 /><GraphSKC3 /></>}  />
+        <Route path="/charts" element={<><GraphSKC1 /><GraphSKC2 /><GraphSKC3 /></>}  />
 
         <Route path="/private" element={<Private />}>
           <Route path="/private/private-home" element={<PrivateHome />} />

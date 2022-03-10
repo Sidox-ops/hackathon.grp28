@@ -1,12 +1,21 @@
-import React from "react";
+import {React, useRef} from "react";
 
 import Result from "../data/data.json"
 
 import Chart from 'chart.js/auto'
 import { Bar, Line } from "react-chartjs-2"
+import '@progress/kendo-theme-material/dist/all.css';
+
+import { Button } from '@progress/kendo-react-buttons'
+import { PDFExport } from '@progress/kendo-react-pdf'
 
 export default function GraphSKC1() {
     var sessions = [];
+
+    const pdfExportComponent = useRef(null);
+    const Export = (event) => {
+        pdfExportComponent.current.save();
+    }
 
     //Définir les abcisses des graphes
     Result.map((resultDetail, index) => {
@@ -165,95 +174,100 @@ export default function GraphSKC1() {
 
     return (
         <div>
-            <div style={{ width: "650px", height: "550px", display: "inline-flex", margin: "40px" }}>
-                <Line
-                    data={{
-                        labels: sessions,
-                        datasets: [
-                            {
-                                label: 'No Product 417432',
-                                data: product1_1,
-                                backgroundColor: [
-                                    'rgba(54, 162, 235, 1)',
+            <PDFExport ref={pdfExportComponent} paperSize="A4">
+                <div className="button-area">
+                    <Button onClick={Export}>Export</Button>
+                </div>
+                <div style={{ width: "650px", height: "550px", display: "inline-flex", margin: "40px" }}>
+                    <Line
+                        data={{
+                            labels: sessions,
+                            datasets: [
+                                {
+                                    label: 'No Product 417432',
+                                    data: product1_1,
+                                    backgroundColor: [
+                                        'rgba(54, 162, 235, 1)',
 
+                                    ],
+                                    borderColor: [
+                                        'rgba(54, 162, 235, 1)',
+
+                                    ],
+                                    borderWidth: 1
+                                },
+                                {
+                                    label: 'No Product 100218',
+                                    data: product2_1,
+                                    backgroundColor: [
+                                        'rgba(255, 99, 132, 1)',
+                                    ],
+                                    borderColor: [
+                                        'rgba(255, 99, 132, 1)',
+                                    ],
+                                    borderWidth: 1
+                                },
+                                {
+                                    label: 'Product 417432',
+                                    data: product1_2,
+                                    backgroundColor: [
+                                        'rgba(153, 102, 255, 1)',
+
+                                    ],
+                                    borderColor: [
+                                        'rgba(153, 102, 255, 1)',
+
+                                    ],
+                                    borderWidth: 1
+                                },
+                                {
+                                    label: 'Product 100218',
+                                    data: product2_2,
+                                    backgroundColor: [
+                                        'rgba(75, 192, 192, 1)',
+                                    ],
+                                    borderColor: [
+                                        'rgba(75, 192, 192, 1)',
+                                    ],
+                                    borderWidth: 1
+                                }]
+                        }}
+                        height={400}
+                        width={600}
+                    />
+                    {/*
+                    second graphique pour pondérer les résultats affichés par le premier
+                */}
+                    <Bar
+                        data={{
+                            labels: list_users,
+                            datasets: [{
+                                label: '# of Votes',
+                                data: list_averages,
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)',
+                                    'rgba(255, 159, 64, 0.2)'
                                 ],
                                 borderColor: [
-                                    'rgba(54, 162, 235, 1)',
-
-                                ],
-                                borderWidth: 1
-                            },
-                            {
-                                label: 'No Product 100218',
-                                data: product2_1,
-                                backgroundColor: [
                                     'rgba(255, 99, 132, 1)',
-                                ],
-                                borderColor: [
-                                    'rgba(255, 99, 132, 1)',
-                                ],
-                                borderWidth: 1
-                            },
-                            {
-                                label: 'Product 417432',
-                                data: product1_2,
-                                backgroundColor: [
-                                    'rgba(153, 102, 255, 1)',
-
-                                ],
-                                borderColor: [
-                                    'rgba(153, 102, 255, 1)',
-
-                                ],
-                                borderWidth: 1
-                            },
-                            {
-                                label: 'Product 100218',
-                                data: product2_2,
-                                backgroundColor: [
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
                                     'rgba(75, 192, 192, 1)',
-                                ],
-                                borderColor: [
-                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
                                 ],
                                 borderWidth: 1
                             }]
-                    }}
-                    height={"25%"}
-                    width={"35%"}
-                />
-                {/*
-                    second graphique pour pondérer les résultats affichés par le premier
-                */}
-                <Bar
-                    data={{
-                        labels: list_users,
-                        datasets: [{
-                            label: '# of Votes',
-                            data: list_averages,
-                            backgroundColor: [
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)',
-                                'rgba(153, 102, 255, 0.2)',
-                                'rgba(255, 159, 64, 0.2)'
-                            ],
-                            borderColor: [
-                                'rgba(255, 99, 132, 1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                                'rgba(255, 159, 64, 1)'
-                            ],
-                            borderWidth: 1
-                        }]
-                    }}
-                    height={"25%"}
-                    width={"35%"}
-                />
-            </div>
+                        }}
+                        height={"25%"}
+                        width={"35%"}
+                    />
+                </div>
+            </PDFExport>
         </div>
     );
 }
