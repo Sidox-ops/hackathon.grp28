@@ -1,18 +1,51 @@
 import { Breadcrumb, BreadcrumbItem, Button, Menu, MenuButton, MenuList, MenuItem, IconButton, Box, Image, Text } from "@chakra-ui/react";
-import { ArrowRightIcon, AddIcon, HamburgerIcon } from "@chakra-ui/icons";
-import React, { useContext, useState } from "react";
+import { ArrowRightIcon, AddIcon, HamburgerIcon, ChevronDownIcon } from "@chakra-ui/icons";
+import React, { Suspense, useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import SignUpModal from "./SignUpModal";
 import SignInModal from "./SignInModal";
 import { signOut, getAuth } from "firebase/auth";
 import { auth } from "../firebase.config";
 import { UserContext } from "../context/userContext";
-import logo from "../assets/logo.png"
+import logo from "../assets/logo.png";
+
+// import 'flag-icon-css/css/flag-icon.css'
+
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
+// import cookies from 'js-cookie';
+
+const valueHeightNavBar = "5rem";
+
+const languages = [
+  {
+    code: 'en',
+    name: 'English',
+    county_code: 'gb'
+  },
+  {
+    code: 'fr',
+    name: 'Français',
+    county_code: 'fr'
+  },
+  {
+    code: 'cn',
+    name: '中国人',
+    county_code: 'cn'
+  },
+]
+
 
 export default function Navbar(props) {
+
   const navigate = useNavigate();
   const { currentUser } = useContext(UserContext);
   const [displayed, setDisplayed] = useState('none');
+  
+  // const currentLanguageCode = cookies.get('i18next') || 'en';
+  // const currentLanugage = languages.find(l => l.currentLanguageCode)
+  const { t } = useTranslation();
+
   const logout = async () => {
     try {
       // await signOut(auth);
@@ -24,12 +57,17 @@ export default function Navbar(props) {
           navigate("/");
         })
         .catch((error) => {
-          // An error happened.
+          alert(error)
         });
     } catch (error) {
       alert("we cant sign out");
     }
   };
+
+  useEffect(() => {
+    document.title = t('title');
+  }, [ t ])
+
   return (
     <>
       <Box width="100vw" height="4vh" backgroundColor="#1C2834"></Box>
@@ -37,9 +75,9 @@ export default function Navbar(props) {
         padding="4rem 3rem 3rem 3rem" width='100vw' minHeight="11rem" fontFamily="poppins" 
       >
         <Box display="flex">
-          <Box 
-            cursor="pointer" height="7rem" width="7rem"
-            // onClick={()=>{displayed === 'block' ? setDisplayed('none') : setDisplayed('block')}}
+          <Box
+            cursor="pointer" height={valueHeightNavBar} width={valueHeightNavBar} marginRight="2rem"
+            onClick={()=>{displayed === 'block' ? setDisplayed('none') : setDisplayed('block')}}
           >
                 <Box width='100%' height="20%" backgroundColor="#fff"></Box>
                 <Box width='100%' height="20%"></Box>
@@ -51,7 +89,7 @@ export default function Navbar(props) {
           <Box textColor="#fff">
             <Text textAlign="center">
               <Link to="/">
-                <img src={logo} style={{height:"7rem"}}/>
+                <img src={logo} style={{height:valueHeightNavBar}}/>
               </Link>
             </Text>
           </Box>
@@ -63,9 +101,43 @@ export default function Navbar(props) {
           </Box>
           <Box flex="auto">
             <Box display="flex" justifyContent="space-between" color="white">
-              <Box margin="auto"><Link to="/">Become a panelist</Link></Box>
-              <Box margin="auto"><Link to="/">Contact us</Link></Box>
-              <Box margin="auto"><Link to="/">Sign in</Link></Box>
+              <Box margin="auto"><Link to="/">{t('navbarBecome')}</Link></Box>
+              <Box margin="auto"><Link to="/">{t('navbarContact')}</Link></Box>
+              <Box margin="auto">
+                {currentUser ? <Box onClick={() => logout()} cursor="pointer"> {t('navbarSignOut')} </Box> : <SignInModal/>}
+              </Box>
+              <Box marginLeft="1rem">
+                {/* <Suspense> */}
+                  <Menu>
+                    <MenuButton
+                      px={4}
+                      py={2}
+                      transition='all 0.2s'
+                      borderRadius='md'
+                      borderWidth='1px'
+                      _hover={{ bg: 'gray.400' }}
+                      _expanded={{ bg: '400' }}
+                      _focus={{ boxShadow: 'outline' }}
+                    >
+                      {t('languages')}<ChevronDownIcon />
+                    </MenuButton>
+                    <MenuList>
+                      {languages.map(({ code, name, country_code }, index) => 
+                        <MenuItem 
+                          key={index} 
+                          color="#18222E" 
+                          onClick={() => i18next.changeLanguage(code)}
+                          // disabled={code === currentLanguageCode ? true : false}
+                        >
+                          <span className={`flag-icon flag-icoon-${country_code}`}></span>
+                          {name}
+                        </MenuItem>
+                      )}
+                    </MenuList>
+                    </Menu>
+                  {/* </Suspense> */}
+              </Box>
+              
             </Box>
           </Box>
         </Box>
@@ -73,7 +145,7 @@ export default function Navbar(props) {
       {/* display of the Menu McBurger */}
       <Box>
         <Box display="flex" margin="0 3rem 4rem 3rem" textColor="white">
-          <Box flex="2">
+          <Box flex="2" display={displayed}>
               
             <Box width='100%'>
               <Box textColor="white" fontFamily="Poppins" fontSize="2xl">
