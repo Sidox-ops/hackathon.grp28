@@ -8,6 +8,7 @@ import ScientistValidation from "./pages/ScientistValidation";
 import Dashboard from "./pages/Admin/Dashboard";
 import NotFound from "./pages/NotFound";
 import CookieConsent from "react-cookie-consent";
+import ContactUs from "./pages/ContactUs";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/WhoAreWe" element={<WhoAreWe />} />
         <Route path="/StudiesServices" element={<StudiesServices />} />
         <Route path="/ScientistValidation" element={<ScientistValidation />} />
+        <Route path="/ContactUs" element={<ContactUs />} />
 
         <Route path="/admin" element={<Dashboard />} />
         <Route path="*" element={<NotFound />} />

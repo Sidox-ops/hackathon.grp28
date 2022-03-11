@@ -5,13 +5,13 @@ class TextContentMiddle extends React.Component {
   render() {
     return (
       <>
-        <Box width="100%" margin="0 2rem 10rem 2rem">
+        <Box width="100%" margin="0 2rem 7rem 2rem">
           <Box
             color="lightblue"
             fontFamily="Poppins"
             fontWeight="bold"
             fontSize="3xl"
-            textAlign="center"
+            textAlign={this.props.textAlign}
             marginBottom="3rem"
           >
             {this.props.title}

@@ -50,7 +50,6 @@ class WhoAreWe extends React.Component {
           textDeco3="underline"
         />
 
-
         <Box backgroundColor="#fff" color="white">
           <Box width="100vw" padding="0 10vw 10vh 10vw" margin="-7rem 0 0 0">
             <TextContentMiddle
@@ -67,6 +66,7 @@ class WhoAreWe extends React.Component {
                 <br>                                
                 As of today, Wired Beauty Technologies has invested 1.3M€ in research on their exclusive IOT, mobile app, algorithand scientific exposome and suncare knowledge partnering with a top-notch consortium ( APHP et Qima lien a créer vers page scientific)
                 `)}
+              textAlign="center"
             />
           </Box>
         </Box>
@@ -133,7 +133,7 @@ class WhoAreWe extends React.Component {
         <CarouselContentImage />
 
         <Box backgroundColor="#fff" color="white" padding="3rem 0 0 0">
-          <Box width="100vw" padding="0 10vw 10vh 10vw">
+          <Box width="100vw" padding="0 10vw 10vh 10vw" id="OurValues">
             <TextContentMiddle
               title="Our values"
               text={parse(`
@@ -145,6 +145,7 @@ class WhoAreWe extends React.Component {
                     <li>To help our clients, we establish new norms of excellence in cosmetic research</li>
                 </ul>
               `)}
+              textAlign="center"
             />
 
             <Box
@@ -215,6 +216,8 @@ class WhoAreWe extends React.Component {
                 <br>
                 We believe and are committed for climate change and compensate our carbon emission sustaining our friensd Matthiew in his venture for a regenerative and low carbon  agriculture in France. Learn more about Terra Terra.  ➢ donate too
               `}
+              textAlign1="center"
+              textAlign2="center"
             />
 
             <BlocTextDouble
@@ -223,14 +226,21 @@ class WhoAreWe extends React.Component {
               Wired beauty is privately held and backed by a college of 14 business angels. Stanislas, as the founder and President, still own 69,47% of the equity.<br>
               Sophie, as co-founder and CEO owns 18%. 
               `}
+              textAlign1="center"
               title2="Advisory board"
               text2={`
                 Pierre François LE LOUËT (NellyRodi President – Trends research)<br>
                 Gilles GENAIN (former head of L’Oréal Product Development)
               `}
-              moreText2={<Box display="flex" padding="2rem 0 0 0" justifyContent="space-between">
-                <Image src={person1}/>
-                <Image src={person2}/>
+              textAlign2="center"
+              moreText2={
+                <Box
+                  display="flex"
+                  padding="2rem 0 0 0"
+                  justifyContent="space-between"
+                >
+                  <Image src={person1} />
+                  <Image src={person2} />
                 </Box>
               }
             />

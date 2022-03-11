@@ -3,6 +3,7 @@ import {
   AlertIcon,
   Box,
   Button,
+  Link,
   FormControl,
   FormHelperText,
   FormLabel,
@@ -65,9 +66,9 @@ export default function SignUpModal() {
 
   return (
     <>
-      <Button onClick={onOpen} margin="auto" size="sm">
-        No account?
-      </Button>
+      <Link onClick={onOpen} margin="2rem 0 0 0" size="sm" textAlign="right" color="#fff">
+        Create an account
+      </Link>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />

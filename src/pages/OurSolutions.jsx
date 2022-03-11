@@ -40,6 +40,7 @@ class OurSolutions extends React.Component {
             <TextContentMiddle
               title="Nomadic labgrade IOT device & smart app"
               text="WIRED BEAUTY is a French beauty-tech market research company which invested 1,3M€ to develop a non invasive, portable lab connected device to deliver labgrade and real time measurements of skin markers to dermocosmetic lab as well as a smart app in order to also harvest consumer perception."
+              textAlign="center"
             />
 
             <Box>
@@ -75,11 +76,13 @@ class OurSolutions extends React.Component {
               <br>- non targeted measurements of the barrier function or the antioxydative capacity of the skin.
               <br>
               <br>Our scientific partners (APHP and CRO : lien en page scientific ) have established that our measurement of TEWL is statistically orrelated to that of  chromatography which is the reference methodology as opposed to corneometry. Our technology is complementary to imagery.`)}
+              textAlign="center"
             />
 
             <TextContentMiddle
               title="OUR INSANELY FAST ALGORITHM!"
               text="Thanks to its IOT, its mobile consumer app and its standardized single-use patches, Wired Beauty can decifer within seconds skin antioxydative and mosterizing reactions. Artificial intelligence improves repeatability of process."
+              textAlign="center"
             />
 
             <Image
