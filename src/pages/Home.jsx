@@ -8,7 +8,6 @@ import Wave from "../components/Footer/Wave";
 
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
-import ChatBotCustom from "../components/ChatBotCustom";
 // const { t } = useTranslation();
 
 const products = [
@@ -98,7 +97,7 @@ export default function Home() {
             ))}
           </Box>
         </Box>
-        <ChatBotCustom />
+        
         <Footer />
       </Box>
     </>

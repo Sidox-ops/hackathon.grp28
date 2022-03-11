@@ -2,10 +2,13 @@ import React from "react";
 import { Box, Link } from "@chakra-ui/react";
 import Waves from "../components/Footer/Wave";
 
+import ChatBotCustom from "../components/ChatBotCustom";
+
 class Footer extends React.Component {
   render() {
     return (
       <>
+        <ChatBotCustom />
         <Box backgroundColor="#fff">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
             <path
