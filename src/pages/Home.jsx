@@ -8,32 +8,39 @@ import Wave from "../components/Footer/Wave";
 
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
+import ChatBotCustom from "../components/ChatBotCustom";
 // const { t } = useTranslation();
 
 const products = [
   {
     title: "BeautyTech X Skincare",
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, . ",
+    text:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, . ",
   },
   {
     title: "Nomadic labgrade IOT device & smart app",
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, . ",
+    text:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, . ",
   },
   {
     title: "Our insanely fast algorithm",
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, . ",
+    text:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, . ",
   },
   {
     title: "Our partners",
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, . ",
+    text:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, . ",
   },
   {
     title: "The science behinds",
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, . ",
+    text:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, . ",
   },
   {
     title: "Recruitments",
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, . ",
+    text:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, . ",
   },
 ];
 
@@ -60,7 +67,6 @@ export default function Home() {
       />
 
       <Wave />
-
       <Box backgroundColor="#fff" color="white">
         <Box width="100vw" padding="0 10vw">
           <Box
@@ -78,7 +84,7 @@ export default function Home() {
             ))}
           </Box>
         </Box>
-
+        <ChatBotCustom />
         <Footer />
       </Box>
     </>
