@@ -59,15 +59,13 @@ export default function Home() {
         content2={<Box flex="3"></Box>}
       />
 
-      <Wave />
-
       <Box backgroundColor="#fff" color="white">
         <Box width="100vw" padding="0 10vw">
           <Box
             textAlign="center"
             fontSize="5xl"
             fontFamily="Poppins"
-            marginBottom="3rem"
+            margin="-7rem 0 3rem 0"
             color="#161C27"
           >
             More about us
@@ -78,9 +76,8 @@ export default function Home() {
             ))}
           </Box>
         </Box>
-
-        <Footer />
       </Box>
+      <Footer />
     </>
   );
 }

@@ -1,43 +1,90 @@
-import React from 'react';
-import { Box, Link } from "@chakra-ui/react"
+import React from "react";
+import { Box, Link } from "@chakra-ui/react";
+import Waves from "../components/Footer/Wave";
 
 class Footer extends React.Component {
-    render(){
-        return (
-            <>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-                    <path fill="#18222E" fillOpacity="1" d="M0,64L80,74.7C160,85,320,107,480,101.3C640,96,800,64,960,53.3C1120,43,1280,53,1360,58.7L1440,64L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
-                </svg>
-                <Box color="#fff" textAlign="center" fontFamily="Poppins" fontWeight="bold" fontSize="4xl" marginBottom="5rem">Contact us</Box>
-                <Box color="#fff" display="flex" padding="0 4rem 8rem 4rem" justifyContent="space-around" backgroundColor="#18222E">
-                    <Box>
-                    <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins"><Link to="/">Privacy policy</Link></Box>
-                    <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins"><Link to="/">Legal Notice</Link></Box>
-                    <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins"><Link to="/">Term of Sales</Link></Box>
-                    </Box>
+  render() {
+    return (
+      <>
+        <Box backgroundColor="#fff">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path
+              fill="#18222E"
+              fillOpacity="1"
+              d="M0,64L80,74.7C160,85,320,107,480,101.3C640,96,800,64,960,53.3C1120,43,1280,53,1360,58.7L1440,64L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+            ></path>
+          </svg>
+          {/* <Waves/> */}
+          <Box
+            color="#fff"
+            textAlign="center"
+            fontFamily="Poppins"
+            backgroundColor="#18222E"
+            fontWeight="bold"
+            fontSize="4xl"
+            paddingBottom="5rem"
+            marginTop="-7rem"
+          >
+            Contact US
+          </Box>
+          <Box
+            color="#fff"
+            display="flex"
+            padding="0 4rem 8rem 4rem"
+            justifyContent="space-around"
+            backgroundColor="#18222E"
+          >
+            <Box>
+              <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins">
+                <Link to="/">Privacy policy</Link>
+              </Box>
+              <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins">
+                <Link to="/">Legal Notice</Link>
+              </Box>
+              <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins">
+                <Link to="/">Term of Sales</Link>
+              </Box>
+            </Box>
 
-                    <Box>
-                    <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins"><Link to="/">Press contact:</Link></Box>
-                    <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins"><Link to="/">press@wired-beauty.com</Link></Box>
-                    <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins"><Link to="/">06.83.72.60.50</Link></Box>
-                    </Box>
+            <Box>
+              <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins">
+                <Link to="/">Press contact:</Link>
+              </Box>
+              <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins">
+                <Link to="/">press@wired-beauty.com</Link>
+              </Box>
+              <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins">
+                <Link to="/">06.83.72.60.50</Link>
+              </Box>
+            </Box>
 
-                    {/* TODO title "Contact us" */}
+            {/* TODO title "Contact us" */}
 
-                    <Box>
-                    <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins"><Link to="/">Contact sales: </Link></Box>
-                    <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins"><Link to="/">Stan@WBT.com</Link></Box>
-                    <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins"><Link to="/">Sophie@WBT.com</Link></Box>
-                    </Box>
+            <Box>
+              <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins">
+                <Link to="/">Contact sales: </Link>
+              </Box>
+              <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins">
+                <Link to="/">Stan@WBT.com</Link>
+              </Box>
+              <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins">
+                <Link to="/">Sophie@WBT.com</Link>
+              </Box>
+            </Box>
 
-                    <Box>
-                    <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins"><Link to="/">Contact investor: </Link></Box>
-                    <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins"><Link to="/">Sophie@WBT.com</Link></Box>
-                    </Box>
-                </Box>
-            </>
-        )
-    }
+            <Box>
+              <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins">
+                <Link to="/">Contact investor: </Link>
+              </Box>
+              <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins">
+                <Link to="/">Sophie@WBT.com</Link>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+      </>
+    );
+  }
 }
 
 export default Footer;

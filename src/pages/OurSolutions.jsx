@@ -8,7 +8,7 @@ import TextContentMiddle from "../components/TextContentMiddle";
 import BlocContent from "../components/BlocContent";
 import parse from "html-react-parser";
 
-import img from "../assets/404.png"
+import img from "../assets/404.png";
 
 // var parse = require('html-react-parser');
 
@@ -35,18 +35,8 @@ class OurSolutions extends React.Component {
           textDeco2="underline"
         />
 
-        <Box>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path
-              fill="#FFF"
-              fillOpacity="1"
-              d="M0,64L80,74.7C160,85,320,107,480,101.3C640,96,800,64,960,53.3C1120,43,1280,53,1360,58.7L1440,64L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
-            ></path>
-          </svg>
-        </Box>
-
         <Box backgroundColor="#fff" color="white">
-          <Box width="100vw" padding="0 10vw 10vh 10vw">
+          <Box width="100vw" padding="0 10vw 10vh 10vw" margin="-7rem 0 0 0">
             <TextContentMiddle
               title="Nomadic labgrade IOT device & smart app"
               text="WIRED BEAUTY is a French beauty-tech market research company which invested 1,3M€ to develop a non invasive, portable lab connected device to deliver labgrade and real time measurements of skin markers to dermocosmetic lab as well as a smart app in order to also harvest consumer perception."
@@ -100,7 +90,6 @@ class OurSolutions extends React.Component {
             />
           </Box>
         </Box>
-
         <Footer />
       </>
     );
