@@ -90,7 +90,7 @@ export default function ChartPage(props) {
             </Box>
             <Box backgroundColor="white" fontSize="4xl" display="flex" flexDirection="column" paddingX={"360px"} >
                 STEP 2 - Tester Feedback <br />
-                <Box fontSize="small" fontWeight="bold" padding={"15px"} >
+                <Box fontSize="small" fontWeight="bold" paddingY={"15px"} >
                     Name: <br />
                     Last name: <br />
                     Email: <br />
@@ -99,7 +99,7 @@ export default function ChartPage(props) {
                     Freckle: <br />
                     <img src={Graph2} alt="" />
                 </Box>
-                <Box fontSize="1.5large">
+                <Box fontSize="large" fontWeight="bold" paddingY={"15px"}>
                     Efficiency coomments: <br />
                     Good points
                 </Box>
@@ -115,7 +115,7 @@ export default function ChartPage(props) {
                     software like Aldus PageMaker including versions of Lorem Ipsum.
                 </Box>
 
-                <Box fontSize="1.5large">
+                <Box fontSize="large" fontWeight="bold" paddingY={"15px"}>
                     Bad points
                 </Box>
                 <Box fontSize="small">
@@ -130,7 +130,7 @@ export default function ChartPage(props) {
                     software like Aldus PageMaker including versions of Lorem Ipsum.
                 </Box>
 
-                <Box fontSize="1.5large">
+                <Box fontSize="large" fontWeight="bold" paddingY={"15px"}>
                     Use comments
                 </Box>
                 <Box fontSize="small">
@@ -145,7 +145,7 @@ export default function ChartPage(props) {
                     software like Aldus PageMaker including versions of Lorem Ipsum.
                 </Box>
 
-                <Box fontSize="1.5large">
+                <Box fontSize="large" fontWeight="bold" paddingY={"15px"}>
                     Devise IOT comments
                 </Box>
                 <Box fontSize="small">
