@@ -10,6 +10,7 @@ import {
   Box,
   Text,
   Select,
+  useToast,
 } from "@chakra-ui/react";
 import {
   ArrowRightIcon,
@@ -21,10 +22,11 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import SignUpModal from "./SignUpModal";
 import SignInModal from "./SignInModal";
-import { signOut, getAuth } from "firebase/auth";
+import { signOut } from "firebase/auth";
 import { auth } from "../firebase.config";
 import { UserContext } from "../context/userContext";
 import logo from "../assets/logo.png";
+import UserIcon from "@material-ui/icons/People";
 
 // import 'flag-icon-css/css/flag-icon.css'
 
@@ -61,14 +63,23 @@ export default function Navbar(props) {
   // const currentLanugage = languages.find(l => l.currentLanguageCode)
   const { t } = useTranslation();
 
+  const toast = useToast();
+  //TODO: create utils/function or component for implement toast everywhere
+  function toastItLogout() {
+    toast({
+      title: "Success",
+      description: "You have been disconnected",
+      status: "info",
+      duration: 5000,
+      isClosable: true,
+    });
+  }
   const logout = async () => {
     try {
-      // await signOut(auth);
-      // navigate("/");
-      const auth2 = getAuth();
-      signOut(auth2)
+      await signOut(auth)
         .then(() => {
           // Sign-out successful.
+          toastItLogout();
           navigate("/");
         })
         .catch((error) => {
