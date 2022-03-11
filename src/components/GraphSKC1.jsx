@@ -1,7 +1,6 @@
 import {React, useRef} from "react";
 
 import Result from "../data/data.json"
-
 import Chart from 'chart.js/auto'
 import { Bar, Line } from "react-chartjs-2"
 import '@progress/kendo-theme-material/dist/all.css';
