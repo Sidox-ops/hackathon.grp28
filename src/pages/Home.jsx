@@ -58,18 +58,18 @@ export default function Home() {
       <Navbar
         content1={
           <Box flex="3">
-            <Box fontSize="5xl" margin="0 0 1em 0">
-              Digitally enabled Lab & Consumer skincare testing
+            <Box fontSize="5xl" fontFamily="Poppins" margin="0 0 1em 0">
+              {t("homeTitle")}
             </Box>
             <Box fontSize="2xl" fontWeight="light">
               {/* <Box>+ Biology</Box>
               <Box>+ IOT nomadic lab</Box>
               <Box>+ Consumer app</Box>
               <Box>+ Insanely fast algorythm</Box> */}
-              <Box>+ Skin Analyze</Box>
-              <Box>+ Mobile skin lab</Box>
-              <Box>+ Smart Algorithm & app</Box>
-              <Box>+ Data</Box>
+              <Box>+ {t("homeDesc1")}</Box>
+              <Box>+ {t("homeDesc2")}</Box>
+              <Box>+ {t("homeDesc3")}</Box>
+              <Box>+ {t("homeDesc4")}</Box>
             </Box>
           </Box>
         }

@@ -1,40 +1,23 @@
 import {
-  Breadcrumb,
-  BreadcrumbItem,
-  Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  IconButton,
   Box,
   Text,
   Select,
   Image,
+  useToast,
 } from "@chakra-ui/react";
-import {
-  ArrowRightIcon,
-  AddIcon,
-  HamburgerIcon,
-  ChevronDownIcon,
-} from "@chakra-ui/icons";
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import SignUpModal from "./SignUpModal";
 import SignInModal from "./SignInModal";
-import { signOut, getAuth } from "firebase/auth";
+import { signOut } from "firebase/auth";
 import { auth } from "../firebase.config";
 import { UserContext } from "../context/userContext";
 
 import logov2 from "../assets/logov2.png";
 import backgroundURL from "../assets/backgroundURL.png";
 
-// import 'flag-icon-css/css/flag-icon.css'
-
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
 import Wave from "./Footer/Wave";
-// import cookies from 'js-cookie';
 
 const valueHeightNavBar = "3";
 
@@ -58,21 +41,31 @@ const languages = [
 
 export default function Navbar(props) {
   const navigate = useNavigate();
-  const { currentUser } = useContext(UserContext);
+  const { currentUser, currentRoles, setCurrentRoles } = useContext(
+    UserContext
+  );
   const [displayed, setDisplayed] = useState("block");
 
-  // const currentLanguageCode = cookies.get('i18next') || 'en';
-  // const currentLanugage = languages.find(l => l.currentLanguageCode)
   const { t } = useTranslation();
 
+  const toast = useToast();
+  //TODO: create utils/function or component for implement toast everywhere
+  function toastItLogout() {
+    toast({
+      title: "Success",
+      description: "You have been disconnected",
+      status: "info",
+      duration: 5000,
+      isClosable: true,
+    });
+  }
   const logout = async () => {
     try {
-      // await signOut(auth);
-      // navigate("/");
-      const auth2 = getAuth();
-      signOut(auth2)
+      await signOut(auth)
         .then(() => {
           // Sign-out successful.
+          toastItLogout();
+          setCurrentRoles([]);
           navigate("/");
         })
         .catch((error) => {
@@ -89,12 +82,7 @@ export default function Navbar(props) {
 
   return (
     <Box backgroundImage={backgroundURL} backgroundSize="cover" id="top">
-      {/* <Box width="100vw" height="4vh" backgroundColor="#1C2834"></Box> */}
-      <Box
-        padding="4rem 3rem 3rem 3rem"
-        width="100vw"
-        // minHeight="11rem"
-      >
+      <Box padding="4rem 3rem 3rem 3rem" width="100vw" fontFamily="poppins">
         <Box display="flex">
           <Box
             cursor="pointer"
@@ -124,14 +112,18 @@ export default function Navbar(props) {
 
           <Box flex="1"></Box>
 
-          <Box flex="18">
-            {/* <Image src='https://via.placeholder.com/850x100'/> */}
-          </Box>
+          <Box flex="18"></Box>
           <Box flex="auto">
             <Box display="flex" justifyContent="space-around" color="white">
-              <Box margin="auto">
-                <Link to="/">{t("navbarBecome")}</Link>
-              </Box>
+              {Boolean(currentRoles.includes("admin")) ? (
+                <Box margin="auto" role="link">
+                  <Link to="/admin/dashboard">Dashboard</Link>
+                </Box>
+              ) : (
+                <Box margin="auto">
+                  <Link to="/">{t("navbarBecome")}</Link>
+                </Box>
+              )}
               <Box margin="auto">
                 <Link to="/ContactUs">{t("navbarContact")}</Link>
               </Box>
@@ -150,9 +142,8 @@ export default function Navbar(props) {
                 color="dark"
                 onChange={(e) => i18next.changeLanguage(e.target.value)}
               >
-                {languages.map(({ code, name, country_code }, index) => (
+                {languages.map(({ code, name }, index) => (
                   <option key={index} style={{ color: "#18222E" }} value={code}>
-                    {/* <Box className={`flag-icon flag-icoon-${country_code}`}></Box> */}
                     {name}
                   </option>
                 ))}
@@ -175,7 +166,7 @@ export default function Navbar(props) {
                     textDecoration: "underline",
                   }}
                 >
-                  <Link to="/WhatWeDo#">What we do</Link>
+                  <Link to="/WhatWeDo#">{t("whatWeDo")}</Link>
                 </Box>
                 <Box
                   padding="1em 0"
@@ -185,7 +176,7 @@ export default function Navbar(props) {
                     textDecoration: "underline",
                   }}
                 >
-                  <Link to="/OurSolutions#">Our solutions</Link>
+                  <Link to="/OurSolutions#">{t("ourSolutions")}</Link>
                 </Box>
                 <Box
                   padding="1em 0"
@@ -195,7 +186,7 @@ export default function Navbar(props) {
                     textDecoration: "underline",
                   }}
                 >
-                  <Link to="/WhoAreWe#">Who are we</Link>
+                  <Link to="/WhoAreWe#">{t("whoAreWe")}</Link>
                 </Box>
                 <Box
                   padding="1em 0"
@@ -205,7 +196,9 @@ export default function Navbar(props) {
                     textDecoration: "underline",
                   }}
                 >
-                  <Link to="/ScientistValidation#">Scientist validation</Link>
+                  <Link to="/ScientistValidation#">
+                    {t("scientistValidation")}
+                  </Link>
                 </Box>
                 <Box
                   padding="1em 0"
@@ -215,12 +208,11 @@ export default function Navbar(props) {
                     textDecoration: "underline",
                   }}
                 >
-                  <Link to="/StudiesServices#">Studies and services</Link>
+                  <Link to="/StudiesServices#">{t("studiesAndServices")}</Link>
                 </Box>
               </Box>
             </Box>
           </Box>
-
           {props.content1}
           {props.content2}
         </Box>

@@ -4,5 +4,16 @@
     "navBarSignIn": "登录",
     "languages": "语言",
     "navbarSignOut": "断线",
-    "title": "有线之美"
+    "title": "有线之美",
+    "navbarSignIn": "登入",
+    "whatWeDo": "我們所做的",
+    "ourSolutions": "我們的解決方案",
+    "whoAreWe": "我們是誰",
+    "scientistValidation": "科學家驗證",
+    "studiesAndServices": "研究和服務",
+    "homeTitle": "數字化實驗室和消費者護膚品測試",
+    "homeDesc1": "皮膚分析",
+    "homeDesc2": "移動皮膚實驗室",
+    "homeDesc3": "智能算法和應用程序",
+    "homeDesc4": "數據"
 }
