@@ -44,9 +44,8 @@ const products = [
 ];
 
 export default function Home() {
-
   const { t } = useTranslation();
-  
+
   return (
     <>
       <Navbar
@@ -91,7 +90,7 @@ export default function Home() {
               textButton="Learn more"
             />
             {products.map((i, index) => (
-              <ProductHomeBloc title={i.title} text={i.text} key={index}/>
+              <ProductHomeBloc title={i.title} text={i.text} key={index} />
             ))}
           </Box>
         </Box>

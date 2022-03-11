@@ -1,6 +1,9 @@
 import React, { useContext } from "react";
 import { UserContext } from "../../context/userContext";
 import { Navigate } from "react-router-dom";
+import UserIcon from "@material-ui/icons/People";
+import { firebaseConfig } from "../../firebase.config";
+import superDataProviders from "../../utils/superDataProviders";
 
 import { Admin, Resource } from "react-admin";
 import {
@@ -18,31 +21,26 @@ import {
 import {
   FirebaseAuthProvider,
   FirebaseDataProvider,
-  FirebaseRealTimeSaga,
 } from "react-admin-firebase";
-
-const config = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID,
-};
 
 const options = {};
 
-const dataProvider = FirebaseDataProvider(config, options);
+// const dataProvider = jsonServerProvider("https://jsonplaceholder.typicode.com");
+// const dataProvider = FirebaseDataProvider(firebaseConfig, options);
+// const authProvider = FirebaseAuthProvider(firebaseConfig, options);
 export default function Dashboard() {
   const { currentUser, currentRoles } = useContext(UserContext);
 
   //todo: add rule from firebase server to exclude non-admin to have access to databases
-  if (!currentUser && !currentRoles.includes("admin")) {
+  if (
+    !currentUser &&
+    (!currentRoles.includes("admin") || !currentRoles.includes("customer"))
+  ) {
     return <Navigate to="/" />;
   }
   return (
     <>
-      <Admin dataProvider={dataProvider}>
+      {/* <Admin dataProvider={dataProvider} authProvider={authProvider}>
         <Resource
           name="posts"
           list={PostList}
@@ -51,15 +49,20 @@ export default function Dashboard() {
           edit={PostEdit}
         />
 
-        <Resource
-          name="users"
-          // icon={UserIcon}
-          list={UserList}
-          show={UserShow}
-          create={UserCreate}
-          edit={UserEdit}
-        />
-      </Admin>
+        {currentRoles.includes("admin") ? (
+          <Resource
+            name="users"
+            icon={UserIcon}
+            list={UserList}
+            show={UserShow}
+            create={UserCreate}
+            edit={UserEdit}
+          />
+        ) : (
+          <></>
+        )}
+      </Admin> */}
+      test
     </>
   );
 }

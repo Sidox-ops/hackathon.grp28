@@ -35,7 +35,7 @@ export default function SignInModal() {
     e.preventDefault();
     try {
       await signIn(email, password);
-      navigate("/admin");
+      navigate("/dashboard");
       onClose();
     } catch {
       toast({
