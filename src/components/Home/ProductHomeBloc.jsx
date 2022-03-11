@@ -1,5 +1,7 @@
 import React from "react";
 import { Box, Button } from "@chakra-ui/react";
+// import { Link, useNavigate } from "react-router-dom";
+import { HashLink as Link } from 'react-router-hash-link';
 
 class ProductHomeBloc extends React.Component {
   render() {
@@ -29,7 +31,7 @@ class ProductHomeBloc extends React.Component {
           </Box>
           <Box float="right">
             <Button fontSize="1xl" fontFamily="Poppins" color="black">
-              Learn more
+              <Link to={this.props.anchor}>Learn more</Link>
             </Button>
           </Box>
         </Box>

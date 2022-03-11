@@ -38,8 +38,18 @@ function App() {
         <Route path="/admin" element={<Admin />}>
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
         </Route>
+        <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="*" element={<NotFound />} />
-        <Route path="/charts" element={<><GraphSKC1 /><GraphSKC2 /><GraphSKC3 /></>}  />
+        <Route
+          path="/charts"
+          element={
+            <>
+              <GraphSKC1 />
+              <GraphSKC2 />
+              <GraphSKC3 />
+            </>
+          }
+        />
       </Routes>
     </>
   );

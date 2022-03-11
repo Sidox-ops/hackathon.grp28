@@ -1,40 +1,19 @@
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  IconButton,
-  Box,
-  Text,
-  Select,
-  useToast,
-} from "@chakra-ui/react";
-import {
-  ArrowRightIcon,
-  AddIcon,
-  HamburgerIcon,
-  ChevronDownIcon,
-} from "@chakra-ui/icons";
+import { Box, Text, Select, useToast, Image } from "@chakra-ui/react";
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import SignUpModal from "./SignUpModal";
 import SignInModal from "./SignInModal";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase.config";
 import { UserContext } from "../context/userContext";
-import logo from "../assets/logo.png";
-import UserIcon from "@material-ui/icons/People";
 
-// import 'flag-icon-css/css/flag-icon.css'
+import logov2 from "../assets/logov2.png";
+import backgroundURL from "../assets/backgroundURL.png";
 
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
-// import cookies from 'js-cookie';
+import Wave from "./Footer/Wave";
 
-const valueHeightNavBar = "5rem";
+const valueHeightNavBar = "3";
 
 const languages = [
   {
@@ -57,10 +36,8 @@ const languages = [
 export default function Navbar(props) {
   const navigate = useNavigate();
   const { currentUser } = useContext(UserContext);
-  const [displayed, setDisplayed] = useState('block');
-  
-  // const currentLanguageCode = cookies.get('i18next') || 'en';
-  // const currentLanugage = languages.find(l => l.currentLanguageCode)
+  const [displayed, setDisplayed] = useState("block");
+
   const { t } = useTranslation();
 
   const toast = useToast();
@@ -95,19 +72,13 @@ export default function Navbar(props) {
   }, [t]);
 
   return (
-    <>
-      <Box width="100vw" height="4vh" backgroundColor="#1C2834"></Box>
-      <Box
-        padding="4rem 3rem 3rem 3rem"
-        width="100vw"
-        minHeight="11rem"
-        fontFamily="poppins"
-      >
+    <Box backgroundImage={backgroundURL} backgroundSize="cover" id="top">
+      <Box padding="4rem 3rem 3rem 3rem" width="100vw" fontFamily="poppins">
         <Box display="flex">
           <Box
             cursor="pointer"
-            height={valueHeightNavBar}
-            width={valueHeightNavBar}
+            height={`${valueHeightNavBar}rem`}
+            width={`${valueHeightNavBar}rem`}
             marginRight="2rem"
             onClick={() => {
               displayed === "block"
@@ -125,23 +96,21 @@ export default function Navbar(props) {
           <Box textColor="#fff">
             <Text textAlign="center">
               <Link to="/">
-                <img src={logo} style={{ height: valueHeightNavBar }} />
+                <Image src={logov2} height="6rem" width="auto" />
               </Link>
             </Text>
           </Box>
 
           <Box flex="1"></Box>
 
-          <Box flex="18">
-            {/* <Image src='https://via.placeholder.com/850x100'/> */}
-          </Box>
+          <Box flex="18"></Box>
           <Box flex="auto">
-            <Box display="flex" justifyContent="space-between" color="white">
+            <Box display="flex" justifyContent="space-around" color="white">
               <Box margin="auto">
                 <Link to="/">{t("navbarBecome")}</Link>
               </Box>
               <Box margin="auto">
-                <Link to="/">{t("navbarContact")}</Link>
+                <Link to="/ContactUs">{t("navbarContact")}</Link>
               </Box>
               <Box margin="auto">
                 {currentUser ? (
@@ -157,9 +126,8 @@ export default function Navbar(props) {
                 marginLeft="1rem"
                 onChange={(e) => i18next.changeLanguage(e.target.value)}
               >
-                {languages.map(({ code, name, country_code }, index) => (
+                {languages.map(({ code, name }, index) => (
                   <option key={index} style={{ color: "#18222E" }} value={code}>
-                    {/* <Box className={`flag-icon flag-icoon-${country_code}`}></Box> */}
                     {name}
                   </option>
                 ))}
@@ -179,35 +147,35 @@ export default function Navbar(props) {
                   fontWeight={props.bold1}
                   textDecoration={props.textDeco1}
                 >
-                  <Link to="/WhatWeDo">What we do</Link>
+                  <Link to="/WhatWeDo#">What we do</Link>
                 </Box>
                 <Box
                   padding="1em 0"
                   fontWeight={props.bold2}
                   textDecoration={props.textDeco2}
                 >
-                  <Link to="/OurSolutions">Our solutions</Link>
+                  <Link to="/OurSolutions#">Our solutions</Link>
                 </Box>
                 <Box
                   padding="1em 0"
                   fontWeight={props.bold3}
                   textDecoration={props.textDeco3}
                 >
-                  <Link to="/WhoAreWe">Who are we</Link>
+                  <Link to="/WhoAreWe#">Who are we</Link>
                 </Box>
                 <Box
                   padding="1em 0"
                   fontWeight={props.bold4}
                   textDecoration={props.textDeco4}
                 >
-                  <Link to="/ScientistValidation">Scientist validation</Link>
+                  <Link to="/ScientistValidation#">Scientist validation</Link>
                 </Box>
                 <Box
                   padding="1em 0"
                   fontWeight={props.bold5}
                   textDecoration={props.textDeco5}
                 >
-                  <Link to="/StudiesServices">Studies and services</Link>
+                  <Link to="/StudiesServices#">Studies and services</Link>
                 </Box>
               </Box>
             </Box>
@@ -216,6 +184,7 @@ export default function Navbar(props) {
           {props.content2}
         </Box>
       </Box>
-    </>
+      <Wave />
+    </Box>
   );
 }
