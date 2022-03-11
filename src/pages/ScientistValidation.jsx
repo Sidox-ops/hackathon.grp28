@@ -15,6 +15,8 @@ import schema2 from "../assets/schema2.png";
 
 import parse from "html-react-parser";
 
+import { HashLink as Linked } from "react-router-hash-link";
+
 class ScientistValidation extends React.Component {
   render() {
     return (
@@ -22,13 +24,23 @@ class ScientistValidation extends React.Component {
         <Navbar
           content1={
             <Box flex="3">
-              <Box fontSize="5xl" fontFamily="Poppins" margin="0 0 1em 0">
+              <Box fontSize="5xl" margin="0 0 1em 0">
                 Science behinds Wired Beauty
               </Box>
-              <Box fontSize="2xl" fontFamily="Poppins" fontWeight="light">
-                <Box>+ Our trusted parteners</Box>
-                <Box>+ Similiraties with medicament protocols</Box>
-                <Box>+ What makes Wired Beauty different ?</Box>
+              <Box fontSize="2xl" fontWeight="light">
+                <Box>
+                  <Linked to="#partners">+ Our trusted parteners</Linked>
+                </Box>
+                <Box>
+                  <Linked to="#schema1">
+                    + Similiraties with medicament protocols
+                  </Linked>
+                </Box>
+                <Box>
+                  <Linked to="#schema2">
+                    + What makes Wired Beauty different ?
+                  </Linked>
+                </Box>
               </Box>
             </Box>
           }
@@ -38,11 +50,17 @@ class ScientistValidation extends React.Component {
         />
 
         <Box backgroundColor="#fff" color="white">
-          <Box width="100vw" padding="0 10vw" margin="-7rem 0 0 0" id="OurPartners" >
+          <Box
+            width="100vw"
+            padding="0 10vw"
+            margin="-7rem 0 0 0"
+            id="OurPartners"
+          >
             <TextContentMiddle
               title={"Our trusted partners"}
               textAlign="center"
-              moreContent={<Image src={logoDark} margin="0 auto"/>}
+              moreContent={<Image src={logoDark} margin="0 auto" />}
+              id="partners"
             />
 
             <Box display="flex" justifyContent="space-around">
@@ -83,14 +101,14 @@ class ScientistValidation extends React.Component {
             />
           </Box>
           {/* <Box backgroundColor="red"> */}
-          <Image src={schema1} margin="auto" />
+          <Image src={schema1} margin="auto" id="schema1" />
           <Box margin="7rem 0 -7rem 0">
             <TextContentMiddle
               title="What makes Wired Beauty different"
               textAlign="center"
             />
           </Box>
-          <Image src={schema2} margin="auto" />
+          <Image src={schema2} margin="auto" id="schema2" />
           {/* </Box> */}
         </Box>
 

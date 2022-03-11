@@ -8,6 +8,8 @@ import TextContentMiddle from "../components/TextContentMiddle";
 import BlocContent from "../components/BlocContent";
 import parse from "html-react-parser";
 
+import { HashLink as Linked } from "react-router-hash-link";
+
 import img from "../assets/404.png";
 
 // var parse = require('html-react-parser');
@@ -19,14 +21,24 @@ class OurSolutions extends React.Component {
         <Navbar
           content1={
             <Box flex="3">
-              <Box fontSize="5xl" fontFamily="Poppins" margin="0 0 1em 0">
+              <Box fontSize="5xl" margin="0 0 1em 0">
                 SmartData X Skincare
               </Box>
-              <Box fontSize="2xl" fontFamily="Poppins" fontWeight="light">
-                <Box>+ A portable lab device</Box>
-                <Box>+ A mobile app</Box>
-                <Box>+ Smart single-use peel-off patches</Box>
-                <Box>+ European data center</Box>
+              <Box fontSize="2xl" fontWeight="light">
+                <Box>
+                  <Linked to="#nomadic">+ A portable lab device</Linked>
+                </Box>
+                <Box>
+                  <Linked to="#dataSkincare">+ A mobile app</Linked>
+                </Box>
+                <Box>
+                  <Linked to="#algo">
+                    + Smart single-use peel-off patches
+                  </Linked>
+                </Box>
+                <Box>
+                  <Linked to="#algo">+ European data center</Linked>
+                </Box>
               </Box>
             </Box>
           }
@@ -41,6 +53,7 @@ class OurSolutions extends React.Component {
               title="Nomadic labgrade IOT device & smart app"
               text="WIRED BEAUTY is a French beauty-tech market research company which invested 1,3M€ to develop a non invasive, portable lab connected device to deliver labgrade and real time measurements of skin markers to dermocosmetic lab as well as a smart app in order to also harvest consumer perception."
               textAlign="center"
+              id="nomadic"
             />
 
             <Box>
@@ -48,7 +61,6 @@ class OurSolutions extends React.Component {
                 textAlign="center"
                 color="lightblue"
                 fontWeight="bold"
-                fontFamily="Poppins"
                 fontSize="3xl"
               >
                 Wired Beauty is ...
@@ -64,7 +76,7 @@ class OurSolutions extends React.Component {
                 />
                 <BlocContent
                   title="Better"
-                  text="Real World Evidence (link with pollution, UV  and lifestyle) of skincare efficiency on large statistical basis (ex 1000 testers)."
+                  text="Real World Evidence (linked with pollution, UV  and lifestyle) of skincare efficiency on large statistical basis (ex 1000 testers)."
                 />
               </Box>
             </Box>
@@ -77,12 +89,14 @@ class OurSolutions extends React.Component {
               <br>
               <br>Our scientific partners (APHP and CRO : lien en page scientific ) have established that our measurement of TEWL is statistically orrelated to that of  chromatography which is the reference methodology as opposed to corneometry. Our technology is complementary to imagery.`)}
               textAlign="center"
+              id="dataSkincare"
             />
 
             <TextContentMiddle
               title="OUR INSANELY FAST ALGORITHM!"
               text="Thanks to its IOT, its mobile consumer app and its standardized single-use patches, Wired Beauty can decifer within seconds skin antioxydative and mosterizing reactions. Artificial intelligence improves repeatability of process."
               textAlign="center"
+              id="algo"
             />
 
             <Image

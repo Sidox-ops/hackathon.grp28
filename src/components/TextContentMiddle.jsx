@@ -5,10 +5,9 @@ class TextContentMiddle extends React.Component {
   render() {
     return (
       <>
-        <Box width="100%" margin="0 2rem 7rem 2rem">
+        <Box width="100%" margin="0 2rem 7rem 2rem" id={this.props.id}>
           <Box
             color="lightblue"
-            fontFamily="Poppins"
             fontWeight="bold"
             fontSize="3xl"
             textAlign={this.props.textAlign}
@@ -16,7 +15,7 @@ class TextContentMiddle extends React.Component {
           >
             {this.props.title}
           </Box>
-          <Box color="black" fontFamily="Poppins" textAlign="left">
+          <Box color="black" textAlign="left">
             {this.props.text}
             {this.props.moreContent}
           </Box>

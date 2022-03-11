@@ -43,11 +43,12 @@ export default class ContactUs extends Component {
         <Navbar
           content1={
             <Box flex="3">
-              <Box fontSize="5xl" fontFamily="Poppins" margin="0 0 1em 0">
+              <Box fontSize="5xl" margin="0 0 1em 0">
                 Want to contact us ?
               </Box>
             </Box>
           }
+          content2={<Box flex="3"></Box>}
         />
 
         <Box

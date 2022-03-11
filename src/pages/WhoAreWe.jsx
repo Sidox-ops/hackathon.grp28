@@ -27,6 +27,17 @@ import person1 from "../assets/personne1.png";
 import person2 from "../assets/personne2.png";
 import whiteSquare from "../assets/whiteSquare.png";
 
+import { HashLink as Linked } from "react-router-hash-link";
+
+import roundPhoto1 from "../assets/roundPhoto1.png";
+import roundPhoto2 from "../assets/roundPhoto2.png";
+import roundPhoto3 from "../assets/roundPhoto3.png";
+
+import roundedPhoto1 from "../assets/roundedPhoto1.png";
+import roundedPhoto2 from "../assets/roundedPhoto2.png";
+import roundedPhoto3 from "../assets/roundedPhoto3.png";
+import roundedPhoto4 from "../assets/roundedPhoto4.png";
+
 class WhoAreWe extends React.Component {
   render() {
     return (
@@ -34,14 +45,24 @@ class WhoAreWe extends React.Component {
         <Navbar
           content1={
             <Box flex="3">
-              <Box fontSize="5xl" fontFamily="Poppins" margin="0 0 1em 0">
+              <Box fontSize="5xl" margin="0 0 1em 0">
                 What about us ?
               </Box>
-              <Box fontSize="2xl" fontFamily="Poppins" fontWeight="light">
-                <Box>+ Our history</Box>
-                <Box>+ Our team and scientific consortium</Box>
-                <Box>+ Value and spirit</Box>
-                <Box>+ Investors and board</Box>
+              <Box fontSize="2xl" fontWeight="light">
+                <Box>
+                  <Linked to="#history">+ Our history</Linked>
+                </Box>
+                <Box>
+                  <Linked to="#carousel1">
+                    + Our team and scientific consortium
+                  </Linked>
+                </Box>
+                <Box>
+                  <Linked to="#ourValues">+ Value and spirit</Linked>
+                </Box>
+                <Box>
+                  <Linked to="#investor">+ Investors and board</Linked>
+                </Box>
               </Box>
             </Box>
           }
@@ -67,18 +88,18 @@ class WhoAreWe extends React.Component {
                 As of today, Wired Beauty Technologies has invested 1.3M€ in research on their exclusive IOT, mobile app, algorithand scientific exposome and suncare knowledge partnering with a top-notch consortium ( APHP et Qima lien a créer vers page scientific)
                 `)}
               textAlign="center"
+              id="history"
             />
           </Box>
         </Box>
 
-        <CarouselContent />
+        <CarouselContent id="carousel1" />
 
         <Box>
           <Box
             textAlign="center"
             color="#fff"
             fontWeight="bold"
-            fontFamily="Poppins"
             fontSize="3xl"
             padding="2rem 0 0 0"
           >
@@ -89,7 +110,7 @@ class WhoAreWe extends React.Component {
               title={
                 <>
                   <Image
-                    src={img} //a changer avec l'illustration
+                    src={roundPhoto1} //a changer avec l'illustration
                     alt="personImage"
                     width="80px"
                     height="80px"
@@ -103,7 +124,7 @@ class WhoAreWe extends React.Component {
               title={
                 <>
                   <Image
-                    src={img} //a changer avec l'illustration
+                    src={roundPhoto2} //a changer avec l'illustration
                     alt="personImage"
                     width="80px"
                     height="80px"
@@ -117,7 +138,7 @@ class WhoAreWe extends React.Component {
               title={
                 <>
                   <Image
-                    src={img} //a changer avec l'illustration
+                    src={roundPhoto3} //a changer avec l'illustration
                     alt="personImage"
                     width="80px"
                     height="80px"
@@ -146,6 +167,7 @@ class WhoAreWe extends React.Component {
                 </ul>
               `)}
               textAlign="center"
+              id="ourValues"
             />
 
             <Box
@@ -161,30 +183,33 @@ class WhoAreWe extends React.Component {
                 We listen, we deliver. <br>
                 We help our clients succeed.
               `)}
+                img={roundedPhoto1}
               />
               <BlocPersona
-                title="Client passion"
+                title="Integrity and openess"
                 txt={parse(`
-                We focus on results with professionalism and constantly respect ethical codes.<br>
-                We listen, we deliver. <br>
-                We help our clients succeed.
+                We say things as they are and research new frontiers open-mindedly.
               `)}
+                img={roundedPhoto2}
               />
               <BlocPersona
-                title="Client passion"
+                title="Tech and consumer"
                 txt={parse(`
-                We focus on results with professionalism and constantly respect ethical codes.<br>
-                We listen, we deliver. <br>
-                We help our clients succeed.
+                We use technology to better understand consumer needs and life style as well as skin reactions.<br>
+                We taylor our research to client objectives. <br>
+                In tubo, in vitro, in vivo. <br>
+                We make it simple and save people time.
               `)}
+              img={roundedPhoto3}
               />
               <BlocPersona
-                title="Client passion"
+                title="One Team"
                 txt={parse(`
-                We focus on results with professionalism and constantly respect ethical codes.<br>
-                We listen, we deliver. <br>
-                We help our clients succeed.
+                We team up with labs, and their CROs all over the worlds from the concept development or for improved formulae.<br>
+                It feels different to work with us because our people are unlike any other. <br>
+                We bring new perspectives: mutual trust and speed.
               `)}
+              img={roundedPhoto4}
               />
             </Box>
 
@@ -192,7 +217,6 @@ class WhoAreWe extends React.Component {
             <Box>
               <Box
                 color="lightblue"
-                fontFamily="Poppins"
                 fontWeight="bold"
                 fontSize="3xl"
                 textAlign="center"
@@ -233,6 +257,7 @@ class WhoAreWe extends React.Component {
                 Gilles GENAIN (former head of L’Oréal Product Development)
               `}
               textAlign2="center"
+              id="investor"
               moreText2={
                 <Box
                   display="flex"

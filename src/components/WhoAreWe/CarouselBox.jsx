@@ -12,7 +12,6 @@ class CarouselBox extends React.Component {
           width="100vw"
           min-height="25vh"
           padding="2rem 5rem"
-          fontFamily="Poppins"
           fontSize="2xl"
         >
           <Box>{this.props.text}</Box>

@@ -7,7 +7,7 @@ import StudiesServices from "./pages/StudiesServices";
 import ScientistValidation from "./pages/ScientistValidation";
 import Dashboard from "./pages/Admin/Dashboard";
 import NotFound from "./pages/NotFound";
-import CookieConsent from "react-cookie-consent";
+import Cookies from './components/Cookies'
 // import Home from "./pages/Home";
 import GraphSKC1 from "./components/GraphSKC1";
 import GraphSKC2 from "./components/GraphSKC2";
@@ -21,17 +21,7 @@ import ContactUs from "./pages/ContactUs";
 function App() {
   return (
     <>
-      <CookieConsent
-        location="bottom"
-        buttonText="Sure !!"
-        cookieName="acceptCookies"
-        style={{ background: "#2B373B" }}
-        buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
-        expires={150}
-      >
-        This website uses cookies to enhance the user experience.{" "}
-        <span style={{ fontSize: "10px" }}>Please accept it o:)</span>
-      </CookieConsent>
+      <Cookies/>
 
       <Routes>
         <Route path="/" element={<Home />} />

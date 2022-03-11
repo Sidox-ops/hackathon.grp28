@@ -10,7 +10,7 @@ import {
   Box,
   Text,
   Select,
-  Image
+  Image,
 } from "@chakra-ui/react";
 import {
   ArrowRightIcon,
@@ -94,7 +94,6 @@ export default function Navbar(props) {
         padding="4rem 3rem 3rem 3rem"
         width="100vw"
         // minHeight="11rem"
-        fontFamily="poppins"
       >
         <Box display="flex">
           <Box
@@ -118,7 +117,7 @@ export default function Navbar(props) {
           <Box textColor="#fff">
             <Text textAlign="center">
               <Link to="/">
-                <Image src={logov2} height="6rem" width="auto"/>
+                <Image src={logov2} height="6rem" width="auto" />
               </Link>
             </Text>
           </Box>
@@ -148,6 +147,7 @@ export default function Navbar(props) {
               <Select
                 width="auto"
                 marginLeft="1rem"
+                color="dark"
                 onChange={(e) => i18next.changeLanguage(e.target.value)}
               >
                 {languages.map(({ code, name, country_code }, index) => (
@@ -171,6 +171,9 @@ export default function Navbar(props) {
                   padding="1em 0"
                   fontWeight={props.bold1}
                   textDecoration={props.textDeco1}
+                  _hover={{
+                    textDecoration: "underline",
+                  }}
                 >
                   <Link to="/WhatWeDo#">What we do</Link>
                 </Box>
@@ -178,6 +181,9 @@ export default function Navbar(props) {
                   padding="1em 0"
                   fontWeight={props.bold2}
                   textDecoration={props.textDeco2}
+                  _hover={{
+                    textDecoration: "underline",
+                  }}
                 >
                   <Link to="/OurSolutions#">Our solutions</Link>
                 </Box>
@@ -185,6 +191,9 @@ export default function Navbar(props) {
                   padding="1em 0"
                   fontWeight={props.bold3}
                   textDecoration={props.textDeco3}
+                  _hover={{
+                    textDecoration: "underline",
+                  }}
                 >
                   <Link to="/WhoAreWe#">Who are we</Link>
                 </Box>
@@ -192,6 +201,9 @@ export default function Navbar(props) {
                   padding="1em 0"
                   fontWeight={props.bold4}
                   textDecoration={props.textDeco4}
+                  _hover={{
+                    textDecoration: "underline",
+                  }}
                 >
                   <Link to="/ScientistValidation#">Scientist validation</Link>
                 </Box>
@@ -199,6 +211,9 @@ export default function Navbar(props) {
                   padding="1em 0"
                   fontWeight={props.bold5}
                   textDecoration={props.textDeco5}
+                  _hover={{
+                    textDecoration: "underline",
+                  }}
                 >
                   <Link to="/StudiesServices#">Studies and services</Link>
                 </Box>

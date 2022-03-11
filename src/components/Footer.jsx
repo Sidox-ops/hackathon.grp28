@@ -18,7 +18,6 @@ class Footer extends React.Component {
           <Box
             color="#fff"
             textAlign="center"
-            fontFamily="Poppins"
             backgroundColor="#18222E"
             fontWeight="bold"
             fontSize="4xl"
@@ -35,25 +34,25 @@ class Footer extends React.Component {
             backgroundColor="#18222E"
           >
             <Box>
-              <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins">
+              <Box marginBottom="1.5rem" fontSize="2xl">
                 <Link to="/">Privacy policy</Link>
               </Box>
-              <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins">
+              <Box marginBottom="1.5rem" fontSize="2xl">
                 <Link to="/">Legal Notice</Link>
               </Box>
-              <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins">
+              <Box marginBottom="1.5rem" fontSize="2xl">
                 <Link to="/">Term of Sales</Link>
               </Box>
             </Box>
 
             <Box>
-              <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins">
+              <Box marginBottom="1.5rem" fontSize="2xl">
                 <Link to="/">Press contact:</Link>
               </Box>
-              <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins">
+              <Box marginBottom="1.5rem" fontSize="2xl">
                 <Link to="/">press@wired-beauty.com</Link>
               </Box>
-              <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins">
+              <Box marginBottom="1.5rem" fontSize="2xl">
                 <Link to="/">06.83.72.60.50</Link>
               </Box>
             </Box>
@@ -61,22 +60,22 @@ class Footer extends React.Component {
             {/* TODO title "Contact us" */}
 
             <Box>
-              <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins">
+              <Box marginBottom="1.5rem" fontSize="2xl">
                 <Link to="/">Contact sales: </Link>
               </Box>
-              <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins">
+              <Box marginBottom="1.5rem" fontSize="2xl">
                 <Link to="/">Stan@WBT.com</Link>
               </Box>
-              <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins">
+              <Box marginBottom="1.5rem" fontSize="2xl">
                 <Link to="/">Sophie@WBT.com</Link>
               </Box>
             </Box>
 
             <Box>
-              <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins">
+              <Box marginBottom="1.5rem" fontSize="2xl">
                 <Link to="/">Contact investor: </Link>
               </Box>
-              <Box marginBottom="1.5rem" fontSize="2xl" fontFamily="Poppins">
+              <Box marginBottom="1.5rem" fontSize="2xl">
                 <Link to="/">Sophie@WBT.com</Link>
               </Box>
             </Box>
