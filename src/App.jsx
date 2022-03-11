@@ -5,13 +5,12 @@ import OurSolutions from "./pages/OurSolutions";
 import WhoAreWe from "./pages/WhoAreWe";
 import StudiesServices from "./pages/StudiesServices";
 import ScientistValidation from "./pages/ScientistValidation";
+import ChartPage from "./pages/ChartPage";
 import Dashboard from "./pages/Admin/Dashboard";
 import NotFound from "./pages/NotFound";
 import CookieConsent from "react-cookie-consent";
 // import Home from "./pages/Home";
-import GraphSKC1 from "./components/GraphSKC1";
-import GraphSKC2 from "./components/GraphSKC2";
-import GraphSKC3 from "./components/GraphSKC3";
+
 
 import Navbar from "./components/Navbar";
 //import Private from "./pages/Private/Private";
@@ -44,7 +43,7 @@ function App() {
 
         <Route path="/admin" element={<Dashboard />} />
         <Route path="*" element={<NotFound />} />
-        <Route path="/charts" element={<><GraphSKC1 /><GraphSKC2 /><GraphSKC3 /></>}  />
+        <Route path="/charts" element={<><ChartPage /></>}  />
 
         {/*<Route path="/private" element={<Private />}>
           <Route path="/private/private-home" element={<PrivateHome />} />

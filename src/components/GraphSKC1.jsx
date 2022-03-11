@@ -165,7 +165,10 @@ export default function GraphSKC1() {
     list_users.forEach(user => {
         let average = 0;
         Result.map((resultDetail, index) => {
-            if (resultDetail.user_id == user && resultDetail.score_skinbiosense == 1) {
+            if (resultDetail.user_id == user 
+                && resultDetail.score_skinbiosense == 1
+                && resultDetail.zone_code == 2
+                && resultDetail.session_id == 4) {
                 average += parseFloat(resultDetail.mesure.replace(',', '.')) / 100
             }
         })
@@ -178,7 +181,7 @@ export default function GraphSKC1() {
                 <div className="button-area">
                     <Button onClick={Export}>Export</Button>
                 </div>
-                <div style={{ width: "650px", height: "550px", display: "inline-flex", margin: "40px" }}>
+                <div style={{ width: "650px", display: "block", margin: "40px" }}>
                     <Line
                         data={{
                             labels: sessions,
@@ -187,11 +190,11 @@ export default function GraphSKC1() {
                                     label: 'No Product 417432',
                                     data: product1_1,
                                     backgroundColor: [
-                                        'rgba(54, 162, 235, 1)',
+                                        'rgba(54, 162, 235, 0.4)',
 
                                     ],
                                     borderColor: [
-                                        'rgba(54, 162, 235, 1)',
+                                        'rgba(54, 162, 235, 0.4)',
 
                                     ],
                                     borderWidth: 1
@@ -200,10 +203,10 @@ export default function GraphSKC1() {
                                     label: 'No Product 100218',
                                     data: product2_1,
                                     backgroundColor: [
-                                        'rgba(255, 99, 132, 1)',
+                                        'rgba(255, 99, 132, 0.4)',
                                     ],
                                     borderColor: [
-                                        'rgba(255, 99, 132, 1)',
+                                        'rgba(255, 99, 132, 0.4)',
                                     ],
                                     borderWidth: 1
                                 },
@@ -211,11 +214,11 @@ export default function GraphSKC1() {
                                     label: 'Product 417432',
                                     data: product1_2,
                                     backgroundColor: [
-                                        'rgba(153, 102, 255, 1)',
+                                        'rgba(54, 162, 235, 1)',
 
                                     ],
                                     borderColor: [
-                                        'rgba(153, 102, 255, 1)',
+                                        'rgba(54, 162, 235, 1)',
 
                                     ],
                                     borderWidth: 1
@@ -224,10 +227,10 @@ export default function GraphSKC1() {
                                     label: 'Product 100218',
                                     data: product2_2,
                                     backgroundColor: [
-                                        'rgba(75, 192, 192, 1)',
+                                        'rgba(255, 99, 132, 1)',
                                     ],
                                     borderColor: [
-                                        'rgba(75, 192, 192, 1)',
+                                        'rgba(255, 99, 132, 1)',
                                     ],
                                     borderWidth: 1
                                 }]
@@ -242,28 +245,19 @@ export default function GraphSKC1() {
                         data={{
                             labels: list_users,
                             datasets: [{
-                                label: '# of Votes',
+                                label: 'Average mesure at T3 for each user with the product',
                                 data: list_averages,
                                 backgroundColor: [
-                                    'rgba(255, 99, 132, 0.2)',
-                                    'rgba(54, 162, 235, 0.2)',
-                                    'rgba(255, 206, 86, 0.2)',
-                                    'rgba(75, 192, 192, 0.2)',
-                                    'rgba(153, 102, 255, 0.2)',
-                                    'rgba(255, 159, 64, 0.2)'
+                                    'rgba(255, 99, 132, 0.2)'
                                 ],
                                 borderColor: [
-                                    'rgba(255, 99, 132, 1)',
-                                    'rgba(54, 162, 235, 1)',
-                                    'rgba(255, 206, 86, 1)',
-                                    'rgba(75, 192, 192, 1)',
-                                    'rgba(153, 102, 255, 1)',
-                                    'rgba(255, 159, 64, 1)'
+                                    'rgba(255, 99, 132, 1)'
                                 ],
                                 borderWidth: 1
                             }]
                         }}
                         height={"25%"}
+                        
                         width={"35%"}
                     />
                 </div>
