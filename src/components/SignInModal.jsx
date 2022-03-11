@@ -18,10 +18,12 @@ import React, { useContext, useState } from "react";
 import { UserContext } from "../context/userContext";
 import { useNavigate } from "react-router-dom";
 import SignUpModal from "./SignUpModal";
+import { useTranslation } from "react-i18next";
 
 export default function SignInModal() {
   const navigate = useNavigate();
   const toast = useToast();
+  const { t } = useTranslation();
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { signIn } = useContext(UserContext);
@@ -29,13 +31,14 @@ export default function SignInModal() {
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const { currentRoles } = useContext(UserContext);
 
   const handleClick = () => setShowPassword(!showPassword);
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
       await signIn(email, password);
-      navigate("/dashboard");
+      if (currentRoles.includes("admin")) navigate("/admin/dashboard");
       onClose();
     } catch {
       toast({
@@ -51,11 +54,11 @@ export default function SignInModal() {
   return (
     <>
       <Box onClick={onOpen} margin="auto" cursor="pointer">
-        sign in
+        {t("navbarSignIn")}
       </Box>
 
       <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
+        <ModalOverlay bg="blackAlpha.300" backdropFilter="blur(10px)" />
         <ModalContent top="25vh" backgroundColor="#18222E" padding="1rem">
           <ModalHeader textAlign="center" color="#fff">
             Login
@@ -81,9 +84,6 @@ export default function SignInModal() {
                   </FormLabel>
                   <Button
                     zIndex="1"
-                    // position="absolute"
-                    // right="6px"
-                    // top="6px"
                     h="1.75rem"
                     size="sm"
                     color="#18222E"

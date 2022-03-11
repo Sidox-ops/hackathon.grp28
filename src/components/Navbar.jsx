@@ -35,7 +35,9 @@ const languages = [
 
 export default function Navbar(props) {
   const navigate = useNavigate();
-  const { currentUser } = useContext(UserContext);
+  const { currentUser, currentRoles, setCurrentRoles } = useContext(
+    UserContext
+  );
   const [displayed, setDisplayed] = useState("block");
 
   const { t } = useTranslation();
@@ -57,6 +59,7 @@ export default function Navbar(props) {
         .then(() => {
           // Sign-out successful.
           toastItLogout();
+          setCurrentRoles([]);
           navigate("/");
         })
         .catch((error) => {
@@ -106,9 +109,15 @@ export default function Navbar(props) {
           <Box flex="18"></Box>
           <Box flex="auto">
             <Box display="flex" justifyContent="space-around" color="white">
-              <Box margin="auto">
-                <Link to="/">{t("navbarBecome")}</Link>
-              </Box>
+              {Boolean(currentRoles.includes("admin")) ? (
+                <Box margin="auto" role="link">
+                  <Link to="/admin/dashboard">Dashboard</Link>
+                </Box>
+              ) : (
+                <Box margin="auto">
+                  <Link to="/">{t("navbarBecome")}</Link>
+                </Box>
+              )}
               <Box margin="auto">
                 <Link to="/ContactUs">{t("navbarContact")}</Link>
               </Box>
@@ -147,35 +156,37 @@ export default function Navbar(props) {
                   fontWeight={props.bold1}
                   textDecoration={props.textDeco1}
                 >
-                  <Link to="/WhatWeDo#">What we do</Link>
+                  <Link to="/WhatWeDo#">{t("whatWeDo")}</Link>
                 </Box>
                 <Box
                   padding="1em 0"
                   fontWeight={props.bold2}
                   textDecoration={props.textDeco2}
                 >
-                  <Link to="/OurSolutions#">Our solutions</Link>
+                  <Link to="/OurSolutions#">{t("ourSolutions")}</Link>
                 </Box>
                 <Box
                   padding="1em 0"
                   fontWeight={props.bold3}
                   textDecoration={props.textDeco3}
                 >
-                  <Link to="/WhoAreWe#">Who are we</Link>
+                  <Link to="/WhoAreWe#">{t("whoAreWe")}</Link>
                 </Box>
                 <Box
                   padding="1em 0"
                   fontWeight={props.bold4}
                   textDecoration={props.textDeco4}
                 >
-                  <Link to="/ScientistValidation#">Scientist validation</Link>
+                  <Link to="/ScientistValidation#">
+                    {t("scientistValidation")}
+                  </Link>
                 </Box>
                 <Box
                   padding="1em 0"
                   fontWeight={props.bold5}
                   textDecoration={props.textDeco5}
                 >
-                  <Link to="/StudiesServices#">Studies and services</Link>
+                  <Link to="/StudiesServices#">{t("studiesAndServices")}</Link>
                 </Box>
               </Box>
             </Box>

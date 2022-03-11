@@ -4,5 +4,16 @@
     "navBarSignIn": "Sign in",
     "languages": "Languages",
     "navbarSignOut":  "Sign out",
-    "title": "Wired Beauty"
+    "title": "Wired Beauty",
+    "navbarSignIn": "Sign in",
+    "whatWeDo": "What we do",
+    "ourSolutions": "Our solutions",
+    "whoAreWe": "Who are we",
+    "scientistValidation": "Scientist validation",
+    "studiesAndServices": "Studies and services",
+    "homeTitle": "Digitally enabled Lab & Consumer skincare testing",
+    "homeDesc1": "Skin Analyze",
+    "homeDesc2": "Mobile skin lab",
+    "homeDesc3": "Smart Algorithm & app",
+    "homeDesc4": "Data"
 }

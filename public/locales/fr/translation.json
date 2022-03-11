@@ -4,5 +4,16 @@
     "navBarSignIn": "Connexion",
     "languages": "Langues",
     "navbarSignOut": "Déconnexion",
-    "title": "Wired Beauty"
+    "title": "Wired Beauty",
+    "navbarSignIn": "Se connecter",
+    "whatWeDo": "Que faisons nous",
+    "ourSolutions": "Nos solutions",
+    "whoAreWe": "Qui sommes nous",
+    "scientistValidation": "Validation des scientifiques",
+    "studiesAndServices": "Etudes et services",
+    "homeTitle": "Tests numériques de soins de la peau en laboratoire et auprès des consommateurs",
+    "homeDesc1": "Analyse de la peau",
+    "homeDesc2": "Laboratoire mobile de la peau",
+    "homeDesc3": "Algo intelligent et app",
+    "homeDesc4": "Data"
 }

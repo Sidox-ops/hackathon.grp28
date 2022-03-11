@@ -6,6 +6,7 @@ import WhoAreWe from "./pages/WhoAreWe";
 import StudiesServices from "./pages/StudiesServices";
 import ScientistValidation from "./pages/ScientistValidation";
 import NotFound from "./pages/NotFound";
+import ContactUs from "./pages/ContactUs";
 import CookieConsent from "react-cookie-consent";
 import GraphSKC1 from "./components/GraphSKC1";
 import GraphSKC2 from "./components/GraphSKC2";

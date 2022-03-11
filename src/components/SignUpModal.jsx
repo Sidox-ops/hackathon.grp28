@@ -19,10 +19,8 @@ import {
 } from "@chakra-ui/react";
 import React, { useContext, useState } from "react";
 import { UserContext } from "../context/userContext";
-import { useNavigate } from "react-router-dom";
 
 export default function SignUpModal() {
-  const navigate = useNavigate();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { signUp } = useContext(UserContext);
 
@@ -52,8 +50,6 @@ export default function SignUpModal() {
       await signUp(email, password);
       setValidation("");
       onClose();
-      //TODO: redirect in admin or customer
-      // navigate("/admin");
     } catch (error) {
       if (error.code === "auth/invalid-email") {
         setValidation("Email format invalid");
@@ -66,22 +62,34 @@ export default function SignUpModal() {
 
   return (
     <>
-      <Link onClick={onOpen} margin="2rem 0 0 0" size="sm" textAlign="right" color="#fff">
+      <Box
+        role="link"
+        width="max-content"
+        onClick={onOpen}
+        marginTop="10px"
+        cursor="pointer"
+        color="#fff"
+      >
         Create an account
-      </Link>
+      </Box>
 
       <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Sign up</ModalHeader>
-          <ModalCloseButton />
+        <ModalContent top="25vh" backgroundColor="#18222E" padding="1rem">
+          <ModalHeader textAlign="center" color="#fff">
+            Sign up
+          </ModalHeader>
+          <ModalCloseButton color="#fff" />
           <ModalBody>
             <FormControl>
-              <FormLabel htmlFor="email">Email address</FormLabel>
+              <FormLabel htmlFor="email" color="#fff">
+                Email address
+              </FormLabel>
               <Input
                 id="email"
                 type="email"
+                placeholder="Enter email address"
                 onChange={(e) => setEmail(e.target.value)}
+                backgroundColor="#fff"
               />
               <FormHelperText>We'll never share your email.</FormHelperText>
 
@@ -91,6 +99,7 @@ export default function SignUpModal() {
                   type={showPassword ? "text" : "password"}
                   placeholder="Enter password"
                   onChange={(e) => setPassword(e.target.value)}
+                  backgroundColor="#fff"
                 />
                 <Button
                   zIndex="1"
@@ -99,6 +108,7 @@ export default function SignUpModal() {
                   top="6px"
                   h="1.75rem"
                   size="sm"
+                  color="#18222E"
                   onClick={handleClick}
                 >
                   {showPassword ? "Hide" : "Show"}
@@ -111,6 +121,7 @@ export default function SignUpModal() {
                   type={showPassword ? "text" : "password"}
                   placeholder="Confirm password"
                   onChange={(e) => setConfirmPassword(e.target.value)}
+                  backgroundColor="#fff"
                 />
                 <Button
                   zIndex="1"
