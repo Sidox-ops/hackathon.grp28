@@ -16,6 +16,7 @@ import GraphSKC3 from "./components/GraphSKC3";
 import Navbar from "./components/Navbar";
 //import Private from "./pages/Private/Private";
 //import PrivateHome from "./pages/Private/PrivateHome/PrivateHome";
+import ContactUs from "./pages/ContactUs";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
         <Route path="/WhoAreWe" element={<WhoAreWe />} />
         <Route path="/StudiesServices" element={<StudiesServices />} />
         <Route path="/ScientistValidation" element={<ScientistValidation />} />
+        <Route path="/ContactUs" element={<ContactUs />} />
 
         <Route path="/admin" element={<Dashboard />} />
         <Route path="*" element={<NotFound />} />

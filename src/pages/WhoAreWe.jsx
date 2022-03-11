@@ -8,6 +8,8 @@ import Footer from "../components/Footer";
 import TextContentLeft from "../components/TextContentLeft";
 import TextContentRight from "../components/TextContentRight";
 import TextContentMiddle from "../components/TextContentMiddle";
+import BlocPersona from "../components/WhoAreWe/BlocPersona";
+import BlocTextDouble from "../components/WhoAreWe/BlocTextDouble";
 
 import parse from "html-react-parser";
 
@@ -21,6 +23,8 @@ import CarouselContentImage from "../components/WhoAreWe/CarouselContentImage";
 import BlocContent from "../components/BlocContent";
 
 import img from "../assets/404.png";
+import person1 from "../assets/personne1.png";
+import person2 from "../assets/personne2.png";
 import whiteSquare from "../assets/whiteSquare.png";
 
 class WhoAreWe extends React.Component {
@@ -46,18 +50,8 @@ class WhoAreWe extends React.Component {
           textDeco3="underline"
         />
 
-        <Box>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path
-              fill="#FFF"
-              fillOpacity="1"
-              d="M0,64L80,74.7C160,85,320,107,480,101.3C640,96,800,64,960,53.3C1120,43,1280,53,1360,58.7L1440,64L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
-            ></path>
-          </svg>
-        </Box>
-
         <Box backgroundColor="#fff" color="white">
-          <Box width="100vw" padding="0 10vw 10vh 10vw">
+          <Box width="100vw" padding="0 10vw 10vh 10vw" margin="-7rem 0 0 0">
             <TextContentMiddle
               title="Our history"
               text={parse(`
@@ -72,6 +66,7 @@ class WhoAreWe extends React.Component {
                 <br>                                
                 As of today, Wired Beauty Technologies has invested 1.3M€ in research on their exclusive IOT, mobile app, algorithand scientific exposome and suncare knowledge partnering with a top-notch consortium ( APHP et Qima lien a créer vers page scientific)
                 `)}
+              textAlign="center"
             />
           </Box>
         </Box>
@@ -138,7 +133,7 @@ class WhoAreWe extends React.Component {
         <CarouselContentImage />
 
         <Box backgroundColor="#fff" color="white" padding="3rem 0 0 0">
-          <Box width="100vw" padding="0 10vw 10vh 10vw">
+          <Box width="100vw" padding="0 10vw 10vh 10vw" id="OurValues">
             <TextContentMiddle
               title="Our values"
               text={parse(`
@@ -150,8 +145,50 @@ class WhoAreWe extends React.Component {
                     <li>To help our clients, we establish new norms of excellence in cosmetic research</li>
                 </ul>
               `)}
+              textAlign="center"
             />
 
+            <Box
+              display="flex"
+              justifyContent="space-around"
+              flexWrap="wrap"
+              margin="0 0 5rem 0"
+            >
+              <BlocPersona
+                title="Client passion"
+                txt={parse(`
+                We focus on results with professionalism and constantly respect ethical codes.<br>
+                We listen, we deliver. <br>
+                We help our clients succeed.
+              `)}
+              />
+              <BlocPersona
+                title="Client passion"
+                txt={parse(`
+                We focus on results with professionalism and constantly respect ethical codes.<br>
+                We listen, we deliver. <br>
+                We help our clients succeed.
+              `)}
+              />
+              <BlocPersona
+                title="Client passion"
+                txt={parse(`
+                We focus on results with professionalism and constantly respect ethical codes.<br>
+                We listen, we deliver. <br>
+                We help our clients succeed.
+              `)}
+              />
+              <BlocPersona
+                title="Client passion"
+                txt={parse(`
+                We focus on results with professionalism and constantly respect ethical codes.<br>
+                We listen, we deliver. <br>
+                We help our clients succeed.
+              `)}
+              />
+            </Box>
+
+            {/*  */}
             <Box>
               <Box
                 color="lightblue"
@@ -163,52 +200,52 @@ class WhoAreWe extends React.Component {
               >
                 Corporate responsability
               </Box>
-              <Box display="flex">
-                <TextContentMiddle
-                  text={parse(`
-                    We respect the data regulations issued by the European Union and even top their tight regulations about consent or right to be forgotten. 
-                    <br>
-                    <br>
-                    Our data is anonymized locally and analyzed and stored in our data centers in Europe.
-                    <br>
-                    <br>
-                    We believe in people development and encourage diversity of opinions.
-                `)}
-                  moreContent={
-                    <TextContentMiddle
-                      title="Investors and boards"
-                      text={parse(`
-                    Wired beauty is privately held and backed by a college of 14 business angels. Stanislas, as the founder and President, still own 69,47% of the equity. 
-                    <br>Sophie, as co-founder and CEO owns 18%. 
-                `)}
-                    />
-                  }
-                />
-
-                <TextContentMiddle
-                  text={parse(`
-                    We produce our devices from recycled materials and since the developement have reduced the size of our IOT devive by 40% , thus impacting transport and packaging costs.
-                    <br>
-                    <br>
-                    We believe and are committed for climate change and compensate our carbon emission sustaining our friensd Matthiew in his venture for a regenerative and low carbon  agriculture in France. Learn more about Terra Terra.  ➢ donate too
-                `)}
-                  moreContent={
-                    <TextContentMiddle
-                      title="Advisory board"
-                      text={parse(`
-                    Pierre François LE LOUËT (NellyRodi President – Trends research)<br>
-                    Gilles GENAIN (former head of L’Oréal Product Development)
-                `)}
-                      moreContent={<Box>test</Box>}
-                    />
-                  }
-                />
-              </Box>
             </Box>
 
+            <BlocTextDouble
+              text1={`
+              We respect the data regulations issued by the European Union and even top their tight regulations about consent or right to be forgotten.<br> 
+              <br>
+              Our data is anonymized locally and analyzed and stored in our data centers in Europe.<br>
+              <br>
+              We believe in people development and encourage diversity of opinions.
+              `}
+              text2={`
+                We produce our devices from recycled materials and since the developement have reduced the size of our IOT devive by 40% , thus impacting transport and packaging costs.
+                <br>
+                <br>
+                We believe and are committed for climate change and compensate our carbon emission sustaining our friensd Matthiew in his venture for a regenerative and low carbon  agriculture in France. Learn more about Terra Terra.  ➢ donate too
+              `}
+              textAlign1="center"
+              textAlign2="center"
+            />
+
+            <BlocTextDouble
+              title1="Investors and boards"
+              text1={`
+              Wired beauty is privately held and backed by a college of 14 business angels. Stanislas, as the founder and President, still own 69,47% of the equity.<br>
+              Sophie, as co-founder and CEO owns 18%. 
+              `}
+              textAlign1="center"
+              title2="Advisory board"
+              text2={`
+                Pierre François LE LOUËT (NellyRodi President – Trends research)<br>
+                Gilles GENAIN (former head of L’Oréal Product Development)
+              `}
+              textAlign2="center"
+              moreText2={
+                <Box
+                  display="flex"
+                  padding="2rem 0 0 0"
+                  justifyContent="space-between"
+                >
+                  <Image src={person1} />
+                  <Image src={person2} />
+                </Box>
+              }
+            />
           </Box>
         </Box>
-
         <Footer />
       </>
     );

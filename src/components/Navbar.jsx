@@ -10,6 +10,7 @@ import {
   Box,
   Text,
   Select,
+  Image
 } from "@chakra-ui/react";
 import {
   ArrowRightIcon,
@@ -24,15 +25,18 @@ import SignInModal from "./SignInModal";
 import { signOut, getAuth } from "firebase/auth";
 import { auth } from "../firebase.config";
 import { UserContext } from "../context/userContext";
-import logo from "../assets/logo.png";
+
+import logov2 from "../assets/logov2.png";
+import backgroundURL from "../assets/backgroundURL.png";
 
 // import 'flag-icon-css/css/flag-icon.css'
 
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
+import Wave from "./Footer/Wave";
 // import cookies from 'js-cookie';
 
-const valueHeightNavBar = "5rem";
+const valueHeightNavBar = "3";
 
 const languages = [
   {
@@ -55,8 +59,8 @@ const languages = [
 export default function Navbar(props) {
   const navigate = useNavigate();
   const { currentUser } = useContext(UserContext);
-  const [displayed, setDisplayed] = useState('block');
-  
+  const [displayed, setDisplayed] = useState("block");
+
   // const currentLanguageCode = cookies.get('i18next') || 'en';
   // const currentLanugage = languages.find(l => l.currentLanguageCode)
   const { t } = useTranslation();
@@ -84,19 +88,19 @@ export default function Navbar(props) {
   }, [t]);
 
   return (
-    <>
-      <Box width="100vw" height="4vh" backgroundColor="#1C2834"></Box>
+    <Box backgroundImage={backgroundURL} backgroundSize="cover" id="top">
+      {/* <Box width="100vw" height="4vh" backgroundColor="#1C2834"></Box> */}
       <Box
         padding="4rem 3rem 3rem 3rem"
         width="100vw"
-        minHeight="11rem"
+        // minHeight="11rem"
         fontFamily="poppins"
       >
         <Box display="flex">
           <Box
             cursor="pointer"
-            height={valueHeightNavBar}
-            width={valueHeightNavBar}
+            height={`${valueHeightNavBar}rem`}
+            width={`${valueHeightNavBar}rem`}
             marginRight="2rem"
             onClick={() => {
               displayed === "block"
@@ -114,7 +118,7 @@ export default function Navbar(props) {
           <Box textColor="#fff">
             <Text textAlign="center">
               <Link to="/">
-                <img src={logo} style={{ height: valueHeightNavBar }} />
+                <Image src={logov2} height="6rem" width="auto"/>
               </Link>
             </Text>
           </Box>
@@ -125,12 +129,12 @@ export default function Navbar(props) {
             {/* <Image src='https://via.placeholder.com/850x100'/> */}
           </Box>
           <Box flex="auto">
-            <Box display="flex" justifyContent="space-between" color="white">
+            <Box display="flex" justifyContent="space-around" color="white">
               <Box margin="auto">
                 <Link to="/">{t("navbarBecome")}</Link>
               </Box>
               <Box margin="auto">
-                <Link to="/">{t("navbarContact")}</Link>
+                <Link to="/ContactUs">{t("navbarContact")}</Link>
               </Box>
               <Box margin="auto">
                 {currentUser ? (
@@ -168,43 +172,45 @@ export default function Navbar(props) {
                   fontWeight={props.bold1}
                   textDecoration={props.textDeco1}
                 >
-                  <Link to="/WhatWeDo">What we do</Link>
+                  <Link to="/WhatWeDo#">What we do</Link>
                 </Box>
                 <Box
                   padding="1em 0"
                   fontWeight={props.bold2}
                   textDecoration={props.textDeco2}
                 >
-                  <Link to="/OurSolutions">Our solutions</Link>
+                  <Link to="/OurSolutions#">Our solutions</Link>
                 </Box>
                 <Box
                   padding="1em 0"
                   fontWeight={props.bold3}
                   textDecoration={props.textDeco3}
                 >
-                  <Link to="/WhoAreWe">Who are we</Link>
+                  <Link to="/WhoAreWe#">Who are we</Link>
                 </Box>
                 <Box
                   padding="1em 0"
                   fontWeight={props.bold4}
                   textDecoration={props.textDeco4}
                 >
-                  <Link to="/ScientistValidation">Scientist validation</Link>
+                  <Link to="/ScientistValidation#">Scientist validation</Link>
                 </Box>
                 <Box
                   padding="1em 0"
                   fontWeight={props.bold5}
                   textDecoration={props.textDeco5}
                 >
-                  <Link to="/StudiesServices">Studies and services</Link>
+                  <Link to="/StudiesServices#">Studies and services</Link>
                 </Box>
               </Box>
             </Box>
           </Box>
+
           {props.content1}
           {props.content2}
         </Box>
       </Box>
-    </>
+      <Wave />
+    </Box>
   );
 }

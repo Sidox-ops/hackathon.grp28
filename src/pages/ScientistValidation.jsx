@@ -1,67 +1,103 @@
-import React from 'react';
-import { Box } from "@chakra-ui/react";
-import Navbar from '../components/Navbar';
+import React from "react";
+import { Box, Image } from "@chakra-ui/react";
+import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import TextContentLeft from '../components/TextContentLeft';
-import TextContentRight from '../components/TextContentRight';
+import TextContentLeft from "../components/TextContentLeft";
+import TextContentRight from "../components/TextContentRight";
+import TextContentMiddle from "../components/TextContentMiddle";
+import BlocTextDouble from "../components/WhoAreWe/BlocTextDouble";
+
+import logoDark from "../assets/logoDark.png";
+import qima from "../assets/qima.png";
+import hopitauxParis from "../assets/hopitauxParis.png";
+import schema1 from "../assets/schema1.png";
+import schema2 from "../assets/schema2.png";
+
+import parse from "html-react-parser";
 
 class ScientistValidation extends React.Component {
-    render(){
+  render() {
+    return (
+      <>
+        <Navbar
+          content1={
+            <Box flex="3">
+              <Box fontSize="5xl" fontFamily="Poppins" margin="0 0 1em 0">
+                Science behinds Wired Beauty
+              </Box>
+              <Box fontSize="2xl" fontFamily="Poppins" fontWeight="light">
+                <Box>+ Our trusted parteners</Box>
+                <Box>+ Similiraties with medicament protocols</Box>
+                <Box>+ What makes Wired Beauty different ?</Box>
+              </Box>
+            </Box>
+          }
+          content2={<Box flex="3"></Box>}
+          bold4="bold"
+          textDeco4="underline"
+        />
 
-        return (
-            <>
-                <Navbar
-                    content1={
-                        <Box flex="3">
-                        <Box fontSize="5xl" fontFamily="Poppins" margin="0 0 1em 0">TITLE</Box>
-                        <Box fontSize="2xl" fontFamily="Poppins" fontWeight="light">
-                            <Box>+ Exemple</Box>
-                            <Box>+ Exemple</Box>
-                            <Box>+ Exemple</Box>
-                            <Box>+ Exemple</Box>
-                            <Box>+ Exemple</Box >
-                        </Box>
-                        </Box>
-                    }
-                    content2={
-                    <Box flex="3"></Box>
-                    }
-                    bold4="bold"
-                    textDeco4="underline"
-                />
-                <Box>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-                        <path fill="#FFF" fillOpacity="1" d="M0,64L80,74.7C160,85,320,107,480,101.3C640,96,800,64,960,53.3C1120,43,1280,53,1360,58.7L1440,64L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
-                    </svg>
-                </Box>
+        <Box backgroundColor="#fff" color="white">
+          <Box width="100vw" padding="0 10vw" margin="-7rem 0 0 0" id="OurPartners" >
+            <TextContentMiddle
+              title={"Our trusted partners"}
+              textAlign="center"
+              moreContent={<Image src={logoDark} margin="0 auto"/>}
+            />
 
-                <Box backgroundColor="#fff" color="white">
-                    <Box width="100vw" padding="0 10vw 10vh 10vw" >
+            <Box display="flex" justifyContent="space-around">
+              <Image src={hopitauxParis} />
+              <Image src={qima} />
+            </Box>
+            <TextContentMiddle
+              text={parse(`
+                The Wired Beauty technology is the fruit of a scientific consortium uniting the founders of Wired Beauty, the APHP (Assistance Publique – Hôpitaux de Paris www.APHP.fr) and the French Contract Research Organization (CRO), QIMA www.qima.fr.
+                <br>
+                <br>TOGETHER THEY HAVE :  
+                <br>- Demonstrated the power of electrochemistry to decifer antioxydative performance on the skin ➢ 
+                <br>- Proved that the Wired Beauty IOT nomadic lab can level with traditionnal chromatography test in less than 1 minute (90% correlation) ➢ see results
+                <br>- Found that the Wired Beauty IOT nomadic lab device can beat TWELL tests ➢ see results a fournir
+                <br>- Miniaturized the Wired Beauty IOT nomadic device
+                <br>- Developped the interpretation of the signal algorythm within minutes see.
+              `)}
+              textAlign="center"
+            />
+            <TextContentMiddle
+              title="What is oxidative stress ?"
+              text="Oxidative stress is a rupture of cellular balance, producing a build-up of free radicals responsible for skin premature ageing."
+              textAlign="left"
+            />
+            <TextContentMiddle
+              title="How can antioxidants protect the skin?"
+              text="One can distinguish two types of antioxidants : enzymatic (for instance : superoxide, catalase, peroxidase, dismutase, peroxidase glutathione) and non enzymatic ones (such as ascorbic acid, glutathione, uric acid, vitamins A, E, C, etc.)"
+              textAlign="left"
+            />
+            <TextContentMiddle
+              title="Similarities with medicaments protocols"
+              text={parse(`
+                Skin care product testing often resembles the protocols of medicament testing. 
+                <br>It is a long sequencial process which aims to protect the voluntary testers, measure performance, record side-effects. 
+                <br>For the most serious cosmetic labs, it is not rare to spend over 18 months gathering and analyzing the results of the following stages.
+              `)}
+              textAlign="center"
+            />
+          </Box>
+          {/* <Box backgroundColor="red"> */}
+          <Image src={schema1} margin="auto" />
+          <Box margin="7rem 0 -7rem 0">
+            <TextContentMiddle
+              title="What makes Wired Beauty different"
+              textAlign="center"
+            />
+          </Box>
+          <Image src={schema2} margin="auto" />
+          {/* </Box> */}
+        </Box>
 
-                        <TextContentLeft
-                            title={"We research skincare"}
-                            text={"WIRED BEAUTY is a new datadriven market research company dedicated to cosmetic laboratories. We help our clients evaluate and develop skincare formulae by comparing cosmetics on statistically viable samples of men & women (1000 people): the antioxydative and moisterizing effect of formulae (in vivo) the antioxydative and moisterizing effect of ingredients (in vitro)  (cf Reach) consumer feedback after product use environmental conditions (UV pollution) surronding the consumer’s lifestyle skincare performance after 1 day – 8 days – 15 days - X days."}
-                        />
-
-                        <TextContentRight
-                            title={"We rely on data & technology"}
-                            text={`- Proprietary nomadic lab device & patented skin patches to decipher skin reactions and ingredient presence 
-                                - Easy multi-lingual smartphone app and customer feedback
-                                - Geolocalisation and exposome data (UV - pollution temperature)
-                                - Repeatability of protocols in real life conditions (ie bathrooms)
-                                - Large cohorts it needed 
-                                - Saas and European data center
-                            `}
-                        />
-                        
-                    </Box>
-                </Box>
-
-                <Footer/>
-
-            </>
-        )
-    }
+        <Footer />
+      </>
+    );
+  }
 }
 
-export default ScientistValidation
+export default ScientistValidation;
