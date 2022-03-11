@@ -5,9 +5,10 @@ import OurSolutions from "./pages/OurSolutions";
 import WhoAreWe from "./pages/WhoAreWe";
 import StudiesServices from "./pages/StudiesServices";
 import ScientistValidation from "./pages/ScientistValidation";
-import Dashboard from "./pages/Admin/Dashboard";
 import NotFound from "./pages/NotFound";
 import CookieConsent from "react-cookie-consent";
+import Admin from "./pages/Admin/Admin";
+import AdminDashboard from "./pages/Admin/AdminDashboard";
 
 function App() {
   return (
@@ -31,8 +32,9 @@ function App() {
         <Route path="/WhoAreWe" element={<WhoAreWe />} />
         <Route path="/StudiesServices" element={<StudiesServices />} />
         <Route path="/ScientistValidation" element={<ScientistValidation />} />
-
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/admin" element={<Admin />}>
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

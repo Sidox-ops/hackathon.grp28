@@ -19,7 +19,7 @@ import {
 
 const UserFilter = (props) => (
   <Filter {...props}>
-    <TextInput label="Search" source="title" alwaysOn />
+    <TextInput label="Search" source="administrators" alwaysOn />
   </Filter>
 );
 
@@ -27,7 +27,8 @@ export const UserList = (props) => (
   <List {...props} filters={<UserFilter />}>
     <Datagrid>
       <TextField source="name" />
-      <TextField source="age" />
+      <TextField source="mail" />
+      <TextField source="uid" />
       <TextField source="createdate" />
       <TextField source="lastupdate" />
       <ShowButton label="" />
@@ -40,9 +41,9 @@ export const UserList = (props) => (
 export const UserShow = (props) => (
   <Show {...props}>
     <SimpleShowLayout>
-      <TextField source="id" />
       <TextField source="name" />
-      <TextField source="age" />
+      <TextField source="mail" />
+      <TextField source="uid" />
     </SimpleShowLayout>
   </Show>
 );
@@ -50,9 +51,9 @@ export const UserShow = (props) => (
 export const UserCreate = (props) => (
   <Create {...props}>
     <SimpleForm>
-      <TextInput source="id" />
       <TextInput source="name" />
-      <TextInput source="age" />
+      <TextInput source="mail" />
+      <TextInput source="uid" />
     </SimpleForm>
   </Create>
 );
@@ -60,11 +61,9 @@ export const UserCreate = (props) => (
 export const UserEdit = (props) => (
   <Edit {...props}>
     <SimpleForm>
-      <TextInput disabled source="id" />
-      <TextInput disabled source="createdate" />
-      <TextInput disabled source="lastupdate" />
-      <TextInput source="name" />
-      <TextInput source="age" />
+      <TextInput disabled source="name" />
+      <TextInput disabled source="mail" />
+      <TextInput disabled source="uid" />
     </SimpleForm>
   </Edit>
 );

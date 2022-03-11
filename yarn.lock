@@ -3799,6 +3799,14 @@ ra-core@^3.19.10:
     query-string "^5.1.1"
     reselect "~3.0.0"
 
+ra-data-json-server@^3.19.10:
+  version "3.19.10"
+  resolved "https://registry.yarnpkg.com/ra-data-json-server/-/ra-data-json-server-3.19.10.tgz#73da52c3addb1b17a9c3e625269a3c7c8fcce428"
+  integrity sha512-ypM3gimo8z1dEiJP6/CDg48s9D75qmlZMLTUxzU5oOgjpdVHbmrRuTXUT6sgM4aGzT9ucaDhClcjusgzhYf4ag==
+  dependencies:
+    query-string "^5.1.1"
+    ra-core "^3.19.10"
+
 ra-i18n-polyglot@^3.19.10:
   version "3.19.10"
   resolved "https://registry.yarnpkg.com/ra-i18n-polyglot/-/ra-i18n-polyglot-3.19.10.tgz#825fa35baaa69e2917b047b03adcdf04e546b90e"
