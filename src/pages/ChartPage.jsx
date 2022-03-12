@@ -2,6 +2,7 @@ import React, { Component, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import {
+    Textarea,
     Box,
     Select,
     Image,
@@ -88,7 +89,14 @@ export default function ChartPage(props) {
 
 
             </Box>
-            <Box backgroundColor="white" fontSize="4xl" display="flex" flexDirection="column" paddingX={"360px"} >
+            <Box fontSize="small" display="flex" flexDirection="column" paddingX={"360px"}>
+                Add a comment:
+                <Textarea marginTop={"10px"} height={"200px"}>
+
+                </Textarea>
+
+            </Box>
+            <Box backgroundColor="white" marginTop="35px" fontSize="4xl" display="flex" flexDirection="column" paddingX={"360px"} >
                 STEP 2 - Tester Feedback <br />
                 <Box fontSize="small" fontWeight="bold" paddingY={"15px"} >
                     Name: <br />
