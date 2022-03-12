@@ -1,48 +1,21 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import {
     Textarea,
     Box,
     Select,
-    Image,
-    Button,
-    Input,
-    FormControl,
-    FormLabel,
-    FormHelperText,
 } from "@chakra-ui/react";
 import GraphSKC1 from "./../components/GraphSKC1";
 import GraphSKC2 from "./../components/GraphSKC2";
 import GraphSKC3 from "./../components/GraphSKC3";
-import Graph2 from "../assets/Graph2.png"
+import Graph2 from "../assets/images/Graph2.png"
 
 
+export default function ChartPage() {
 
-
-
-
-export default function ChartPage(props) {
-    const charts = [
-        {
-            code: "en",
-            name: "English",
-            county_code: "gb",
-        },
-        {
-            code: "fr",
-            name: "Français",
-            county_code: "fr",
-        },
-        {
-            code: "cn",
-            name: "中国人",
-            county_code: "cn",
-        },
-    ];
 
     const [chart, setchart] = useState("1")
-    const [valueSelected, setValueSelected] = useState(0)
     console.log(chart)
 
     return (
