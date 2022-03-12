@@ -108,13 +108,19 @@ export default function Navbar(props) {
           <Box flex="18"></Box>
           <Box flex="auto">
             <Box display="flex" justifyContent="space-around" color="white">
-              {Boolean(currentRoles.includes("admin")) ? (
+              {Boolean(currentRoles.includes("customer")) && (
                 <Box margin="auto 1rem auto auto" role="link">
-                  <Link to="/admin/dashboard">Dashboard</Link>
+                  <Link to="/charts">Charts</Link>
                 </Box>
-              ) : (
+              )}
+              {!currentUser && (
                 <Box margin="auto 1rem auto auto" fontSize={["sm", "md", "lg"]}>
                   <Link to="/ContactUs">{t("navbarBecome")}</Link>
+                </Box>
+              )}
+              {Boolean(currentRoles.includes("admin")) && (
+                <Box margin="auto 1rem auto auto" role="link">
+                  <Link to="/admin/dashboard">Dashboard</Link>
                 </Box>
               )}
 
