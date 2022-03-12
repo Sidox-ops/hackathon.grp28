@@ -1,12 +1,9 @@
 import React from "react";
 import { Box, Image } from "@chakra-ui/react";
-import { ArrowLeftIcon, ArrowRightIcon } from "@chakra-ui/icons";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-import TextContentLeft from "../components/TextContentLeft";
-import TextContentRight from "../components/TextContentRight";
 import TextContentMiddle from "../components/TextContentMiddle";
 import BlocPersona from "../components/WhoAreWe/BlocPersona";
 import BlocTextDouble from "../components/WhoAreWe/BlocTextDouble";
@@ -14,9 +11,6 @@ import BlocTextDouble from "../components/WhoAreWe/BlocTextDouble";
 import parse from "html-react-parser";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
-import CarouselBox from "../components/WhoAreWe/CarouselBox";
-import CarouselBoxImage from "../components/WhoAreWe/CarouselBoxImage";
 import CarouselContent from "../components/WhoAreWe/CarouselContent";
 import CarouselContentImage from "../components/WhoAreWe/CarouselContentImage";
 
@@ -25,7 +19,6 @@ import BlocContent from "../components/BlocContent";
 import img from "../assets/images/404.png";
 import person1 from "../assets/images/personne1.png";
 import person2 from "../assets/images/personne2.png";
-import whiteSquare from "../assets/images/whiteSquare.png";
 
 import { HashLink as Linked } from "react-router-hash-link";
 

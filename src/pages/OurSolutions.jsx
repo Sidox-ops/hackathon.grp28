@@ -4,13 +4,14 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import TextContentMiddle from "../components/TextContentMiddle";
 import BlocContent from "../components/BlocContent";
+import TextContentLeft from "../components/TextContentLeft";
 import parse from "html-react-parser";
 
 import { HashLink as Linked } from "react-router-hash-link";
 
 import exemple from "../assets/images/exempleImage.png";
+import modele from "../assets/images/modele.png";
 
-// var parse = require('html-react-parser');
 
 class OurSolutions extends React.Component {
   render() {
@@ -99,15 +100,17 @@ class OurSolutions extends React.Component {
               id="dataSkincare"
             />
 
-            <TextContentMiddle
-              title="OUR INSANELY FAST ALGORITHM!"
-              text="Thanks to its IOT, its mobile consumer app and its standardized single-use patches, Wired Beauty can decifer within seconds skin antioxydative and mosterizing reactions. Artificial intelligence improves repeatability of process."
-              textAlign="center"
+            <TextContentLeft
+              title={
+                "OUR INSANELY FAST ALGORITHM!"
+              }
+              text={parse(`Thanks to its IOT, its mobile consumer app and its standardized single-use patches, Wired Beauty can decifer within seconds skin antioxydative and mosterizing reactions. Artificial intelligence improves repeatability of process.`)}
+              content={<Image src={modele} alt="Photo of the device"/>}
               id="algo"
             />
 
             <Image
-              src={exemple} //a changer avec l'illustration
+              src={exemple}
               alt="productImage"
               width="100%"
               height="200px"

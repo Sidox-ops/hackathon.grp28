@@ -5,9 +5,6 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 import { UserContextProvider } from "./context/userContext";
-import { I18nextProvider } from "react-i18next";
-import common_fr from "./translations/fr/common.json";
-import common_en from "./translations/en/common.json";
 
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
