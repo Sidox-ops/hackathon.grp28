@@ -13,7 +13,7 @@ We had 5 days to create the most functional website.
 
 Gitlab project :
 ```
-git@github.com:Sidox-ops/hackathon.grp28.git
+git clone git@github.com:Sidox-ops/hackathon.grp28.git
 ```
 
 
