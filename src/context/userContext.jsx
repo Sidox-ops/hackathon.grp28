@@ -37,9 +37,14 @@ export function UserContextProvider(props) {
     const getUsersRoles = async () => {
       const data = await getDocs(usersCollectionRef);
       setAdministratorsUid(
-        data.docs.map((doc) => ({ ...doc.data().administrators }))
+        data.docs.map((doc) => ({
+          administratorsUid,
+          ...doc.data().administrators,
+        }))
       );
-      setCustomersUid(data.docs.map((doc) => ({ ...doc.data().customers })));
+      setCustomersUid(
+        data.docs.map((doc) => ({ customersUid, ...doc.data().customers }))
+      );
     };
     getUsersRoles();
   }, []);
@@ -60,7 +65,9 @@ export function UserContextProvider(props) {
   }, [currentUser, administratorsUid, customersUid]);
 
   return (
-    <UserContext.Provider value={{ signUp, signIn, currentUser, currentRoles }}>
+    <UserContext.Provider
+      value={{ signUp, signIn, currentUser, currentRoles, setCurrentRoles }}
+    >
       {!loadingData && props.children}
     </UserContext.Provider>
   );

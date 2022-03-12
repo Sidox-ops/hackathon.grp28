@@ -8,39 +8,44 @@ import Wave from "../components/Footer/Wave";
 
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
-import ChatBotCustom from "../components/ChatBotCustom";
 // const { t } = useTranslation();
 
 const products = [
   {
     title: "BeautyTech X Skincare",
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, . ",
-    anchor:"/WhatWeDo#",
+    text:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, . ",
+    anchor: "/WhatWeDo#",
   },
   {
     title: "Nomadic labgrade IOT device & smart app",
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, . ",
-    anchor:"/OurSolutions#",
+    text:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, . ",
+    anchor: "/OurSolutions#",
   },
   {
     title: "Our insanely fast algorithm",
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, . ",
-    anchor:"/#",
+    text:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, . ",
+    anchor: "/#",
   },
   {
     title: "Our partners",
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, . ",
-    anchor:"/ScientistValidation#OurPartners",
+    text:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, . ",
+    anchor: "/ScientistValidation#OurPartners",
   },
   {
     title: "The science behinds",
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, . ",
-    anchor:"/#",
+    text:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, . ",
+    anchor: "/#",
   },
   {
     title: "Our values",
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, . ",
-    anchor:"/WhoAreWe#OurValues",
+    text:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, . ",
+    anchor: "/WhoAreWe#OurValues",
   },
 ];
 
@@ -52,18 +57,18 @@ export default function Home() {
       <Navbar
         content1={
           <Box flex="3">
-            <Box fontSize="5xl" fontFamily="Poppins" margin="0 0 1em 0">
-              Digitally enabled Lab & Consumer skincare testing
+            <Box
+              fontSize={["1rem", "2rem", "3rem"]}
+              fontFamily="Poppins"
+              margin="0 0 1em 0"
+            >
+              {t("homeTitle")}
             </Box>
-            <Box fontSize="2xl" fontFamily="Poppins" fontWeight="light">
-              {/* <Box>+ Biology</Box>
-              <Box>+ IOT nomadic lab</Box>
-              <Box>+ Consumer app</Box>
-              <Box>+ Insanely fast algorythm</Box> */}
-              <Box>+ Skin Analyze</Box>
-              <Box>+ Mobile skin lab</Box>
-              <Box>+ Smart Algorithm & app</Box>
-              <Box>+ Data</Box>
+            <Box fontSize={["1rem", "1.5rem", "2rem"]} fontWeight="light">
+              <Box>+ {t("homeDesc1")}</Box>
+              <Box>+ {t("homeDesc2")}</Box>
+              <Box>+ {t("homeDesc3")}</Box>
+              <Box>+ {t("homeDesc4")}</Box>
             </Box>
           </Box>
         }
@@ -76,7 +81,6 @@ export default function Home() {
           <Box
             textAlign="center"
             fontSize="5xl"
-            fontFamily="Poppins"
             margin="-25rem 0 3rem 0"
             color="#161C27"
           >
@@ -84,11 +88,16 @@ export default function Home() {
           </Box>
           <Box display="flex" justifyContent="space-around" flexWrap="wrap">
             {products.map((i, index) => (
-              <ProductHomeBloc title={i.title} text={i.text} key={index} anchor={i.anchor}/>
+              <ProductHomeBloc
+                title={i.title}
+                text={i.text}
+                key={index}
+                anchor={i.anchor}
+              />
             ))}
           </Box>
         </Box>
-        <ChatBotCustom />
+
         <Footer />
       </Box>
     </>

@@ -1,5 +1,7 @@
 import React from "react";
-import { Box } from "@chakra-ui/react";
+import { Box, Image } from "@chakra-ui/react";
+import { HashLink as Linked } from "react-router-hash-link";
+
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import TextContentLeft from "../components/TextContentLeft";
@@ -8,51 +10,68 @@ import BlocContent from "../components/BlocContent";
 
 import parse from "html-react-parser";
 
+import photo1 from "../assets/images/photo1.png";
+import photo2 from "../assets/images/photo2.png";
+import photo3 from "../assets/images/photo3.png";
+
 class WhatWeDo extends React.Component {
   render() {
     return (
       <>
         <Navbar
           content1={
-            <Box flex="3">
-              <Box fontSize="5xl" fontFamily="Poppins" margin="0 0 1em 0">
+            <>
+              <Box
+                as="h1"
+                fontSize={["2rem", "2rem", "2.5rem"]}
+                margin="0 0 1em 0"
+              >
                 BeautyTech X Skincare
               </Box>
-              <Box fontSize="2xl" fontFamily="Poppins" fontWeight="light">
-                <Box>+ We research skincare</Box>
-                <Box>+ We rely on data & technology</Box>
-                <Box>
-                  + We measure skin vitality response & consumer perception
-                  simultanously
+              <Box fontSize={["1rem", "1rem", "2rem"]} fontWeight="light">
+                <Box as="h2">
+                  <Linked smooth to="#research">
+                    + We research skincare
+                  </Linked>
                 </Box>
-                <Box>+ We work for labs and marketing teams</Box>
-                <Box>+ We help</Box>
+                <Box as="h2">
+                  <Linked smooth to="#dataTech">
+                    + We rely on data & technology
+                  </Linked>
+                </Box>
+                <Box as="h2">
+                  <Linked smooth to="#vitality">
+                    + We measure skin vitality response & consumer
+                  </Linked>
+                  perception simultanously
+                </Box>
+                <Box as="h2">
+                  <Linked smooth to="#labs">
+                    + We work for labs and marketing teams
+                  </Linked>
+                </Box>
+                <Box as="h2">
+                  <Linked smooth to="#help">
+                    + We help
+                  </Linked>
+                </Box>
               </Box>
-            </Box>
+            </>
           }
-          content2={<Box flex="3"></Box>}
           bold1="bold"
           textDeco1="underline"
         />
 
-        <Box>
-          {/* <Box>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-              <path
-                fill="#FFF"
-                fillOpacity="1"
-                d="M0,64L80,74.7C160,85,320,107,480,101.3C640,96,800,64,960,53.3C1120,43,1280,53,1360,58.7L1440,64L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
-              ></path>
-            </svg>
-          </Box> */}
-
+        <>
           <Box backgroundColor="#fff" color="white">
             <Box width="100vw" padding="0 10vw 10vh 10vw">
               <TextContentLeft
                 title={"We research skincare"}
-                text={
-                  "WIRED BEAUTY is a new datadriven market research company dedicated to cosmetic laboratories. We help our clients evaluate and develop skincare formulae by comparing cosmetics on statistically viable samples of men & women (1000 people): the antioxydative and moisterizing effect of formulae (in vivo) the antioxydative and moisterizing effect of ingredients (in vitro)  (cf Reach) consumer feedback after product use environmental conditions (UV pollution) surronding the consumer’s lifestyle skincare performance after 1 day – 8 days – 15 days - X days."
-                }
+                text={`WIRED BEAUTY is a new datadriven market research company dedicated to cosmetic laboratories.<br>
+                  We help our clients evaluate and develop skincare formulae by comparing cosmetics on statistically viable samples of men & women (1000 people): <br>
+                  the antioxydative and moisterizing effect of formulae (in vivo) the antioxydative and moisterizing effect of ingredients (in vitro)  (cf Reach) consumer feedback after product use environmental conditions (UV pollution) surronding the consumer’s lifestyle skincare performance after 1 day – 8 days – 15 days - X days.`}
+                content={<Image src={photo1} alt="Illustration image" />}
+                id="research"
               />
 
               <TextContentRight
@@ -65,6 +84,8 @@ class WhatWeDo extends React.Component {
                         <br>- Large cohorts it needed 
                         <br>- Saas and European data center
                 `)}
+                content={<Image src={photo2} alt="Illustration image" />}
+                id="dataTech"
               />
 
               <TextContentLeft
@@ -78,6 +99,8 @@ class WhatWeDo extends React.Component {
                         <br>- The environmental conditions (UV pollution) surronding the consumer’s lifestyle
                         <br>- The skincare performance after 1 day – 8 days – 15 days - X days.
                 `)}
+                content={<Image src={photo3} alt="Illustration image" />}
+                id="vitality"
               />
 
               <TextContentRight
@@ -85,6 +108,7 @@ class WhatWeDo extends React.Component {
                 text={
                   "Combining efforts with countries usual CRO’s. In all countries, even in China where anonymized data is key."
                 }
+                id="labs"
               />
 
               <TextContentLeft
@@ -98,10 +122,11 @@ class WhatWeDo extends React.Component {
                         <br>- SAVE TIME vs chromatography and IMROVE results vs TWEL. 
                         <br>- READ SIMULTANOUSLY skin response & consumer feed-back
                 `)}
+                id="help"
               />
             </Box>
           </Box>
-        </Box>
+        </>
         <Footer />
       </>
     );

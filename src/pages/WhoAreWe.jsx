@@ -22,10 +22,21 @@ import CarouselContentImage from "../components/WhoAreWe/CarouselContentImage";
 
 import BlocContent from "../components/BlocContent";
 
-import img from "../assets/404.png";
-import person1 from "../assets/personne1.png";
-import person2 from "../assets/personne2.png";
-import whiteSquare from "../assets/whiteSquare.png";
+import img from "../assets/images/404.png";
+import person1 from "../assets/images/personne1.png";
+import person2 from "../assets/images/personne2.png";
+import whiteSquare from "../assets/images/whiteSquare.png";
+
+import { HashLink as Linked } from "react-router-hash-link";
+
+import roundPhoto1 from "../assets/images/roundPhoto1.png";
+import roundPhoto2 from "../assets/images/roundPhoto2.png";
+import roundPhoto3 from "../assets/images/roundPhoto3.png";
+
+import roundedPhoto1 from "../assets/images/roundedPhoto1.png";
+import roundedPhoto2 from "../assets/images/roundedPhoto2.png";
+import roundedPhoto3 from "../assets/images/roundedPhoto3.png";
+import roundedPhoto4 from "../assets/images/roundedPhoto4.png";
 
 class WhoAreWe extends React.Component {
   render() {
@@ -33,19 +44,38 @@ class WhoAreWe extends React.Component {
       <>
         <Navbar
           content1={
-            <Box flex="3">
-              <Box fontSize="5xl" fontFamily="Poppins" margin="0 0 1em 0">
+            <>
+              <Box
+                as="h1"
+                fontSize={["1rem", "2rem", "3rem"]}
+                margin="0 0 1em 0"
+              >
                 What about us ?
               </Box>
-              <Box fontSize="2xl" fontFamily="Poppins" fontWeight="light">
-                <Box>+ Our history</Box>
-                <Box>+ Our team and scientific consortium</Box>
-                <Box>+ Value and spirit</Box>
-                <Box>+ Investors and board</Box>
+              <Box fontSize={["1rem", "1.5rem", "2rem"]} fontWeight="light">
+                <Box as="h2">
+                  <Linked smooth to="#history">
+                    + Our history
+                  </Linked>
+                </Box>
+                <Box as="h2">
+                  <Linked smooth to="#carousel1">
+                    + Our team and scientific consortium
+                  </Linked>
+                </Box>
+                <Box as="h2">
+                  <Linked smooth to="#ourValues">
+                    + Value and spirit
+                  </Linked>
+                </Box>
+                <Box as="h2">
+                  <Linked smooth to="#investor">
+                    + Investors and board
+                  </Linked>
+                </Box>
               </Box>
-            </Box>
+            </>
           }
-          content2={<Box flex="3"></Box>}
           bold3="bold"
           textDeco3="underline"
         />
@@ -67,31 +97,36 @@ class WhoAreWe extends React.Component {
                 As of today, Wired Beauty Technologies has invested 1.3M€ in research on their exclusive IOT, mobile app, algorithand scientific exposome and suncare knowledge partnering with a top-notch consortium ( APHP et Qima lien a créer vers page scientific)
                 `)}
               textAlign="center"
+              id="history"
             />
           </Box>
         </Box>
 
-        <CarouselContent />
+        <CarouselContent id="carousel1" />
 
-        <Box>
+        <Box margin="2rem 2rem 5rem 2rem">
           <Box
             textAlign="center"
-            color="#fff"
+            color="lightblue"
             fontWeight="bold"
-            fontFamily="Poppins"
-            fontSize="3xl"
+            fontSize={["2rem", "2rem", "2.5rem"]}
             padding="2rem 0 0 0"
           >
             Wired Beauty is ...
           </Box>
-          <Box display="flex" justifyContent="space-around" margin="0 15rem">
+          <Box
+            display="flex"
+            justifyContent="space-around"
+            margin={["2rem 0", "2rem 5rem"]}
+            flexWrap="wrap"
+          >
             <BlocContent
               title={
                 <>
                   <Image
-                    src={img} //a changer avec l'illustration
+                    src={roundPhoto1} //a changer avec l'illustration
                     alt="personImage"
-                    width="80px"
+                    // width={["80vw", "50vw", "600px"]}
                     height="80px"
                     margin="auto"
                   />
@@ -103,9 +138,9 @@ class WhoAreWe extends React.Component {
               title={
                 <>
                   <Image
-                    src={img} //a changer avec l'illustration
+                    src={roundPhoto2} //a changer avec l'illustration
                     alt="personImage"
-                    width="80px"
+                    // width={["80vw", "50vw", "600px"]}
                     height="80px"
                     margin="auto"
                   />
@@ -117,9 +152,9 @@ class WhoAreWe extends React.Component {
               title={
                 <>
                   <Image
-                    src={img} //a changer avec l'illustration
+                    src={roundPhoto3} //a changer avec l'illustration
                     alt="personImage"
-                    width="80px"
+                    // width={["80vw", "50vw", "600px"]}
                     height="80px"
                     margin="auto"
                   />
@@ -146,11 +181,13 @@ class WhoAreWe extends React.Component {
                 </ul>
               `)}
               textAlign="center"
+              id="ourValues"
             />
 
             <Box
               display="flex"
               justifyContent="space-around"
+              // minW="500px"
               flexWrap="wrap"
               margin="0 0 5rem 0"
             >
@@ -161,46 +198,46 @@ class WhoAreWe extends React.Component {
                 We listen, we deliver. <br>
                 We help our clients succeed.
               `)}
+                img={roundedPhoto1}
               />
               <BlocPersona
-                title="Client passion"
+                title="Integrity and openess"
                 txt={parse(`
-                We focus on results with professionalism and constantly respect ethical codes.<br>
-                We listen, we deliver. <br>
-                We help our clients succeed.
+                We say things as they are and research new frontiers open-mindedly.
               `)}
+                img={roundedPhoto2}
               />
               <BlocPersona
-                title="Client passion"
+                title="Tech and consumer"
                 txt={parse(`
-                We focus on results with professionalism and constantly respect ethical codes.<br>
-                We listen, we deliver. <br>
-                We help our clients succeed.
+                We use technology to better understand consumer needs and life style as well as skin reactions.<br>
+                We taylor our research to client objectives. <br>
+                In tubo, in vitro, in vivo. <br>
+                We make it simple and save people time.
               `)}
+                img={roundedPhoto3}
               />
               <BlocPersona
-                title="Client passion"
+                title="One Team"
                 txt={parse(`
-                We focus on results with professionalism and constantly respect ethical codes.<br>
-                We listen, we deliver. <br>
-                We help our clients succeed.
+                We team up with labs, and their CROs all over the worlds from the concept development or for improved formulae.<br>
+                It feels different to work with us because our people are unlike any other. <br>
+                We bring new perspectives: mutual trust and speed.
               `)}
+                img={roundedPhoto4}
               />
             </Box>
 
             {/*  */}
-            <Box>
               <Box
                 color="lightblue"
-                fontFamily="Poppins"
                 fontWeight="bold"
-                fontSize="3xl"
+                fontSize={["2rem", "2rem", "2.5rem"]}
                 textAlign="center"
                 marginBottom="1rem"
               >
                 Corporate responsability
               </Box>
-            </Box>
 
             <BlocTextDouble
               text1={`
@@ -233,14 +270,25 @@ class WhoAreWe extends React.Component {
                 Gilles GENAIN (former head of L’Oréal Product Development)
               `}
               textAlign2="center"
+              id="investor"
               moreText2={
                 <Box
                   display="flex"
                   padding="2rem 0 0 0"
                   justifyContent="space-between"
                 >
-                  <Image src={person1} />
-                  <Image src={person2} />
+                  <Image
+                    width="45%"
+                    height="auto"
+                    src={person1}
+                    alt="Image of a person"
+                  />
+                  <Image
+                    width="45%"
+                    height="auto"
+                    src={person2}
+                    alt="Image of a person"
+                  />
                 </Box>
               }
             />

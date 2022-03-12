@@ -6,31 +6,16 @@ import WhoAreWe from "./pages/WhoAreWe";
 import StudiesServices from "./pages/StudiesServices";
 import ScientistValidation from "./pages/ScientistValidation";
 import ChartPage from "./pages/ChartPage";
-import Dashboard from "./pages/Admin/Dashboard";
 import NotFound from "./pages/NotFound";
-import CookieConsent from "react-cookie-consent";
-// import Home from "./pages/Home";
-
-
-import Navbar from "./components/Navbar";
-//import Private from "./pages/Private/Private";
-//import PrivateHome from "./pages/Private/PrivateHome/PrivateHome";
+import Cookies from './components/Cookies';
 import ContactUs from "./pages/ContactUs";
+import Admin from "./pages/Admin/Admin";
+import AdminDashboard from "./pages/Admin/AdminDashboard";
 
 function App() {
   return (
     <>
-      <CookieConsent
-        location="bottom"
-        buttonText="Sure !!"
-        cookieName="acceptCookies"
-        style={{ background: "#2B373B" }}
-        buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
-        expires={150}
-      >
-        This website uses cookies to enhance the user experience.{" "}
-        <span style={{ fontSize: "10px" }}>Please accept it o:)</span>
-      </CookieConsent>
+      <Cookies/>
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -39,15 +24,12 @@ function App() {
         <Route path="/WhoAreWe" element={<WhoAreWe />} />
         <Route path="/StudiesServices" element={<StudiesServices />} />
         <Route path="/ScientistValidation" element={<ScientistValidation />} />
+        <Route path="/admin" element={<Admin />}>
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        </Route>
         <Route path="/ContactUs" element={<ContactUs />} />
-
-        <Route path="/admin" element={<Dashboard />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/charts" element={<><ChartPage /></>}  />
-
-        {/*<Route path="/private" element={<Private />}>
-          <Route path="/private/private-home" element={<PrivateHome />} />
-        </Route>*/}
       </Routes>
     </>
   );

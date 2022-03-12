@@ -10,16 +10,24 @@ class CarouselBoxImage extends React.Component {
           backgroundColor="#18222E"
           color="#fff"
           width="100vw"
-          min-height="25vh"
+          minHeight="100%"
           display="flex"
+          // justifyContent="space-between"
           padding="2rem 5rem"
-          fontFamily="Poppins"
-          fontSize="2xl"
+          fontSize={["1rem", "1.5rem", "2rem"]}
         >
-          <Box flex="1">
-            <Image height="400px" width="400px" src={this.props.img} />
+          <Box flex="3">
+            <Image
+              height="auto"
+              width="auto"
+              src={this.props.img}
+              alt="Photo of a person"
+            />
           </Box>
-          <Box flex="1">{this.props.text}</Box>
+          <Box flex="1"></Box>
+          <Box flex="9" minHeight="100%" fontSize={[".4rem", ".7rem", "1rem"]} textAlign="left">
+            {this.props.text}
+          </Box>
         </Box>
       </>
     );

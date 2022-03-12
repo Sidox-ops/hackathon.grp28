@@ -7,7 +7,7 @@ export default class BlocTextDouble extends Component {
   render() {
     return (
       <>
-        <Box display="flex">
+        <Box display="flex" id={this.props.id}>
           <TextContentMiddle
             title={this.props.title1}
             text={parse(this.props.text1)}

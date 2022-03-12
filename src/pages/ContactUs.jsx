@@ -1,16 +1,9 @@
 import React, { Component } from "react";
-import {
-  Box,
-  Image,
-  Button,
-  Input,
-  FormControl,
-  FormLabel,
-  FormHelperText,
-} from "@chakra-ui/react";
+import { Box, Button, Input, FormControl, FormLabel } from "@chakra-ui/react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import TextContentMiddle from "../components/TextContentMiddle";
+
+import { HashLink as Linked } from "react-router-hash-link";
 
 const formList = [
   {
@@ -42,11 +35,14 @@ export default class ContactUs extends Component {
       <>
         <Navbar
           content1={
-            <Box flex="3">
-              <Box fontSize="5xl" fontFamily="Poppins" margin="0 0 1em 0">
+            <>
+              <Box as="h1" fontSize={["1rem", "2rem", "3rem"]} margin="0 0 1em 0">
                 Want to contact us ?
               </Box>
-            </Box>
+              <Box fontSize={["1rem", "1.5rem", "2rem"]} fontWeight="light">
+                <Linked smooth to="#form">Check the form right here</Linked>
+              </Box>
+            </>
           }
         />
 
@@ -60,6 +56,7 @@ export default class ContactUs extends Component {
           padding="2rem"
           color="18222E"
           zIndex="auto"
+          id="form"
         >
           <FormControl>
             {formList.map(({ text }, index) => (
