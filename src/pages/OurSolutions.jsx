@@ -2,15 +2,13 @@ import React from "react";
 import { Box, Image } from "@chakra-ui/react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import TextContentLeft from "../components/TextContentLeft";
-import TextContentRight from "../components/TextContentRight";
 import TextContentMiddle from "../components/TextContentMiddle";
 import BlocContent from "../components/BlocContent";
 import parse from "html-react-parser";
 
 import { HashLink as Linked } from "react-router-hash-link";
 
-import img from "../assets/404.png";
+import exemple from "../assets/images/exempleImage.png";
 
 // var parse = require('html-react-parser');
 
@@ -20,29 +18,38 @@ class OurSolutions extends React.Component {
       <>
         <Navbar
           content1={
-            <Box flex="3">
-              <Box fontSize="5xl" margin="0 0 1em 0">
+            <>
+              <Box
+                as="h1"
+                fontSize={["1rem", "2rem", "3rem"]}
+                margin="0 0 1em 0"
+              >
                 SmartData X Skincare
               </Box>
-              <Box fontSize="2xl" fontWeight="light">
-                <Box>
-                  <Linked to="#nomadic">+ A portable lab device</Linked>
+              <Box fontSize={["1rem", "1.5rem", "2rem"]} fontWeight="light">
+                <Box as="h2">
+                  <Linked smooth to="#nomadic">
+                    + A portable lab device
+                  </Linked>
                 </Box>
-                <Box>
-                  <Linked to="#dataSkincare">+ A mobile app</Linked>
+                <Box as="h2">
+                  <Linked smooth to="#dataSkincare">
+                    + A mobile app
+                  </Linked>
                 </Box>
-                <Box>
-                  <Linked to="#algo">
+                <Box as="h2">
+                  <Linked smooth to="#algo">
                     + Smart single-use peel-off patches
                   </Linked>
                 </Box>
-                <Box>
-                  <Linked to="#algo">+ European data center</Linked>
+                <Box as="h2">
+                  <Linked smooth to="#algo">
+                    + European data center
+                  </Linked>
                 </Box>
               </Box>
-            </Box>
+            </>
           }
-          content2={<Box flex="3"></Box>}
           bold2="bold"
           textDeco2="underline"
         />
@@ -56,16 +63,16 @@ class OurSolutions extends React.Component {
               id="nomadic"
             />
 
-            <Box>
+            <>
               <Box
                 textAlign="center"
                 color="lightblue"
                 fontWeight="bold"
-                fontSize="3xl"
+                fontSize={["2rem", "2rem", "2.5rem"]}
               >
                 Wired Beauty is ...
               </Box>
-              <Box display="flex" justifyContent="space-around">
+              <Box display="flex" justifyContent="space-around" flexWrap="wrap">
                 <BlocContent
                   title="New"
                   text="Hybrid studies combining objective clinical results measurements & consumer perception."
@@ -79,7 +86,7 @@ class OurSolutions extends React.Component {
                   text="Real World Evidence (linked with pollution, UV  and lifestyle) of skincare efficiency on large statistical basis (ex 1000 testers)."
                 />
               </Box>
-            </Box>
+            </>
 
             <TextContentMiddle
               title="Datas and skincare"
@@ -100,10 +107,10 @@ class OurSolutions extends React.Component {
             />
 
             <Image
-              src={img} //a changer avec l'illustration
+              src={exemple} //a changer avec l'illustration
               alt="productImage"
               width="100%"
-              height="80px"
+              height="200px"
             />
           </Box>
         </Box>

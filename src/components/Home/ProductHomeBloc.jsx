@@ -9,8 +9,9 @@ class ProductHomeBloc extends React.Component {
       <>
         <Box
           width="30vw"
-          minWidth="300px"
-          minHeight="5vh"
+          maxWidth="35vw"
+          minWidth="400px"
+          minHeight="30vh"
           padding="2rem 3rem"
           backgroundColor="#18222E"
           margin="2rem 15px 5rem 15px"
@@ -18,14 +19,15 @@ class ProductHomeBloc extends React.Component {
           boxShadow="15px 10px 35px black"
         >
           <Box
+            as="h1"
             textAlign="center"
-            fontSize={["5px", "20px", "30px"]}
+            fontSize={["1rem", "1.5rem", "2rem"]}
             marginBottom="2rem"
-            height="20%"
+            // height="20%"
           >
             {this.props.title}
           </Box>
-          <Box fontSize="auto" marginBottom="1rem">
+          <Box fontSize={[".2rem", ".8rem", "1rem"]} marginBottom="1rem">
             {this.props.text}
           </Box>
           <Box float="right">

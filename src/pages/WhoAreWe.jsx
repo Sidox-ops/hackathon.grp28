@@ -22,21 +22,21 @@ import CarouselContentImage from "../components/WhoAreWe/CarouselContentImage";
 
 import BlocContent from "../components/BlocContent";
 
-import img from "../assets/404.png";
-import person1 from "../assets/personne1.png";
-import person2 from "../assets/personne2.png";
-import whiteSquare from "../assets/whiteSquare.png";
+import img from "../assets/images/404.png";
+import person1 from "../assets/images/personne1.png";
+import person2 from "../assets/images/personne2.png";
+import whiteSquare from "../assets/images/whiteSquare.png";
 
 import { HashLink as Linked } from "react-router-hash-link";
 
-import roundPhoto1 from "../assets/roundPhoto1.png";
-import roundPhoto2 from "../assets/roundPhoto2.png";
-import roundPhoto3 from "../assets/roundPhoto3.png";
+import roundPhoto1 from "../assets/images/roundPhoto1.png";
+import roundPhoto2 from "../assets/images/roundPhoto2.png";
+import roundPhoto3 from "../assets/images/roundPhoto3.png";
 
-import roundedPhoto1 from "../assets/roundedPhoto1.png";
-import roundedPhoto2 from "../assets/roundedPhoto2.png";
-import roundedPhoto3 from "../assets/roundedPhoto3.png";
-import roundedPhoto4 from "../assets/roundedPhoto4.png";
+import roundedPhoto1 from "../assets/images/roundedPhoto1.png";
+import roundedPhoto2 from "../assets/images/roundedPhoto2.png";
+import roundedPhoto3 from "../assets/images/roundedPhoto3.png";
+import roundedPhoto4 from "../assets/images/roundedPhoto4.png";
 
 class WhoAreWe extends React.Component {
   render() {
@@ -44,29 +44,38 @@ class WhoAreWe extends React.Component {
       <>
         <Navbar
           content1={
-            <Box flex="3">
-              <Box fontSize="5xl" margin="0 0 1em 0">
+            <>
+              <Box
+                as="h1"
+                fontSize={["1rem", "2rem", "3rem"]}
+                margin="0 0 1em 0"
+              >
                 What about us ?
               </Box>
-              <Box fontSize="2xl" fontWeight="light">
-                <Box>
-                  <Linked to="#history">+ Our history</Linked>
+              <Box fontSize={["1rem", "1.5rem", "2rem"]} fontWeight="light">
+                <Box as="h2">
+                  <Linked smooth to="#history">
+                    + Our history
+                  </Linked>
                 </Box>
-                <Box>
-                  <Linked to="#carousel1">
+                <Box as="h2">
+                  <Linked smooth to="#carousel1">
                     + Our team and scientific consortium
                   </Linked>
                 </Box>
-                <Box>
-                  <Linked to="#ourValues">+ Value and spirit</Linked>
+                <Box as="h2">
+                  <Linked smooth to="#ourValues">
+                    + Value and spirit
+                  </Linked>
                 </Box>
-                <Box>
-                  <Linked to="#investor">+ Investors and board</Linked>
+                <Box as="h2">
+                  <Linked smooth to="#investor">
+                    + Investors and board
+                  </Linked>
                 </Box>
               </Box>
-            </Box>
+            </>
           }
-          content2={<Box flex="3"></Box>}
           bold3="bold"
           textDeco3="underline"
         />
@@ -95,24 +104,29 @@ class WhoAreWe extends React.Component {
 
         <CarouselContent id="carousel1" />
 
-        <Box>
+        <Box margin="2rem 2rem 5rem 2rem">
           <Box
             textAlign="center"
-            color="#fff"
+            color="lightblue"
             fontWeight="bold"
-            fontSize="3xl"
+            fontSize={["2rem", "2rem", "2.5rem"]}
             padding="2rem 0 0 0"
           >
             Wired Beauty is ...
           </Box>
-          <Box display="flex" justifyContent="space-around" margin="0 15rem">
+          <Box
+            display="flex"
+            justifyContent="space-around"
+            margin={["2rem 0", "2rem 5rem"]}
+            flexWrap="wrap"
+          >
             <BlocContent
               title={
                 <>
                   <Image
                     src={roundPhoto1} //a changer avec l'illustration
                     alt="personImage"
-                    width="80px"
+                    // width={["80vw", "50vw", "600px"]}
                     height="80px"
                     margin="auto"
                   />
@@ -126,7 +140,7 @@ class WhoAreWe extends React.Component {
                   <Image
                     src={roundPhoto2} //a changer avec l'illustration
                     alt="personImage"
-                    width="80px"
+                    // width={["80vw", "50vw", "600px"]}
                     height="80px"
                     margin="auto"
                   />
@@ -140,7 +154,7 @@ class WhoAreWe extends React.Component {
                   <Image
                     src={roundPhoto3} //a changer avec l'illustration
                     alt="personImage"
-                    width="80px"
+                    // width={["80vw", "50vw", "600px"]}
                     height="80px"
                     margin="auto"
                   />
@@ -173,6 +187,7 @@ class WhoAreWe extends React.Component {
             <Box
               display="flex"
               justifyContent="space-around"
+              // minW="500px"
               flexWrap="wrap"
               margin="0 0 5rem 0"
             >
@@ -200,7 +215,7 @@ class WhoAreWe extends React.Component {
                 In tubo, in vitro, in vivo. <br>
                 We make it simple and save people time.
               `)}
-              img={roundedPhoto3}
+                img={roundedPhoto3}
               />
               <BlocPersona
                 title="One Team"
@@ -209,22 +224,20 @@ class WhoAreWe extends React.Component {
                 It feels different to work with us because our people are unlike any other. <br>
                 We bring new perspectives: mutual trust and speed.
               `)}
-              img={roundedPhoto4}
+                img={roundedPhoto4}
               />
             </Box>
 
             {/*  */}
-            <Box>
               <Box
                 color="lightblue"
                 fontWeight="bold"
-                fontSize="3xl"
+                fontSize={["2rem", "2rem", "2.5rem"]}
                 textAlign="center"
                 marginBottom="1rem"
               >
                 Corporate responsability
               </Box>
-            </Box>
 
             <BlocTextDouble
               text1={`
@@ -264,8 +277,18 @@ class WhoAreWe extends React.Component {
                   padding="2rem 0 0 0"
                   justifyContent="space-between"
                 >
-                  <Image src={person1} />
-                  <Image src={person2} />
+                  <Image
+                    width="45%"
+                    height="auto"
+                    src={person1}
+                    alt="Image of a person"
+                  />
+                  <Image
+                    width="45%"
+                    height="auto"
+                    src={person2}
+                    alt="Image of a person"
+                  />
                 </Box>
               }
             />

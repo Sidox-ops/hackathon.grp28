@@ -4,6 +4,32 @@ import Waves from "../components/Footer/Wave";
 
 import ChatBotCustom from "../components/ChatBotCustom";
 
+const listContact = [
+  {
+    text1: "Privacy polic",
+    text2: "Legal Notice",
+    text3: "Term of Sales",
+  },
+
+  {
+    text1: "Press contact",
+    text2: "press@wired-beauty.com",
+    text3: "06.83.72.60.50",
+  },
+
+  {
+    text1: "Contact sales",
+    text2: "Stan@WBT.com",
+    text3: "Sophie@WBT.com",
+  },
+
+  {
+    text1: "Contact investor",
+    text2: "Sophie@WBT.com",
+    text3: "",
+  },
+];
+
 class Footer extends React.Component {
   render() {
     return (
@@ -19,13 +45,14 @@ class Footer extends React.Component {
           </svg>
           {/* <Waves/> */}
           <Box
+            as="h1"
             color="#fff"
             textAlign="center"
             backgroundColor="#18222E"
             fontWeight="bold"
-            fontSize="4xl"
             paddingBottom="5rem"
             marginTop="-7rem"
+            fontSize={["1.7rem", "2rem", "2.5rem"]}
           >
             Contact US
           </Box>
@@ -34,54 +61,35 @@ class Footer extends React.Component {
             display="flex"
             padding="0 4rem 8rem 4rem"
             justifyContent="space-around"
+            flexWrap="wrap"
             backgroundColor="#18222E"
           >
-            <Box>
-              <Box marginBottom="1.5rem" fontSize="2xl">
-                <Link to="/">Privacy policy</Link>
+            {listContact.map(({ text1, text2, text3 }, index) => (
+              <Box
+                key={index}
+                margin="1rem"
+                // borderRight="2px solid"
+              >
+                <Box
+                  marginBottom="1.5rem"
+                  fontSize={[".7rem", "1rem", "1.5rem"]}
+                >
+                  {text1}
+                </Box>
+                <Box
+                  marginBottom="1.5rem"
+                  fontSize={[".7rem", "1rem", "1.5rem"]}
+                >
+                  {text2}
+                </Box>
+                <Box
+                  marginBottom="1.5rem"
+                  fontSize={[".7rem", "1rem", "1.5rem"]}
+                >
+                  {text3}
+                </Box>
               </Box>
-              <Box marginBottom="1.5rem" fontSize="2xl">
-                <Link to="/">Legal Notice</Link>
-              </Box>
-              <Box marginBottom="1.5rem" fontSize="2xl">
-                <Link to="/">Term of Sales</Link>
-              </Box>
-            </Box>
-
-            <Box>
-              <Box marginBottom="1.5rem" fontSize="2xl">
-                <Link to="/">Press contact:</Link>
-              </Box>
-              <Box marginBottom="1.5rem" fontSize="2xl">
-                <Link to="/">press@wired-beauty.com</Link>
-              </Box>
-              <Box marginBottom="1.5rem" fontSize="2xl">
-                <Link to="/">06.83.72.60.50</Link>
-              </Box>
-            </Box>
-
-            {/* TODO title "Contact us" */}
-
-            <Box>
-              <Box marginBottom="1.5rem" fontSize="2xl">
-                <Link to="/">Contact sales: </Link>
-              </Box>
-              <Box marginBottom="1.5rem" fontSize="2xl">
-                <Link to="/">Stan@WBT.com</Link>
-              </Box>
-              <Box marginBottom="1.5rem" fontSize="2xl">
-                <Link to="/">Sophie@WBT.com</Link>
-              </Box>
-            </Box>
-
-            <Box>
-              <Box marginBottom="1.5rem" fontSize="2xl">
-                <Link to="/">Contact investor: </Link>
-              </Box>
-              <Box marginBottom="1.5rem" fontSize="2xl">
-                <Link to="/">Sophie@WBT.com</Link>
-              </Box>
-            </Box>
+            ))}
           </Box>
         </Box>
       </>

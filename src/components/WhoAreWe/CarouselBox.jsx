@@ -10,11 +10,13 @@ class CarouselBox extends React.Component {
           backgroundColor="#18222E"
           color="#fff"
           width="100vw"
-          min-height="25vh"
+          minHeight="100%"
           padding="2rem 5rem"
-          fontSize="2xl"
+          fontSize={["1rem", "1.5rem", "2rem"]}
         >
-          <Box>{this.props.text}</Box>
+          <Box minHeight="100%" fontSize={[".4rem", ".7rem", "1rem"]}>
+            {this.props.text}
+          </Box>
         </Box>
       </>
     );

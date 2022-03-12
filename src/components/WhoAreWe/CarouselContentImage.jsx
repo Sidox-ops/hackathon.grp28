@@ -5,16 +5,16 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import CarouselBoxImage from "./CarouselBoxImage";
 
-import whiteSquare from "../../assets/whiteSquare.png";
+import whiteSquare from "../../assets/images/whiteSquare.png";
 
 import parse from "html-react-parser";
 
-import photoPeople1 from "../../assets/photoPeople1.png";
-import photoPeople2 from "../../assets/photoPeople2.png";
-import photoPeople3 from "../../assets/photoPeople3.png";
-import photoPeople4 from "../../assets/photoPeople4.png";
-import photoPeople5 from "../../assets/photoPeople5.png";
-import photoPeople6 from "../../assets/photoPeople6.png";
+import photoPeople1 from "../../assets/images/photoPeople1.png";
+import photoPeople2 from "../../assets/images/photoPeople2.png";
+import photoPeople3 from "../../assets/images/photoPeople3.png";
+import photoPeople4 from "../../assets/images/photoPeople4.png";
+import photoPeople5 from "../../assets/images/photoPeople5.png";
+import photoPeople6 from "../../assets/images/photoPeople6.png";
 
 const carrImg = [
   {
@@ -92,35 +92,30 @@ class CarouselContentImage extends React.Component {
   render() {
     return (
       <>
-        <Box>
-          {/* Carrousel 2 */}
-          <Box
-            backgroundColor="#18222E"
-            color="#fff"
-            width="100vw"
-            textAlign="center"
-            fontSize="3xl"
-            fontWeight="bold"
-            padding="2rem 0"
-          >
-            Meet the team
-          </Box>
-          <Carousel
-            showStatus={false}
-            interval={3000}
-            infiniteLoop
-            autoPlay={true}
-            showThumbs={false}
-          >
-            {carrImg.map(({ imgSource, text }, index) => (
-              <CarouselBoxImage
-                key={index}
-                img={imgSource}
-                text={parse(text)}
-              />
-            ))}
-          </Carousel>
+        {/* Carrousel 2 */}
+        <Box
+          as="h1"
+          backgroundColor="#18222E"
+          color="#fff"
+          width="100vw"
+          textAlign="center"
+          fontSize={["2rem", "2rem", "2.5rem"]}
+          fontWeight="bold"
+          padding="2rem 0"
+        >
+          Meet the team
         </Box>
+        <Carousel
+          showStatus={false}
+          interval={3000}
+          infiniteLoop
+          autoPlay={true}
+          showThumbs={false}
+        >
+          {carrImg.map(({ imgSource, text }, index) => (
+            <CarouselBoxImage key={index} img={imgSource} text={parse(text)} />
+          ))}
+        </Carousel>
       </>
     );
   }

@@ -57,14 +57,14 @@ export default function Home() {
       <Navbar
         content1={
           <Box flex="3">
-            <Box fontSize="5xl" fontFamily="Poppins" margin="0 0 1em 0">
+            <Box
+              fontSize={["1rem", "2rem", "3rem"]}
+              fontFamily="Poppins"
+              margin="0 0 1em 0"
+            >
               {t("homeTitle")}
             </Box>
-            <Box fontSize="2xl" fontWeight="light">
-              {/* <Box>+ Biology</Box>
-              <Box>+ IOT nomadic lab</Box>
-              <Box>+ Consumer app</Box>
-              <Box>+ Insanely fast algorythm</Box> */}
+            <Box fontSize={["1rem", "1.5rem", "2rem"]} fontWeight="light">
               <Box>+ {t("homeDesc1")}</Box>
               <Box>+ {t("homeDesc2")}</Box>
               <Box>+ {t("homeDesc3")}</Box>
@@ -97,7 +97,7 @@ export default function Home() {
             ))}
           </Box>
         </Box>
-        
+
         <Footer />
       </Box>
     </>

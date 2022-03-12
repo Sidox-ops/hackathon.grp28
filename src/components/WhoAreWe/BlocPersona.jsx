@@ -5,7 +5,7 @@ export default class BlocPersona extends Component {
   render() {
     return (
       <>
-        <Box>
+        <>
           <Box
             backgroundColor="#426080"
             display="flex"
@@ -13,7 +13,8 @@ export default class BlocPersona extends Component {
             borderRadius="20"
             padding="1rem"
             margin={["0", "0 2rem 2rem 2rem"]}
-            maxWidth={["0", "35vw"]}
+            maxWidth="35vw"
+            minWidth="400px"
             minHeight="20vh"
           >
             {/* <Box
@@ -29,16 +30,21 @@ export default class BlocPersona extends Component {
                 minHeight="auto"
                 width="100%"
                 margin="auto 1rem auto auto"
-                src={this.props.img}/>
+                src={this.props.img}
+              />
             </Box>
             <Box color="#fff" flex="2" margin="0 0 0 1rem">
-              <Box fontSize="2xl" fontWeight="bold">
+              <Box
+                as="h1"
+                fontSize={["1rem", "1.5rem", "2rem"]}
+                fontWeight="bold"
+              >
                 {this.props.title}
               </Box>
               <Box fontSize="1xl">{this.props.txt}</Box>
             </Box>
           </Box>
-        </Box>
+        </>
       </>
     );
   }

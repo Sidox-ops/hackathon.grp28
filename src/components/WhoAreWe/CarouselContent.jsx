@@ -14,11 +14,12 @@ class CarouselContent extends React.Component {
         <Box id={this.props.id}>
           {/* Carrousel */}
           <Box
+            as="h1"
             backgroundColor="#18222E"
             color="#fff"
             width="100vw"
             textAlign="center"
-            fontSize="3xl"
+            fontSize={["2rem", "2rem", "2.5rem"]}
             fontWeight="bold"
             padding="2rem 0"
           >

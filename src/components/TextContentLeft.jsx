@@ -12,7 +12,12 @@ class TextContentLeft extends React.Component {
           id={this.props.id}
         >
           <Box flex="1">
-            <Box color="lightblue" fontWeight="bold" fontSize="3xl">
+            <Box
+              as="h1"
+              color="lightblue"
+              fontWeight="bold"
+              fontSize={["2rem", "2rem", "2.5rem"]}
+            >
               {this.props.title}
             </Box>
             <Box color="black">{this.props.text}</Box>

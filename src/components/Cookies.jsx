@@ -12,7 +12,7 @@ export default class Cookies extends Component {
   render() {
     return (
       <>
-        <Box>
+        <>
           <CookieConsent
             location="bottom"
             buttonText="Sure !!"
@@ -24,7 +24,7 @@ export default class Cookies extends Component {
             This website uses cookies to enhance the user experience.{" "}
             <span style={{ fontSize: "10px" }}>Please accept it o:)</span>
           </CookieConsent>
-        </Box>
+        </>
       </>
     );
   }

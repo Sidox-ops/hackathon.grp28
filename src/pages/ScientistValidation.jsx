@@ -7,11 +7,11 @@ import TextContentRight from "../components/TextContentRight";
 import TextContentMiddle from "../components/TextContentMiddle";
 import BlocTextDouble from "../components/WhoAreWe/BlocTextDouble";
 
-import logoDark from "../assets/logoDark.png";
-import qima from "../assets/qima.png";
-import hopitauxParis from "../assets/hopitauxParis.png";
-import schema1 from "../assets/schema1.png";
-import schema2 from "../assets/schema2.png";
+import logoDark from "../assets/images/logoDark.png";
+import qima from "../assets/images/qima.png";
+import hopitauxParis from "../assets/images/hopitauxParis.png";
+import diagram1 from "../assets/images/schema1.png";
+import diagram2 from "../assets/images/schema2.png";
 
 import parse from "html-react-parser";
 
@@ -23,28 +23,33 @@ class ScientistValidation extends React.Component {
       <>
         <Navbar
           content1={
-            <Box flex="3">
-              <Box fontSize="5xl" margin="0 0 1em 0">
+            <>
+              <Box
+                as="h1"
+                fontSize={["1rem", "2rem", "3rem"]}
+                margin="0 0 1em 0"
+              >
                 Science behinds Wired Beauty
               </Box>
-              <Box fontSize="2xl" fontWeight="light">
-                <Box>
-                  <Linked to="#partners">+ Our trusted parteners</Linked>
+              <Box fontSize={["1rem", "1.5rem", "2rem"]} fontWeight="light">
+                <Box as="h2">
+                  <Linked smooth to="#partners">
+                    + Our trusted parteners
+                  </Linked>
                 </Box>
-                <Box>
-                  <Linked to="#schema1">
+                <Box as="h2">
+                  <Linked smooth to="#schema1">
                     + Similiraties with medicament protocols
                   </Linked>
                 </Box>
-                <Box>
-                  <Linked to="#schema2">
+                <Box as="h2">
+                  <Linked smooth to="#schema2">
                     + What makes Wired Beauty different ?
                   </Linked>
                 </Box>
               </Box>
-            </Box>
+            </>
           }
-          content2={<Box flex="3"></Box>}
           bold4="bold"
           textDeco4="underline"
         />
@@ -59,13 +64,15 @@ class ScientistValidation extends React.Component {
             <TextContentMiddle
               title={"Our trusted partners"}
               textAlign="center"
-              moreContent={<Image src={logoDark} margin="0 auto" />}
+              moreContent={
+                <Image src={logoDark} margin="0 auto" alt="Logo dark version" />
+              }
               id="partners"
             />
 
-            <Box display="flex" justifyContent="space-around">
-              <Image src={hopitauxParis} />
-              <Image src={qima} />
+            <Box display="flex" justifyContent="space-around" flexWrap="wrap">
+              <Image src={hopitauxParis} alt="Logo of paris hospital" />
+              <Image src={qima} alt="Logo of qima" />
             </Box>
             <TextContentMiddle
               text={parse(`
@@ -101,14 +108,24 @@ class ScientistValidation extends React.Component {
             />
           </Box>
           {/* <Box backgroundColor="red"> */}
-          <Image src={schema1} margin="auto" id="schema1" />
+          <Image
+            src={diagram1}
+            margin="auto"
+            id="diagram1"
+            alt="Image of a diagram"
+          />
           <Box margin="7rem 0 -7rem 0">
             <TextContentMiddle
               title="What makes Wired Beauty different"
               textAlign="center"
             />
           </Box>
-          <Image src={schema2} margin="auto" id="schema2" />
+          <Image
+            src={diagram1}
+            margin="auto"
+            id="diagram1"
+            alt="Image of a diagram"
+          />
           {/* </Box> */}
         </Box>
 

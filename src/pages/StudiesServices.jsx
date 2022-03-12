@@ -6,8 +6,8 @@ import TextContentLeft from "../components/TextContentLeft";
 import TextContentRight from "../components/TextContentRight";
 import TextContentMiddle from "../components/TextContentMiddle";
 
-import table from "../assets/table.png";
-import shanghailProtocol from "../assets/shanghailProtocol.png";
+import table from "../assets/images/table.png";
+import shanghailProtocol from "../assets/images/shanghailProtocol.png";
 
 import { HashLink as Linked } from "react-router-hash-link";
 
@@ -17,21 +17,28 @@ class StudiesServices extends React.Component {
       <>
         <Navbar
           content1={
-            <Box flex="3">
-              <Box fontSize="5xl" margin="0 0 1em 0">
+            <>
+              <Box
+                as="h1"
+                fontSize={["1rem", "2rem", "3rem"]}
+                margin="0 0 1em 0"
+              >
                 Our studies and services
               </Box>
-              <Box fontSize="2xl" fontWeight="light">
-                <Box>
-                  <Linked to="#studServ">+ Studies and services</Linked>
+              <Box fontSize={["1rem", "1.5rem", "2rem"]} fontWeight="light">
+                <Box as="h2">
+                  <Linked smooth to="#studServ">
+                    + Studies and services
+                  </Linked>
                 </Box>
-                <Box>
-                  <Linked to="#shanghaiProtocol">+ Shangail protocol</Linked>
+                <Box as="h2">
+                  <Linked smooth to="#shanghaiProtocol">
+                    + Shangail protocol
+                  </Linked>
                 </Box>
               </Box>
-            </Box>
+            </>
           }
-          content2={<Box flex="3"></Box>}
           bold5="bold"
           textDeco5="underline"
         />
@@ -46,13 +53,19 @@ class StudiesServices extends React.Component {
             />
           </Box>
           <Box margin="-7rem 0 0 0">
-            <Image src={table} width="100%" />
+            <Image src={table} width="100%" alt="Image of a table" />
           </Box>
           <Box padding="5rem 0" marginBottom="-4rem">
             <TextContentMiddle
               title="Shanghai protocol"
               textAlign="center"
-              moreContent={<Image src={shanghailProtocol} margin="auto" />}
+              moreContent={
+                <Image
+                  src={shanghailProtocol}
+                  margin="auto"
+                  alt="Shanghai project"
+                />
+              }
               id="shanghaiProtocol"
             />
           </Box>
