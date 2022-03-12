@@ -2,13 +2,12 @@ import React, { Component } from "react";
 import { Box } from "@chakra-ui/react";
 import CookieConsent from "react-cookie-consent";
 
-const styleCookies={
-    marginY:"auto",
-    background: "#2B373B",
-}
+const styleCookies = {
+  marginY: "auto",
+  background: "#2B373B",
+};
 
 export default class Cookies extends Component {
-
   render() {
     return (
       <>
